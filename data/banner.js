@@ -1,5 +1,5 @@
 import banner from "../assets/Hero.png";
-import heroMobile from "../assets/heroMobile.png";
+import heroMobile from "../assets/HeroMobile.png";
 // import cover from "../assets/cover.png";
 
 const data = [
