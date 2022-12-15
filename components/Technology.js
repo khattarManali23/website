@@ -37,7 +37,7 @@ const Technology = () => {
       </div>
 
       <div
-        class={`w-fit mx-auto flex flex-wrap justify-items-center justify-center gap-y-14 gap-x-8 mt-10 mb-5  `}
+        class={`w-full mx-auto flex flex-wrap justify-items-center  justify-center gap-y-14 gap-x-8 mt-10 mb-5  `}
       >
         {data.map((item, index) => {
           return (
