@@ -42,7 +42,7 @@ const Technology = () => {
         {data.map((item, index) => {
           return (
             <div
-              class="w-76 h-[440px]  bg-[#121A21] shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl p-4"
+              class="w-72 h-[440px]  bg-[#121A21] shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl p-4"
               key={index}
             >
               <a href="#">
