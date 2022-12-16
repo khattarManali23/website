@@ -18,8 +18,8 @@ const Portfolio = () => {
   return (
     <div>
       <Banner banner={banner} />
-      <div className="w-full flex justify-center items-center ">
-        <div className="w-4/6 ">
+      <div className="w-full flex justify-center items-center bg-black">
+        <div className="w-4/6 py-10 bg-">
           <Mansory images={images} />
         </div>
       </div>

@@ -5,14 +5,13 @@ const Mansory = ({ images }) => {
   return (
     <div>
       <div
-        className="columns-2 
+        class="columns-2 border border-red-900
        gap-8   "
       >
         {images.map((image, index) => {
           return (
             <div
               className="flex justify-center items-center mb-4  
-              
               "
               key={index}
             >
