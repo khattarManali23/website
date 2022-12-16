@@ -10,7 +10,7 @@ const Clients = () => {
       <h2>
         <span
           class="text-6xl font-bold text-center text-transparent bg-clip-text py-4  leading-8   
-        bg-gradient-to-r from-[#FFB838] via-[#F34F8C] to-[#8236BA] capitalize
+      sm:bg-gradient-to-r sm:from-[#FFB838] sm:via-[#F34F8C] sm:to-[#8236BA]  bg-gradient-to-r from-[#8236BA] via-[#F34F8C] to-[#FFB838] capitalize
        
         "
         >

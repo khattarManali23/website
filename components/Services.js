@@ -11,30 +11,37 @@ const Services = () => {
         <div className="flex-1  justify-center items-center flex">
           <section class="text-gray-700 body-font sm:w-5/6 w-full ">
             <div class="container mx-auto flex px-5 py-14 md:flex-row flex-col items-center">
-              <div class="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-left">
+              <div class="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 sm:items-center  items-start text-left">
                 <h3
-                  class="sm:text-5xl text-xl font-medium  w-full text-left text-transparent bg-clip-text py-4 mb-8 leading-[65px]   
-        bg-gradient-to-r from-[#FFB838] via-[#F34F8C] to-[#8236BA]"
+                  class=" sm:text-5xl text-xl font-bold text-center text-transparent bg-clip-text sm:py-4 py-2   leading-8   
+      sm:bg-gradient-to-r sm:from-[#FFB838] sm:via-[#F34F8C] sm:to-[#8236BA]  bg-gradient-to-r from-[#8236BA] via-[#F34F8C] to-[#FFB838]
+
+        "
                 >
                   Services
                 </h3>
 
-                <h3 class="sm:text-4xl text-xl w-full text-white font-medium text-left  py-2 leadind-[30px]  sm:leading-8">
+                <h3 class="sm:text-4xl text-xl w-full text-white font-medium text-left  pt-2 leadind-[30px]  sm:leading-8">
                   Web App Solution
                 </h3>
                 <h6
                   className=" font-normal text-xl sm:block hidden text-left text-transparent bg-clip-text py-1  leading-8   
-        bg-gradient-to-r from-[#FFB838] via-[#F34F8C] to-[#8236BA]"
+      sm:bg-gradient-to-r sm:from-[#FFB838] sm:via-[#F34F8C] sm:to-[#8236BA]  bg-gradient-to-r from-[#8236BA] via-[#F34F8C] to-[#FFB838]"
                 >
                   Streamline reporting, customer experiences, drive efficiency
                   with web-app driven Processes.
                 </h6>
-                <p class="mb-8 font-normal leading-[30px] sm:text-xl text-xs">
+                <p class="mb-8 font-normal sm:leading-[30px]  text-white sm:text-xl text-[10px] sm:block hidden">
                   With future-proof technology, agile practices, market acumen
                   and our highly experienced team, we create web applications
                   that are engaging and highly functional. Be it custom website,
                   process implementation, connecting with social networking
                   sites, or system integration, we’ve got you covered.
+                </p>
+                <p class="mb-8 font-extralight sm:leading-[30px] leading-5 w-3/4 text-white sm:text-xl text-xs sm:hidden block">
+                  We develop creative solutions for small and big brands like
+                  build artistic products identities and much more Lorem ipsum
+                  dolor sit amet
                 </p>
               </div>
             </div>

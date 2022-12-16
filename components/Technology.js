@@ -23,7 +23,7 @@ const Technology = () => {
         <h5 class="font-normal text-md  uppercase">Technology</h5>
         <h1
           class="sm:text-5xl text-3xl mb-4 sm:w-4/6 w-full  font-bold text-center text-transparent bg-clip-text  sm:leading-[68px]  leading-[45.2px]
-        bg-gradient-to-r from-[#FFB838] via-[#F34F8C] to-[#8236BA]"
+      sm:bg-gradient-to-r sm:from-[#FFB838] sm:via-[#F34F8C] sm:to-[#8236BA]  bg-gradient-to-r from-[#8236BA] via-[#F34F8C] to-[#FFB838]"
         >
           Converting Dreams to Blueprints, Ideas to Innovation and Vison to
           Value.!
