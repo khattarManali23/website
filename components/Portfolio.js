@@ -4,6 +4,7 @@ import portfolio1 from "../assets/portfolio1.png";
 import portfolio2 from "../assets/portfolio2.png";
 import portfolio3 from "../assets/portfolio3.png";
 import portfolio4 from "../assets/portfolio4.png";
+import Mansory from "./mansory";
 const poppins = Poppins({
   weight: ["400"],
   style: ["normal"],
@@ -27,7 +28,7 @@ const Portfolio = () => {
 
       <h2>
         <span
-          class="text-6xl font-bold text-center text-transparent bg-clip-text py-4  leading-8   
+          className="text-6xl font-bold text-center text-transparent bg-clip-text py-4  leading-8   
       sm:bg-gradient-to-r sm:from-[#FFB838] sm:via-[#F34F8C] sm:to-[#8236BA]  bg-gradient-to-r from-[#8236BA] via-[#F34F8C] to-[#FFB838]
         sm:hidden block
         "
@@ -36,13 +37,14 @@ const Portfolio = () => {
         </span>
       </h2>
       <div className="flex justify-center items-center bg-[#212b31]  flex-wrap px-2 my-12">
-        <div class="columns-2 md:columns-2 lg:columns-2 flex-1 min-w-[350px]  ">
+        {/* <div className="columns-2 md:columns-2 lg:columns-2 flex-1 min-w-[350px]  ">
           {images.map((image, index) => (
             <div className="flex justify-center items-center mb-4" key={index}>
               <img src={image.src} alt="portfolio" />
             </div>
           ))}
-        </div>
+        </div> */}
+        <Mansory images={images} />
 
         <div
           className="flex-1 flex justify-center items-center  "
@@ -53,7 +55,7 @@ const Portfolio = () => {
         >
           <div className="flex justify-center flex-col sm:w-3/4  w-11/12 items-center">
             <h2
-              class="text-6xl font-bold text-center text-transparent bg-clip-text py-4  leading-8
+              className="text-6xl font-bold text-center text-transparent bg-clip-text py-4  leading-8
           sm:bg-gradient-to-r sm:from-[#FFB838] sm:via-[#F34F8C] sm:to-[#8236BA]  bg-gradient-to-r from-[#8236BA] via-[#F34F8C] to-[#FFB838]
             sm:block hidden
             
@@ -61,7 +63,7 @@ const Portfolio = () => {
             >
               Portfolio
             </h2>
-            <p class="text-center text-xl leading-9 font-normal">
+            <p className="text-center text-xl leading-9 font-normal">
               We develop creative solutions for small and big brands like build
               artistic products identities and much more Lorem ipsum dolor sit
               amet, consectetur adipiscing elit. Praesent tincidunt eu leo sit

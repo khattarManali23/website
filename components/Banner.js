@@ -1,14 +1,13 @@
 import Image from "next/image";
 import React from "react";
-import data from "../data/banner";
 
-const Banner = () => {
+const Banner = ({ banner }) => {
   return (
     <div>
-      {data.map((item) => {
+      {banner.map((item) => {
         return (
           <header
-            class="w-full sm:h-screen h-[50vh]  text-white flex flex-col justify-center  relative"
+            className="w-full sm:h-screen h-[50vh]  text-white flex flex-col justify-center  relative"
             key={item.id}
             style={
               {
@@ -18,27 +17,26 @@ const Banner = () => {
               }
             }
           >
-            {console.log(item.image)}
             <div
-              class="z-0 absolute top-0 left-0 w-full h-full bg-cover bg-no-repeat hidden md:block "
+              className="z-0 absolute top-0 left-0 w-full h-full bg-cover bg-no-repeat hidden md:block "
               //   style={{
               //     background: item.image.src,
               //   }}
             >
               <Image src={item.image.src} alt="image" layout="fill" />
             </div>
-            <div class="z-0 absolute top-0 left-0 w-full bg-cover bg-no-repeat flex md:hidden h-full ">
+            <div className="z-0 absolute top-0 left-0 w-full bg-cover bg-no-repeat flex md:hidden h-full ">
               <Image
                 src={item.mobileImage.src}
                 alt="mobileImage"
                 layout="fill"
               />
             </div>
-            <div class="z-10 relative py-12 mx-auto md:w-1/2 text-center">
-              <h1 class="leading-tight mb-8 text-5xl text-center font-thin">
+            <div className="z-10 relative py-12 mx-auto md:w-1/2 text-center">
+              <h1 className="leading-tight mb-8 text-5xl text-center font-thin">
                 {item.heading}
               </h1>
-              <p class="text-center text-xl font-light mb-8">
+              <p className="text-center text-xl font-light mb-8">
                 {item.paragraph}
               </p>
             </div>

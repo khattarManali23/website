@@ -1,9 +1,12 @@
 import React from "react";
+import Banner from "../../components/Banner";
+import data from "../../data/banner";
 
 const Career = () => {
+  const banner = data.filter((item) => item.slug === "careers");
   return (
     <div>
-      <h1>Career</h1>
+      <Banner banner={banner} />
     </div>
   );
 };

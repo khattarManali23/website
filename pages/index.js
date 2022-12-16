@@ -5,11 +5,13 @@ import Footer from "../components/Footer";
 import Portfolio from "../components/Portfolio";
 import Services from "../components/Services";
 import Technology from "../components/Technology";
+import data from "../data/banner";
 
 export default function Home() {
+  const banner = data.filter((item) => item.slug === "home");
   return (
     <div>
-      <Banner />
+      <Banner banner={banner} />
       <Technology />
       <Services />
       <Portfolio />

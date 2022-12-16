@@ -9,7 +9,7 @@ const Clients = () => {
     <div className="w-full h-10/12 border border-red-900 flex flex-col justify-center items-center">
       <h2>
         <span
-          class="text-6xl font-bold text-center text-transparent bg-clip-text py-4  leading-8   
+          className="text-6xl font-bold text-center text-transparent bg-clip-text py-4  leading-8   
       sm:bg-gradient-to-r sm:from-[#FFB838] sm:via-[#F34F8C] sm:to-[#8236BA]  bg-gradient-to-r from-[#8236BA] via-[#F34F8C] to-[#FFB838] capitalize
        
         "
