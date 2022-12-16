@@ -11,25 +11,25 @@ const Services = () => {
         <div className="flex-1  justify-center items-center flex">
           <section class="text-gray-700 body-font sm:w-5/6 w-full ">
             <div class="container mx-auto flex px-5 py-14 md:flex-row flex-col items-center">
-              <div class="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
+              <div class="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-left">
                 <h3
-                  class="text-5xl font-medium text-center text-transparent bg-clip-text py-4 mb-8 leading-[65px]   
+                  class="sm:text-5xl text-xl font-medium  w-full text-left text-transparent bg-clip-text py-4 mb-8 leading-[65px]   
         bg-gradient-to-r from-[#FFB838] via-[#F34F8C] to-[#8236BA]"
                 >
                   Services
                 </h3>
 
-                <h3 class="text-4xl text-white font-medium text-center  py-2  leading-8">
+                <h3 class="sm:text-4xl text-xl w-full text-white font-medium text-left  py-2 leadind-[30px]  sm:leading-8">
                   Web App Solution
                 </h3>
                 <h6
-                  className=" font-normal text-xl  text-left text-transparent bg-clip-text py-1  leading-8   
+                  className=" font-normal text-xl sm:block hidden text-left text-transparent bg-clip-text py-1  leading-8   
         bg-gradient-to-r from-[#FFB838] via-[#F34F8C] to-[#8236BA]"
                 >
                   Streamline reporting, customer experiences, drive efficiency
                   with web-app driven Processes.
                 </h6>
-                <p class="mb-8 font-normal leading-[30px] text-xl">
+                <p class="mb-8 font-normal leading-[30px] sm:text-xl text-xs">
                   With future-proof technology, agile practices, market acumen
                   and our highly experienced team, we create web applications
                   that are engaging and highly functional. Be it custom website,
