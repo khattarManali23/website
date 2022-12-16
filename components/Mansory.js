@@ -6,7 +6,7 @@ const Mansory = ({ images }) => {
     <div>
       <div
         class="columns-2 md:columns-2 lg:columns-2
-       gap-4  min-w-[350px]  "
+       gap-8  min-w-[350px]  "
       >
         {images.map((image, index) => {
           return (
