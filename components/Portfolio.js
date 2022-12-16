@@ -4,7 +4,7 @@ import portfolio1 from "../assets/portfolio1.png";
 import portfolio2 from "../assets/portfolio2.png";
 import portfolio3 from "../assets/portfolio3.png";
 import portfolio4 from "../assets/portfolio4.png";
-import Mansory from "./mansory";
+import Mansory from "./Mansory";
 const poppins = Poppins({
   weight: ["400"],
   style: ["normal"],
