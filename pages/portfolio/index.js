@@ -5,7 +5,7 @@ import portfolio2 from "../../assets/portfolio2.jpg";
 import portfolio3 from "../../assets/portfolio3.jpg";
 import portfolio4 from "../../assets/portfolio4.jpg";
 import Banner from "../../components/Banner";
-import Mansory from "../../components/mansory";
+import Mansory from "../../components/Mansory";
 
 import data from "../../data/banner";
 
