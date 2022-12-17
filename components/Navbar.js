@@ -21,7 +21,8 @@ const Navbar = () => {
     <div>
       <nav
         className={
-          `bg-[#08131A] 
+          `bg-[#08131A]   
+          fixed top-0 left-0 right-0 z-50
       
       
       ` + `${poppins.variable} font-sans`
