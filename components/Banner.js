@@ -32,8 +32,12 @@ const Banner = ({ banner }) => {
                 layout="fill"
               />
             </div>
-            <div className="z-10 relative py-12 mx-auto md:w-1/2 text-center">
-              <h1 className="leading-tight mb-8 text-5xl text-center font-thin">
+            <div className="z-10 relative py-12 mx-auto  text-center">
+              <h1
+                className=" mb-8 sm:text-7xl text-3xl w-full font-semibold  text-center text-transparent bg-clip-text py-4  leading-8 sm:leading-[
+88.52px]
+      sm:bg-gradient-to-r sm:from-[#FFB838] sm:via-[#F34F8C] sm:to-[#8236BA]  bg-gradient-to-r from-[#8236BA] via-[#F34F8C] to-[#FFB838] "
+              >
                 {item.heading}
               </h1>
               <p className="text-center text-xl font-light mb-8">

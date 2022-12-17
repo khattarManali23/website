@@ -5,6 +5,7 @@ import Footer from "../components/Footer";
 import Portfolio from "../components/Portfolio";
 import Services from "../components/Services";
 import Technology from "../components/Technology";
+import TimeLine from "../components/TimeLine";
 import data from "../data/banner";
 
 export default function Home() {
@@ -15,6 +16,7 @@ export default function Home() {
       <Technology />
       <Services />
       <Portfolio />
+      <TimeLine />
 
       <Footer />
     </div>
