@@ -19,8 +19,8 @@ const Blog = () => {
 
       <div id="hero" class="pt-5 lg:flex items-center justify-center ">
         <div
-          class="mt-6  flex-1 lg:mt-0  flex justify-center items-center border
-        w-full lg:w-1/2 lg:max-w-lg 
+          class="mt-6  flex-1 lg:mt-0  flex justify-center items-center 
+        w-full lg:w-1/2 lg:max-w-xl
 
       
         "
@@ -29,7 +29,7 @@ const Blog = () => {
             class=""
             src={bloghero.src}
             className=" 
-            h-[420px] w-1/2
+            h-[420px] w-4/6
           
          
            
