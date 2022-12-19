@@ -7,7 +7,7 @@ const Blog = () => {
     <div className=" my-12 ">
       <div class="flex flex-col  sm:items-start items-center  justify-center p-10">
         <h1
-          className="sm:text-5xl text-3xl mb-4   w-1/4  font-semibold  sm:text-left text-transparent bg-clip-text  sm:leading-[75px]  leading-[45.2px]
+          className="sm:text-5xl text-3xl mb-8   w-1/4  font-semibold  sm:text-left text-transparent bg-clip-text  sm:leading-[75px]  leading-[45.2px]
       sm:bg-gradient-to-r sm:from-[#FFB838] sm:via-[#F34F8C] sm:to-[#8236BA]  bg-gradient-to-r from-[#8236BA] via-[#F34F8C] to-[#FFB838]"
         >
           Our Blogs
