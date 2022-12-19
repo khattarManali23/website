@@ -19,8 +19,8 @@ const Blog = () => {
 
       <div id="hero" class="pt-5 lg:flex items-center justify-center ">
         <div
-          class="mt-6  flex-1 lg:mt-0  flex justify-center items-center
-          w-1/2 lg:w-1/2 lg:max-w-xl
+          class="mt-6  flex-1 lg:mt-0  flex justify-center items-center border
+        w-full lg:w-1/2 lg:max-w-lg 
 
       
         "
