@@ -28,7 +28,7 @@ const Blog = () => {
             class=""
             src={bloghero.src}
             className=" 
-            w-[85%] h-[420px] object-cover
+            w-[75%] h-[420px] object-cover
           
          
            
