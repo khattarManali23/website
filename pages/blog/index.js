@@ -7,12 +7,12 @@ const Blog = () => {
     <div className=" my-12 ">
       <div class="flex flex-col  sm:items-start items-center  justify-center p-10">
         <h1
-          className="sm:text-5xl text-3xl mb-8   w-1/4  font-semibold  sm:text-left text-transparent bg-clip-text  sm:leading-[75px]  leading-[45.2px]
+          className="sm:text-5xl text-3xl mb-8 px-3  sm:w-1/4 w-full  font-semibold text-center sm:text-left text-transparent bg-clip-text  sm:leading-[75px]  leading-[45.2px]
       sm:bg-gradient-to-r sm:from-[#FFB838] sm:via-[#F34F8C] sm:to-[#8236BA]  bg-gradient-to-r from-[#8236BA] via-[#F34F8C] to-[#FFB838]"
         >
           Our Blogs
         </h1>
-        <h1 class="text-2xl w-4/12 font-semibold  leading-[38px]">
+        <h1 class="text-2xl sm:w-[35%] w-full sm:text-left text-center font-semibold px-3 leading-[38px]">
           All the most current news and events of our creative team.
         </h1>
       </div>
@@ -28,7 +28,7 @@ const Blog = () => {
             class=""
             src={bloghero.src}
             className=" 
-            w-[75%] h-[420px] object-cover
+            w-10/12 h-[420px] object-cover
           
          
            
