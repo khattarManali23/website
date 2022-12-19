@@ -20,6 +20,7 @@ const Blog = () => {
       <div id="hero" class="pt-5 lg:flex items-center justify-center ">
         <div
           class="mt-6  flex-1 lg:mt-0  flex justify-center items-center
+          w-3/4
 
       
         "
