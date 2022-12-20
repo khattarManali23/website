@@ -36,7 +36,7 @@ const Footer = () => {
                   </a>
                   <a
                     href=""
-                    className="w-8 h-8 border border-2 border-gray-400 rounded-md text-center py-1 ml-2 text-gray-600 hover:text-white hover:bg-blue-400 hover:border-blue-400"
+                    className="w-8 h-8 border xt-white hover:bg-blue-400 hover:border-blue-400"
                   >
                     <i className="fab fa-twitter"></i>
                   </a>
