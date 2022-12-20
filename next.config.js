@@ -1,6 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // fontLoaders: [{ loader: "@next/font/google" }],
+  experimental: {
+    fontLoaders: [{ loader: "@next/font/google" }],
+  },
 
   reactStrictMode: true,
   swcMinify: true,
