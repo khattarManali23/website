@@ -1,6 +1,7 @@
 import React from "react";
 import bloghero from "../../assets/bloghero.jpeg";
 import BlogCard from "../../components/BlogCard";
+import PageFooter from "../../components/PageFooter";
 
 const Blog = () => {
   return (
@@ -109,6 +110,7 @@ const Blog = () => {
         </div>
       </div>
       <BlogCard />
+      <PageFooter />
     </div>
   );
 };
