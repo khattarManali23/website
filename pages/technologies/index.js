@@ -20,8 +20,8 @@ const technologies = () => {
         {allClients.map((item) => {
           return (
             <>
-              <div className="text-center   p-8">
-                <h1 className="text-5xl leading-[67.2px] text-center text-transparent bg-clip-text  sm:bg-gradient-to-r sm:from-[#FFB838] sm:via-[#F34F8C] sm:to-[#8236BA]  bg-gradient-to-r from-[#8236BA] via-[#F34F8C] to-[#FFB838] ">
+              <div class="text-center   p-8">
+                <h1 class="text-5xl leading-[67.2px] text-center text-transparent bg-clip-text  sm:bg-gradient-to-r sm:from-[#FFB838] sm:via-[#F34F8C] sm:to-[#8236BA]  bg-gradient-to-r from-[#8236BA] via-[#F34F8C] to-[#FFB838] ">
                   {item.client}
                 </h1>
               </div>

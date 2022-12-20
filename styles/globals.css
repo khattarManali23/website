@@ -28,47 +28,7 @@ a {
     background: #08131a;
   }
 } */
-/* 
-.tri {
-  position: relative;
-  border-right: solid 30px rgb(200, 30, 50);
-  border-bottom: solid 30px transparent;
-  border-top: solid 30px transparent;
-  /* background-image: linear-gradient(45deg, transparent 90%, green 85%); */
-/* color: white; */
-/* }  */
 
-.arrow_box {
-  position: relative;
-  background: transparent;
-
-  height: 80vh;
-}
-.arrow_box:after,
-.arrow_box:before {
-  left: 100%;
-  top: 50%;
-  border: solid transparent;
-
-  content: "";
-  height: 0;
-  width: 0;
-  position: absolute;
-  pointer-events: none;
-}
-
-.arrow_box:after {
-  border-left-color: transparent;
-  border-left-color: #08131a;
-
-  border-width: 250px;
-  margin-top: -240px;
-}
-.arrow_box:before {
-  border-left-color: #08131a;
-
-  margin-top: -246px;
-}
 .ps-timeline-sec {
   position: relative;
   background: #fff;
