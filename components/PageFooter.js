@@ -5,7 +5,7 @@ import { FiInstagram, FiYoutube } from "react-icons/fi";
 
 const PageFooter = () => {
   return (
-    <div className="my-2">
+    <div className="my-2 w-full">
       <div className="flex flex-col justify-center items-center   mx-auto max-w-[1500px] bg-[#121A21] h-36 my-4">
         <div
           className="flex items-center justify-evenly sm:justify-around flex-col sm:flex-row sm:px-[30px] md:px-[40px] lg:px-[50px] xl:px-[75px] w-full h-[100px] bg-[

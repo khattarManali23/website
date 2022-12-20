@@ -27,15 +27,9 @@ const Blog = () => {
         "
         >
           <img
-            className=""
             src={bloghero.src}
-            className=" 
-            h-[420px] w-4/6
-          
-         
-           
-            
-            "
+            alt="bloghero"
+            className="  h-[420px] w-4/6"
           />
         </div>
         <div className="px-5 sm:px-10   md:px-10 md:flex lg:block lg:w-1/2 lg:max-w-3xl ">
