@@ -1,5 +1,6 @@
 import React from "react";
 import Banner from "../../components/Banner";
+import Career from "../../components/Career";
 import ContactCards from "../../components/ContactCards";
 import ContactForm from "../../components/ContactForm";
 import PageFooter from "../../components/PageFooter";
@@ -10,6 +11,7 @@ const ContactUs = () => {
   return (
     <div>
       <Banner banner={banner} />
+      <Career />
       <div className="flex justify-center flex-wrap flex-col  items-center w-full ">
         <h3
           className=" sm:text-5xl text-xl font-bold text-center text-transparent bg-clip-text pt-8 leading-8   
