@@ -3,7 +3,7 @@ import contactdata from "../data/contact";
 
 const ContactCards = () => {
   return (
-    <div className=" w-full mx-2  h-full sm:h-[150vh]  flex sm:flex-row flex-col   justify-between items-center relative">
+    <div className=" w-full mx-3  h-full sm:h-[150vh]  flex sm:flex-row flex-col   justify-between items-center relative">
       {contactdata.map((item, index) => {
         return (
           <div

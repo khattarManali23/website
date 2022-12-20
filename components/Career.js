@@ -5,67 +5,25 @@ const Career = () => {
   return (
     <div>
       <main>
-        <div id="hero" class="pt-5 lg:flex items-center   ">
+        <div id="hero" class="pt-5 lg:flex items-center  sm:block hidden ">
           <div class=" py-10  md:flex lg:block  w-full lg:max-w-3xl lg:px-20 arrow_box ">
-            <div class="md:w-1/2 md:mr-10 lg:w-full lg:mr-0">
-              <h1 class="text-3xl xl:text-4xl font-black md:leading-none xl:leading-tight">
-                Hire a Designer Near You
+            <div class=" w-full ">
+              <h2 className="w-full text-center">INSIGHTS</h2>
+              <h1
+                className="sm:text-5xl text-3xl mb-4  font-bold text-center text-transparent bg-clip-text  sm:leading-[68px]  leading-[45.2px]
+      sm:bg-gradient-to-r sm:from-[#FFB838] sm:via-[#F34F8C] sm:to-[#8236BA]  bg-gradient-to-r from-[#8236BA] via-[#F34F8C] to-[#FFB838]"
+              >
+                Words From Our Client
               </h1>
-              <p class="mt-4 xl:mt-2">
-                World Class Designers, just for you on contract, full-time or
-                part-time, whatever you need.
-              </p>
-            </div>
-
-            <div className="flex-1 border">
-              <div class="relative mt-4 md:mt-0 lg:mt-4">
-                <div class="pl-4 pr-4 h-full absolute bottom-0 left-0 flex items-center">
-                  <svg
-                    class="text-gray-700 w-5"
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  >
-                    <circle cx="11" cy="11" r="8"></circle>
-                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                  </svg>
-                </div>
-                <input
-                  type="text"
-                  class="w-full border bg-gray-100 px-4 py-4 text-sm tracking-wide focus:outline-none focus:shadow-outline rounded pl-12"
-                  placeholder="Type (e.g junior, senior)"
-                />
-              </div>
-              <div class="relative mt-4">
-                <div class="pl-4 pr-4 h-full absolute bottom-0 left-0 flex items-center">
-                  <svg
-                    class="text-gray-700 w-5"
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  >
-                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
-                    <circle cx="12" cy="10" r="3" />
-                  </svg>
-                </div>
-                <input
-                  type="text"
-                  class="w-full border bg-gray-100 px-4 py-4 text-sm tracking-wide focus:outline-none focus:shadow-outline rounded pl-12"
-                  placeholder="Mountain View, California"
-                />
-              </div>
-              <div>
-                <button class="transition-all duration-300 mt-5 w-full border border-transparent rounded font-semibold tracking-wide text-sm px-5 py-4 focus:outline-none focus:shadow-outline bg-indigo-500 text-gray-100 hover:bg-indigo-600 hover:text-gray-200">
-                  Find Designers
-                </button>
+              <div class="my-12 mx-2 ">
+                <h3 className="text-[30px] my-2 font-medium leading-[45px]">
+                  Maya Kyon
+                </h3>
+                <p className="text-xl leading-8 font-normal w-3/4 text-[#D0D0D0]">
+                  We develop creative solutions for small and big brands like
+                  build artistic products identities We develop creative
+                  solutions for small and
+                </p>
               </div>
             </div>
           </div>
