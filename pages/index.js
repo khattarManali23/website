@@ -2,6 +2,7 @@ import { Poppins } from "@next/font/google";
 import "antd/dist/reset.css";
 import React from "react";
 import Banner from "../components/Banner";
+import CareerBanner from "../components/CareerBanner";
 import Footer from "../components/Footer";
 import HomeAbout from "../components/HomeAbout";
 import Portfolio from "../components/Portfolio";
@@ -24,6 +25,7 @@ export default function Home() {
       <Technology />
       <Services />
       <Portfolio />
+      <CareerBanner />
       <TimeLine />
 
       <Footer />

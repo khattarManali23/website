@@ -259,3 +259,25 @@ a {
   margin: 5px;
   text-align: center;
 }
+
+.event {
+  background: rgba(0, 0, 0, 0.6);
+  display: block;
+  height: 90vh;
+  margin-left: 20px;
+  position: relative;
+  width: 70%;
+  margin-bottom: 15px;
+}
+.event:after {
+  border-left: 150px solid rgba(0, 0, 0, 0.6);
+
+  border-top: 290px solid transparent;
+  border-bottom: 290px solid transparent;
+  content: "";
+  height: 0;
+  bottom: 0;
+  right: -150px;
+  position: absolute;
+  width: 0;
+}
