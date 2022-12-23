@@ -1,11 +1,33 @@
-import { Progress, Space } from "antd";
+import { Poppins } from "@next/font/google";
+import { Progress } from "antd";
 import React from "react";
 import a1 from "../assets/a1.jpeg";
 import a2 from "../assets/a2.jpeg";
+
+const poppins = Poppins({
+  weight: ["400"],
+  style: ["normal"],
+  variable: "--font-poppins",
+});
+
 const HomeAbout = () => {
   return (
-    <div className="flex w-full justify-center  items-center">
-      <div className="flex w-[95%]  justify-center  items-center flex-wrap">
+    <div className="flex w-full justify-center flex-wrap  items-center">
+      <div
+        className={
+          `text-center p-8  flex flex-col justify-center items-center ` +
+          `${poppins.variable} font-sans`
+        }
+      >
+        <h5 className="font-normal text-md  uppercase">About us</h5>
+        <h1
+          className="sm:text-5xl text-3xl mb-4   font-bold text-center text-transparent bg-clip-text  sm:leading-[68px]  leading-[45.2px]
+      sm:bg-gradient-to-r sm:from-[#FFB838] sm:via-[#F34F8C] sm:to-[#8236BA]  bg-gradient-to-r from-[#8236BA] via-[#F34F8C] to-[#FFB838]"
+        >
+          Thinkers, Innovators and Tech Mavericks
+        </h1>
+      </div>
+      <div className="flex w-11/12  justify-center  items-center flex-wrap">
         <div class="text-gray-700 body-font   flex-1">
           <div class="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center">
             <div class="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 text-white items-center flex-wrap text-center">
@@ -23,36 +45,36 @@ const HomeAbout = () => {
                 We design brand, digital experience that engage the right
                 customers and As well as right business
               </p>
-              <div class="flex justify-center items-center text-white">
-                <Space>
-                  <Progress
-                    percent={90}
-                    trailColor="transparent"
-                    type="circle"
-                    strokeColor={{
-                      "0%": "#FFB838",
-                      "50%": "#F34F8C",
-                      "100%": "#8236BA",
-                    }}
-                  />
+              <div class="flex w-full  sm:w-3/5 justify-between items-center text-white">
+                <Progress
+                  percent={90}
+                  trailColor="transparent"
+                  type="circle"
+                  strokeWidth={2}
+                  strokeColor={{
+                    "0%": "#FFB838",
+                    "50%": "#F34F8C",
+                    "100%": "#8236BA",
+                  }}
+                />
 
-                  <Progress
-                    percent={80}
-                    trailColor="transparent"
-                    type="circle"
-                    strokeColor={{
-                      "0%": "#FFB838",
-                      "50%": "#F34F8C",
-                      "100%": "#8236BA",
-                    }}
-                  />
-                </Space>
+                <Progress
+                  percent={75}
+                  trailColor="transparent"
+                  type="circle"
+                  strokeWidth={2}
+                  strokeColor={{
+                    "0%": " #FFB838",
+                    "50%": "#F34F8C",
+                    "100%": "#8236BA",
+                  }}
+                />
               </div>
             </div>
           </div>
         </div>
-        <div className="  flex-1 flex-wrap justify-center items-center flex ">
-          <div class=" w-full flex flex-col items-center justify-center  m-4">
+        <div className="  flex-wrap   justify-center items-center flex ">
+          <div class=" w-[340px] h-[596px] flex flex-wrap items-center justify-center   m-2">
             <div class="flex flex-col justify-center items-center">
               <img
                 src={a1.src}
@@ -77,7 +99,7 @@ const HomeAbout = () => {
               </div>
             </div>
           </div>
-          <div class=" w-full flex flex-col items-center justify-center  m-4">
+          <div class=" w-[340px] h-[596px]  flex flex-col items-center justify-center   m-2">
             <div class="flex flex-col justify-center items-center">
               <img
                 src={a2.src}
