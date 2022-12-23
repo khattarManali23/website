@@ -32,7 +32,7 @@ const Footer = () => {
                     href=""
                     className="w-8 h-8 border border-2 border-gray-400 rounded-md text-center py-1 text-gray-600 hover:text-white hover:bg-blue-600 hover:border-blue-600"
                   >
-                    <i className="fab fa-facebook"></i>
+                    <i className="fab fa-facebook"></i>;
                   </a>
                   <a
                     href=""
