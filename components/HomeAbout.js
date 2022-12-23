@@ -1,12 +1,14 @@
 import { Progress, Space } from "antd";
 import React from "react";
+import a1 from "../assets/a1.jpeg";
+import a2 from "../assets/a2.jpeg";
 const HomeAbout = () => {
   return (
-    <div className="flex w-full justify-center border items-center">
-      <div className="flex w-11/12 justify-center border items-center">
-        <div class="text-gray-700 body-font  flex-1">
+    <div className="flex w-full justify-center  items-center">
+      <div className="flex w-[95%]  justify-center  items-center flex-wrap">
+        <div class="text-gray-700 body-font   flex-1">
           <div class="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center">
-            <div class="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
+            <div class="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 text-white items-center flex-wrap text-center">
               <h1
                 class="title-font text-xs leading-5 mb-4 font-medium 
             text-transparent bg-clip-text py-4    
@@ -21,23 +23,27 @@ const HomeAbout = () => {
                 We design brand, digital experience that engage the right
                 customers and As well as right business
               </p>
-              <div class="flex justify-center">
-                <Space wrap>
+              <div class="flex justify-center items-center text-white">
+                <Space>
                   <Progress
-                    type="circle"
                     percent={90}
+                    trailColor="transparent"
+                    type="circle"
                     strokeColor={{
                       "0%": "#FFB838",
-                      "100%": "#F34F8C",
+                      "50%": "#F34F8C",
                       "100%": "#8236BA",
                     }}
                   />
+
                   <Progress
+                    percent={80}
+                    trailColor="transparent"
                     type="circle"
-                    percent={70}
                     strokeColor={{
-                      "0%": "#108ee9",
-                      "100%": "#87d068",
+                      "0%": "#FFB838",
+                      "50%": "#F34F8C",
+                      "100%": "#8236BA",
                     }}
                   />
                 </Space>
@@ -45,47 +51,54 @@ const HomeAbout = () => {
             </div>
           </div>
         </div>
-        <div className="flex-1 border flex">
-          <div class="p-20 bg-purple-100 w-full md:w-1/2">
-            <div class="bg-white rounded-lg shadow-lg">
+        <div className="  flex-1 flex-wrap justify-center items-center flex ">
+          <div class=" w-full flex flex-col items-center justify-center  m-4">
+            <div class="flex flex-col justify-center items-center">
               <img
-                src="https://images.unsplash.com/photo-1600054800747-be294a6a0d26?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1053&q=80"
+                src={a1.src}
                 alt=""
-                class="rounded-t-lg"
+                style={{
+                  width: "320px",
+                  height: "250px",
+                }}
+                // class="w-[380px] height-[657px] object-cover object-center
               />
-              <div class="p-6">
-                <h2 class="font-bold mb-2 text-2xl text-purple-800">
-                  Card with an image
+              <div class="">
+                <h2 class="font-medium mb-2 text-xl text-white my-2 leading-7 text-center">
+                  800M + Downloads{" "}
                 </h2>
-                <p class="text-purple-700 mb-2">
-                  This is a little bit better of a card!
+                <p class="text-[#A3A3A3] leading-8 font-normal my-4 text-[15px]  text-center tracking-wider mb-2">
+                  Starting with a 360º app strategy defining and detailing the
+                  raison d’êtrè of the app: technology required, investment
+                  estimate, timeline, total cost of ownership and the end value,
+                  we also dive deep into content strategy, branding strategy and
+                  monetization. Result – engaging apps that users actually use.{" "}
                 </p>
-                <a
-                  href="#"
-                  class="text-purple-600 hover:text-purple-500 underline text-sm"
-                >
-                  Read More 👉
-                </a>
               </div>
             </div>
           </div>
-          <div class="p-20 bg-purple-100 w-full md:w-1/2">
-            <div class="bg-white rounded-lg shadow-lg">
+          <div class=" w-full flex flex-col items-center justify-center  m-4">
+            <div class="flex flex-col justify-center items-center">
               <img
-                src="https://images.unsplash.com/photo-1600054800747-be294a6a0d26?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1053&q=80"
+                src={a2.src}
                 alt=""
-                class="rounded-t-lg"
+                style={{
+                  width: "320px",
+                  height: "250px",
+                }}
+                // class="w-[380px] height-[657px] object-cover object-center
               />
-              <div class="p-6">
-                <p class="text-purple-700 mb-2">
-                  This is a little bit better of a card!
+              <div class="">
+                <h2 class="font-medium mb-2 text-xl text-white my-2 leading-7 text-center">
+                  750 + Projects Delivered
+                </h2>
+                <p class="text-[#A3A3A3] leading-8 font-normal my-4 text-[15px]  text-center tracking-wider mb-2">
+                  Tech solutions that have helped businesses align their
+                  channels/customer interfaces, streamline processes, automate
+                  systems to bring in efficiency and effectiveness, simplify
+                  communications, elevate customer experiences, embed resources
+                  and do so much more.{" "}
                 </p>
-                <a
-                  href="#"
-                  class="text-purple-600 hover:text-purple-500 underline text-sm"
-                >
-                  Read More 👉
-                </a>
               </div>
             </div>
           </div>
