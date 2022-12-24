@@ -1,10 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+@import url("./cursor.css");
 html,
 body {
   padding: 0;
+  cursor: none;
   margin: 0;
   background: #08131a;
   color: white;
@@ -17,6 +18,7 @@ a {
 
 * {
   box-sizing: border-box;
+  cursor: none;
 }
 .ant-progress-text {
   color: white !important;
