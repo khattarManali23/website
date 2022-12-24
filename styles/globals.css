@@ -281,3 +281,9 @@ a {
   position: absolute;
   width: 0;
 }
+
+.control-dots {
+  position: absolute;
+  padding: 40px;
+  top: ;
+}
