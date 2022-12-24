@@ -261,7 +261,7 @@ a {
 }
 
 .event {
-  background: rgba(0, 0, 0, 0.6);
+  /* background: rgba(0, 0, 0, 0.6); */
   display: block;
   height: 90vh;
   margin-left: 20px;
@@ -270,7 +270,9 @@ a {
   margin-bottom: 15px;
 }
 .event:after {
-  border-left: 150px solid rgba(0, 0, 0, 0.6);
+  border-left: 150px solid transparent;
+
+  background-color: transparent;
 
   border-top: 290px solid transparent;
   border-bottom: 290px solid transparent;
@@ -285,5 +287,5 @@ a {
 .control-dots {
   position: absolute;
   padding: 40px;
-  top: ;
+  left: 0;
 }
