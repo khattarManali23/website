@@ -263,7 +263,8 @@ a {
 }
 
 .event {
-  /* background: rgba(0, 0, 0, 0.6); */
+  background: #08131a;
+
   display: block;
   height: 90vh;
   margin-left: 20px;
@@ -272,7 +273,7 @@ a {
   margin-bottom: 15px;
 }
 .event:after {
-  border-left: 150px solid transparent;
+  border-left: 150px solid #08131a;
 
   background-color: transparent;
 

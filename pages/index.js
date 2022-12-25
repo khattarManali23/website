@@ -26,6 +26,7 @@ export default function Home() {
       <Services />
       <Portfolio />
       <CareerBanner />
+      {/* <Clients /> */}
       <TimeLine />
 
       <Footer />

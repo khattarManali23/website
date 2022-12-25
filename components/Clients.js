@@ -1,3 +1,4 @@
+import { Col, Row } from "antd";
 import React from "react";
 import client1 from "../assets/client (1).png";
 import client2 from "../assets/client (2).png";
@@ -18,21 +19,22 @@ const Clients = () => {
         </span>
       </h2>
 
-      <div className="flex border border-green-900">
-        <div className="p-6 border ">
-          <img src={client1.src} alt="client" />
-        </div>
-        <div className="flex-1">
-          <div className="p-4 border">
-            <img src={client2.src} alt="client" />
-          </div>
-          <div className="p-4 border">
-            <img src={client3.src} alt="client" />
-          </div>
-          <div className="p-4 border">
-            <img src={client5.src} alt="client" />
-          </div>
-        </div>
+      <div className="flex bg-red-400 w-10/12 h-full">
+        {/* <Divider orientation="left">Percentage columns</Divider> */}
+        <Row gutter={[16, 16]} className="w-full h-full">
+          <Col className="gutter-row" span={6}>
+            <div className="h-full w-full flex justify-center items-center">
+              <img src={client1} alt="client1" className="h-1/2 w-1/2" />
+            </div>
+          </Col>
+          <Col className="gutter-row" span={6}>
+            <div className="h-full w-full flex justify-center items-center">
+              <img src={client2} alt="client2" className="h-1/2 w-1/2" />
+              <img src={client3} alt="client3" className="h-1/2 w-1/2" />
+              <img src={client5} alt="client5" className="h-1/2 w-1/2" />
+            </div>
+          </Col>
+        </Row>
       </div>
     </div>
   );
