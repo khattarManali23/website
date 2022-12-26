@@ -34,20 +34,14 @@
   }
 }
 body {
-  font-size: 1.6rem;
-  font-family: "Open Sans", sans-serif;
-  color: #4089a6;
-  background-color: #fff;
   -webkit-font-smoothing: antialiased;
 }
 body:before,
 body:after {
-  content: "";
-  height: 50vh;
   width: 100%;
   position: fixed;
   left: 0;
-  background: #1c2020;
+
   z-index: 1;
 }
 body:before {
