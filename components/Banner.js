@@ -15,13 +15,13 @@ const Banner = ({ banner }) => {
       CSSRulePlugin.getRule("body:before"),
       0.8,
       { cssRule: { top: "50%" }, ease: "Power2.easeOut " },
-      "open"
+      "close"
     )
       .to(
         CSSRulePlugin.getRule("body:after"),
         0.8,
         { cssRule: { bottom: "50%" }, ease: "Power2.easeOut" },
-        "open"
+        "close"
       )
       .to(document.querySelector(".loader"), 0.2, { opacity: 1 })
       .to(
