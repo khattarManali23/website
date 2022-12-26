@@ -1,14 +1,60 @@
+import gsap from "gsap";
+import { CSSRulePlugin } from "gsap/dist/CSSRulePlugin";
 import Image from "next/image";
 import React from "react";
 
+gsap.registerPlugin(CSSRulePlugin);
+
 const Banner = ({ banner }) => {
+  setTimeout(transition, 1000);
+
+  function transition() {
+    var tl = new gsap.timeline();
+
+    tl.to(
+      CSSRulePlugin.getRule("body:before"),
+      0.2,
+      { cssRule: { top: "50%" }, ease: "Power2.easeOut " },
+      "close"
+    )
+      .to(
+        CSSRulePlugin.getRule("body:after"),
+        0.2,
+        { cssRule: { bottom: "50%" }, ease: "Power2.easeOut" },
+        "close"
+      )
+      .to(document.querySelector(".loader"), 0.2, { opacity: 1 })
+      .to(
+        CSSRulePlugin.getRule("body:before"),
+        0.2,
+        { cssRule: { top: "0%" }, ease: "Power2.easeOut" },
+        "+=1.5",
+        "open"
+      )
+      .to(
+        CSSRulePlugin.getRule("body:after"),
+        0.2,
+        { cssRule: { bottom: "0%" }, ease: "Power2.easeOut" },
+        "-=0.2",
+        "open"
+      )
+      .to(document.querySelector(".loader"), 0.2, { opacity: 0 }, "-=0.2");
+  }
+
   return (
     <div>
+      <div class="loader">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+        <div class="bar4"></div>
+        <div class="bar5"></div>
+        <div class="bar6"></div>
+      </div>
       {banner.map((item) => {
         return (
           <header
-            className="w-full sm:h-screen h-[50vh]  text-white flex flex-col justify-around items-center  relative img-gradient 
-            "
+            className="w-full sm:h-screen h-[50vh]  text-white flex flex-col justify-around items-center  relative img-gradient -content -index"
             key={item.id}
             style={
               {

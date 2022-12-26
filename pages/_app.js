@@ -5,6 +5,7 @@ import "../styles/globals.css";
 function MyApp({ Component, pageProps }) {
   return (
     <>
+      {/* <Splash /> */}
       <Cursor />
       <Navbar />
       <Component {...pageProps} />
