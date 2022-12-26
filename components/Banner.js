@@ -13,29 +13,29 @@ const Banner = ({ banner }) => {
 
     tl.to(
       CSSRulePlugin.getRule("body:before"),
-      0.2,
+      0.8,
       { cssRule: { top: "50%" }, ease: "Power2.easeOut " },
-      "close"
+      "open"
     )
       .to(
         CSSRulePlugin.getRule("body:after"),
-        0.2,
+        0.8,
         { cssRule: { bottom: "50%" }, ease: "Power2.easeOut" },
-        "close"
+        "open"
       )
       .to(document.querySelector(".loader"), 0.2, { opacity: 1 })
       .to(
         CSSRulePlugin.getRule("body:before"),
-        0.2,
-        { cssRule: { top: "0%" }, ease: "Power2.easeOut" },
-        "+=1.5",
+        0.8,
+        { cssRule: { top: "0%" }, ease: "Power2.easeIn" },
+        "+=1.8",
         "open"
       )
       .to(
         CSSRulePlugin.getRule("body:after"),
-        0.2,
-        { cssRule: { bottom: "0%" }, ease: "Power2.easeOut" },
-        "-=0.2",
+        0.8,
+        { cssRule: { bottom: "0%" }, ease: "Power2.easeIn" },
+        "-=0.4",
         "open"
       )
       .to(document.querySelector(".loader"), 0.2, { opacity: 0 }, "-=0.2");
@@ -43,14 +43,7 @@ const Banner = ({ banner }) => {
 
   return (
     <div>
-      <div class="loader">
-        <div class="bar1"></div>
-        <div class="bar2"></div>
-        <div class="bar3"></div>
-        <div class="bar4"></div>
-        <div class="bar5"></div>
-        <div class="bar6"></div>
-      </div>
+      <div class="loader  bg-[#08131A] w-full h-full "></div>
       {banner.map((item) => {
         return (
           <header
