@@ -79,7 +79,7 @@ const Banner = ({ banner }) => {
                 layout="fill"
               />
             </div>
-            <div className="z-10 relative  mx-auto  flex justify-end items-center flex-col text-center">
+            <div className="z-10 relative  mx-auto  flex justify-end items-center flex-col text-center -content -index">
               <h1
                 className={
                   item.style
