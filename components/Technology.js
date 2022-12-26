@@ -1,7 +1,9 @@
 import { Poppins } from "@next/font/google";
+import AOS from "aos";
 import React from "react";
 
 // Import Swiper styles
+import "aos/dist/aos.css";
 import "swiper/css";
 import icon from "../assets/icon.png";
 import data from "../data/technology";
@@ -12,6 +14,12 @@ const poppins = Poppins({
 });
 
 const Technology = () => {
+  React.useEffect(() => {
+    AOS.init({
+      duration: 1000,
+    });
+  }, []);
+
   return (
     <div>
       <div
@@ -24,6 +32,7 @@ const Technology = () => {
         <h1
           className="sm:text-5xl text-3xl mb-4 sm:w-4/6 w-full  font-bold text-center text-transparent bg-clip-text  sm:leading-[68px]  leading-[45.2px]
       sm:bg-gradient-to-r sm:from-[#FFB838] sm:via-[#F34F8C] sm:to-[#8236BA]  bg-gradient-to-r from-[#8236BA] via-[#F34F8C] to-[#FFB838]"
+          data-aos="fade-up"
         >
           Converting Dreams to Blueprints, Ideas to Innovation and Vison to
           Value.!
@@ -43,6 +52,7 @@ const Technology = () => {
           return (
             <div
               className="w-[19rem] h-[440px]  bg-[#121A21] shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl p-4"
+              data-aos="fade-up"
               key={index}
             >
               <a href="#">

@@ -7,7 +7,8 @@ const Banner = ({ banner }) => {
       {banner.map((item) => {
         return (
           <header
-            className="w-full sm:h-screen h-[50vh]  text-white flex flex-col justify-center  relative"
+            className="w-full sm:h-screen h-[50vh]  text-white flex flex-col justify-around items-center  relative img-gradient 
+            "
             key={item.id}
             style={
               {
@@ -18,25 +19,27 @@ const Banner = ({ banner }) => {
             }
           >
             <div
-              className="z-0 absolute top-0 left-0 w-full h-full bg-cover bg-no-repeat hidden md:block "
+              className="z-0 absolute top-0 left-0 w-full h-full bg-cover bg-no-repeat hidden md:block border"
               //   style={{
               //     background: item.image.src,
               //   }}
             >
               <Image src={item.image.src} alt="image" layout="fill" />
             </div>
-            <div className="z-0 absolute top-0 left-0 w-full bg-cover bg-no-repeat flex md:hidden h-full ">
+            <div className="z-0 absolute top-0  left-0 w-full bg-cover bg-no-repeat flex md:hidden h-full ">
               <Image
                 src={item.mobileImage.src}
                 alt="mobileImage"
                 layout="fill"
               />
             </div>
-            <div className="z-10 relative py-12 mx-auto  text-center">
+            <div className="z-10 relative  mx-auto  flex justify-end items-center flex-col text-center">
               <h1
-                className=" mb-8 sm:text-7xl text-3xl w-full font-semibold  text-center text-transparent bg-clip-text py-4  leading-8 sm:leading-[
-88.52px]
-      sm:bg-gradient-to-r sm:from-[#FFB838] sm:via-[#F34F8C] sm:to-[#8236BA]  bg-gradient-to-r from-[#8236BA] via-[#F34F8C] to-[#FFB838] "
+                className={
+                  item.style
+                    ? item.style
+                    : " mb-8 sm:text-7xl text-3xl w-full font-semibold  text-center text-transparent bg-clip-text py-4  leading-8 sm:leading-[88.52px] sm:bg-gradient-to-r sm:from-[#FFB838] sm:via-[#F34F8C] sm:to-[#8236BA]  bg-gradient-to-r from-[#8236BA] via-[#F34F8C] to-[#FFB838] "
+                }
               >
                 {item.heading}
               </h1>

@@ -2,8 +2,8 @@ import aboutmobile from "../assets/aboutmobile.png";
 import careerbanner from "../assets/careerbanner.png";
 import contactbanner from "../assets/contactbanner.png";
 import cover from "../assets/cover.png";
-import banner from "../assets/Hero.png";
 import heroMobile from "../assets/Heromobile.png";
+import banner from "../assets/home.jpeg";
 import insightbanner from "../assets/insightbanner.png";
 import portfoliobanner from "../assets/portfoliobanner.png";
 import servicebanner from "../assets/servicebanner.png";
@@ -13,10 +13,13 @@ const data = [
   {
     id: 1,
     slug: "home",
-    heading: "",
-    paragraph: "",
+    heading: "Driving Innovation for Businesses",
+    paragraph:
+      "Brave automation solutions that optimize the present while taking care of the Future.",
     image: banner,
     mobileImage: heroMobile,
+    style:
+      " font-bold text-6xl leading-[88.52px] text-center  tracking-[2rem] w-3/4 text-center ",
   },
   {
     id: 2,
@@ -33,6 +36,8 @@ const data = [
     paragraph: "",
     image: servicebanner,
     mobileImage: heroMobile,
+    style:
+      " font-bold text-6xl leading-[84px] text-center text-white tracking-[1px] w-3/4 text-center border",
   },
   {
     id: 4,
@@ -41,6 +46,8 @@ const data = [
     paragraph: "",
     image: technologiesbanner,
     mobileImage: heroMobile,
+    style:
+      " font-bold text-6xl leading-[84px] text-center text-white tracking-[1px] w-3/4 text-center border",
   },
   {
     id: 5,
@@ -49,6 +56,8 @@ const data = [
     paragraph: "",
     image: portfoliobanner,
     mobileImage: heroMobile,
+    style:
+      " font-bold text-6xl leading-[84px] text-center text-white tracking-[1px] w-3/4 text-center border",
   },
   {
     id: 6,
@@ -57,6 +66,8 @@ const data = [
     paragraph: "",
     image: insightbanner,
     mobileImage: heroMobile,
+    style:
+      " font-bold text-6xl leading-[84px] text-center text-white tracking-[1px] w-3/4 text-center border",
   },
   {
     id: 7,
@@ -65,6 +76,8 @@ const data = [
     paragraph: "",
     image: careerbanner,
     mobileImage: heroMobile,
+    style:
+      " font-bold text-6xl leading-[84px] text-center text-white tracking-[1px] w-3/4 text-center border",
   },
   {
     id: 8,
@@ -73,6 +86,8 @@ const data = [
     paragraph: "",
     image: contactbanner,
     mobileImage: heroMobile,
+    style:
+      " font-bold text-6xl leading-[84px] text-center text-white tracking-[1px] w-3/4 text-center border",
   },
 ];
 

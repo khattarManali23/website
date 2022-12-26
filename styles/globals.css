@@ -5,9 +5,9 @@
 html,
 body {
   padding: 0;
-  cursor: none;
   margin: 0;
   background: #08131a;
+  scroll-behavior: smooth;
   color: white;
 }
 
@@ -18,7 +18,6 @@ a {
 
 * {
   box-sizing: border-box;
-  cursor: none;
 }
 .ant-progress-text {
   color: white !important;
@@ -291,4 +290,54 @@ a {
   position: absolute;
   padding: 40px;
   left: 0;
+}
+
+.img-gradient {
+  position: relative;
+}
+
+.img-gradient:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background: -moz-linear-gradient(
+    top,
+    rgba(8, 19, 26, 0.6) 0%,
+rgba(8, 19, 26, 0.6) 100%
+  ); /* FF3.6+ */
+  background: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    color-stop(0%, rgba(8, 19, 26, 0.6)),
+rgba(8, 19, 26, 0.6))
+  ); 
+  background: -webkit-linear-gradient(
+    top,
+   
+    rgba(8, 19, 26, 0.6) 0%,
+rgba(8, 19, 26, 0.6) 100%
+  ); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(
+    top,
+    rgba(8, 19, 26, 0.6) 0%,
+rgba(8, 19, 26, 0.6) 100%
+  ); /* Opera 11.10+ */
+  background: -ms-linear-gradient(
+    top,
+    rgba(8, 19, 26, 0.6) 0%,
+rgba(8, 19, 26, 0.6) 100%
+  ); /* IE10+ */
+  background: linear-gradient(
+    to bottom,
+    rgba(8, 19, 26, 0.6) 0%,
+rgba(8, 19, 26, 0.6) 100%
+  ); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#002f4b', endColorstr='#00000000',GradientType=0 ); /* IE6-9 */
+}
+.img-gradient img {
+  display: block;
 }
