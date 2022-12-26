@@ -43,7 +43,10 @@ const Banner = ({ banner }) => {
 
   return (
     <div>
-      <div class="loader  bg-[#08131A] w-full h-full "></div>
+      <div class="loader  bg-[#08131A] w-full h-full ">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+      </div>
       {banner.map((item) => {
         return (
           <header
