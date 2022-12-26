@@ -16,7 +16,7 @@ const data = [
     heading: "Driving Innovation for Businesses",
     paragraph:
       "Brave automation solutions that optimize the present while taking care of the Future.",
-    image: banner,
+    image: banner.src,
     mobileImage: heroMobile,
     style:
       " font-bold text-6xl leading-[88.52px] text-center  tracking-[2rem] w-3/4 text-center ",

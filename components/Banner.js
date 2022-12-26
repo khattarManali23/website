@@ -50,23 +50,17 @@ const Banner = ({ banner }) => {
       {banner.map((item) => {
         return (
           <header
-            className="w-full sm:h-screen h-[50vh]  text-white flex flex-col justify-around items-center  relative img-gradient -content -index"
+            className="w-full h-screen  text-white flex flex-col justify-around items-center  relative img-gradient -content -index"
             key={item.id}
-            style={
-              {
-                //   backgroundImage:
-                //     "linear-gradient(135deg, #231437 0%, #2c385e 50%, #336e6b 100%)",
-                //   minHeight: "760px",
-              }
-            }
+            style={{
+              backgroundImage: `url(${item.image})`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              backgroundRepeat: "no-repeat",
+            }}
           >
-            <div
-              className="z-0 absolute top-0 left-0 w-full h-full bg-cover bg-no-repeat hidden md:block border"
-              //   style={{
-              //     background: item.image.src,
-              //   }}
-            >
-              <Image src={item.image.src} alt="image" layout="fill" />
+            <div className="z-0 absolute top-0 left-0 w-full h-full bg-cover bg-no-repeat hidden md:block border">
+              {/* <Image src={item.image} alt="image" layout="fill" /> */}
             </div>
             <div className="z-0 absolute top-0  left-0 w-full bg-cover bg-no-repeat flex md:hidden h-full ">
               <Image
