@@ -6,34 +6,34 @@ import React from "react";
 gsap.registerPlugin(CSSRulePlugin);
 
 const Banner = ({ banner }) => {
-  setTimeout(transition, 1000);
+  setTimeout(transition, 3000);
 
   function transition() {
     var tl = new gsap.timeline();
 
     tl.to(
       CSSRulePlugin.getRule("body:before"),
-      0.2,
-      { cssRule: { top: "50%" }, ease: "Power2.easeOut" },
+      0.4,
+      { cssRule: { top: "50%" }, ease: "Power2.easeIn" },
       "close"
     )
       .to(
         CSSRulePlugin.getRule("body:after"),
-        0.2,
-        { cssRule: { bottom: "50%" }, ease: "Power2.easeOut" },
+        0.4,
+        { cssRule: { bottom: "50%" }, ease: "Power2.easeIn" },
         "close"
       )
       .to(document.querySelector(".loader"), 0.2, { opacity: 1 })
       .to(
         CSSRulePlugin.getRule("body:before"),
-        0.2,
+        0.8,
         { cssRule: { top: "0%" }, ease: "Power2.easeOut" },
         "+=1.5",
         "open"
       )
       .to(
         CSSRulePlugin.getRule("body:after"),
-        0.2,
+        0.8,
         { cssRule: { bottom: "0%" }, ease: "Power2.easeOut" },
         "-=0.2",
         "open"
@@ -43,14 +43,10 @@ const Banner = ({ banner }) => {
 
   return (
     <div>
-      <div class="loader  bg-[#08131A] w-full h-full ">
-        <div class="bar1"></div>
-        <div class="bar2"></div>
-      </div>
       {banner.map((item) => {
         return (
           <header
-            className="w-full h-screen  text-white flex flex-col justify-around items-center  relative img-gradient -content -index"
+            className="w-full h-screen  text-white flex flex-col justify-around items-center  relative img-gradient  -content -index"
             key={item.id}
             style={{
               backgroundImage: `url(${item.image})`,
@@ -69,7 +65,7 @@ const Banner = ({ banner }) => {
                 layout="fill"
               />
             </div>
-            <div className="z-10 relative  mx-auto  flex justify-end items-center flex-col text-center -content -index">
+            <div className="z-10 relative  mx-auto  flex justify-end items-center flex-col text-center ">
               <h1
                 className={
                   item.style
