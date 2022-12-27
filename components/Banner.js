@@ -43,7 +43,7 @@ const Banner = ({ banner }) => {
 
   return (
     <div className="">
-      <div class="loader ">
+      <div class=" ">
         <div class="progress">
           <div class="progress-value"></div>
         </div>
