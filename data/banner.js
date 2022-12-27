@@ -23,7 +23,7 @@ const data = [
     slug: "about",
     heading: "INNOVATION INDEED !",
     paragraph: "",
-    image: cover,
+    image: cover.src,
     mobileImage: aboutmobile,
   },
   {
@@ -31,7 +31,7 @@ const data = [
     slug: "services",
     heading: "",
     paragraph: "",
-    image: servicebanner,
+    image: servicebanner.src,
     mobileImage: heroMobile,
     style:
       " font-bold text-6xl leading-[84px] text-center text-white tracking-[1px] w-3/4 text-center border",
@@ -41,7 +41,7 @@ const data = [
     slug: "technologies",
     heading: "",
     paragraph: "",
-    image: technologiesbanner,
+    image: technologiesbanner.src,
     mobileImage: heroMobile,
     style:
       " font-bold text-6xl leading-[84px] text-center text-white tracking-[1px] w-3/4 text-center border",
@@ -51,7 +51,7 @@ const data = [
     slug: "portfolio",
     heading: "",
     paragraph: "",
-    image: portfoliobanner,
+    image: portfoliobanner.src,
     mobileImage: heroMobile,
     style:
       " font-bold text-6xl leading-[84px] text-center text-white tracking-[1px] w-3/4 text-center border",
@@ -61,7 +61,7 @@ const data = [
     slug: "insights",
     heading: "",
     paragraph: "",
-    image: insightbanner,
+    image: insightbanner.src,
     mobileImage: heroMobile,
     style:
       " font-bold text-6xl leading-[84px] text-center text-white tracking-[1px] w-3/4 text-center border",
@@ -71,7 +71,7 @@ const data = [
     slug: "careers",
     heading: "",
     paragraph: "",
-    image: careerbanner,
+    image: careerbanner.src,
     mobileImage: heroMobile,
     style:
       " font-bold text-6xl leading-[84px] text-center text-white tracking-[1px] w-3/4 text-center border",
@@ -81,7 +81,7 @@ const data = [
     slug: "contact",
     heading: "",
     paragraph: "",
-    image: contactbanner,
+    image: contactbanner.src,
     mobileImage: heroMobile,
     style:
       " font-bold text-6xl leading-[84px] text-center text-white tracking-[1px] w-3/4 text-center border",
