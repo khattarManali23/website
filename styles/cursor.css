@@ -144,7 +144,7 @@ main .-content.-index > div {
   animation: load 3s normal forwards;
   box-shadow: 0 10px 40px -10px #fff;
   border-radius: 100px;
-  background: #fff;
+  background: rgb(167, 39, 39);
   height: 2px;
   width: 0;
 }
