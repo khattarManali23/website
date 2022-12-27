@@ -6,34 +6,34 @@ import React from "react";
 gsap.registerPlugin(CSSRulePlugin);
 
 const Banner = ({ banner }) => {
-  setTimeout(transition, 3000);
+  setTimeout(transition, 10);
 
   function transition() {
     var tl = new gsap.timeline();
 
     tl.to(
       CSSRulePlugin.getRule("body:before"),
-      0.4,
-      { cssRule: { top: "50%" }, ease: "Power2.easeIn" },
+      0.2,
+      { cssRule: { top: "50%" }, ease: "Power2.easeOut " },
       "close"
     )
       .to(
         CSSRulePlugin.getRule("body:after"),
-        0.4,
-        { cssRule: { bottom: "50%" }, ease: "Power2.easeIn" },
+        0.2,
+        { cssRule: { bottom: "50%" }, ease: "Power2.easeOut" },
         "close"
       )
       .to(document.querySelector(".loader"), 0.2, { opacity: 1 })
       .to(
         CSSRulePlugin.getRule("body:before"),
-        0.8,
+        0.2,
         { cssRule: { top: "0%" }, ease: "Power2.easeOut" },
         "+=1.5",
         "open"
       )
       .to(
         CSSRulePlugin.getRule("body:after"),
-        0.8,
+        0.2,
         { cssRule: { bottom: "0%" }, ease: "Power2.easeOut" },
         "-=0.2",
         "open"
@@ -42,11 +42,19 @@ const Banner = ({ banner }) => {
   }
 
   return (
-    <div>
+    <div className="">
+      <div class="loader ">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+        <div class="bar4"></div>
+        <div class="bar5"></div>
+        <div class="bar6"></div>
+      </div>
       {banner.map((item) => {
         return (
           <header
-            className="w-full h-screen  text-white flex flex-col justify-around items-center  relative img-gradient  -content -index"
+            className="w-full h-screen  text-white flex flex-col justify-around items-center  relative   -content -index"
             key={item.id}
             style={{
               backgroundImage: `url(${item.image})`,
@@ -55,7 +63,7 @@ const Banner = ({ banner }) => {
               backgroundRepeat: "no-repeat",
             }}
           >
-            <div className="z-0 absolute top-0 left-0 w-full h-full bg-cover bg-no-repeat hidden md:block border">
+            <div className="z-0 absolute top-0 left-0 w-full h-full bg-cover bg-no-repeat hidden md:block ">
               {/* <Image src={item.image} alt="image" layout="fill" /> */}
             </div>
             <div className="z-0 absolute top-0  left-0 w-full bg-cover bg-no-repeat flex md:hidden h-full ">

@@ -1,12 +1,12 @@
 import gsap from "gsap";
 import { CSSRulePlugin } from "gsap/dist/CSSRulePlugin";
-import girl from "../assets/girl.jpeg";
+import cover from "../assets/Hero.png";
 
 import React from "react";
 gsap.registerPlugin(CSSRulePlugin);
 
 const Splash = () => {
-  setTimeout(transition, 1000);
+  setTimeout(transition, 10);
 
   function transition() {
     var tl = new gsap.timeline();
@@ -43,7 +43,7 @@ const Splash = () => {
 
   return (
     <>
-      <div class="loader">
+      <div class="loader ">
         <div class="bar1"></div>
         <div class="bar2"></div>
         <div class="bar3"></div>
@@ -55,7 +55,7 @@ const Splash = () => {
       <main>
         <div class="-content -index">
           <div>
-            <img src={girl.src} class="object-cover w-full h-full" />
+            <img src={cover.src} alt="cover" />
           </div>
         </div>
       </main>

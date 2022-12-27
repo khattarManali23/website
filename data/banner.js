@@ -2,8 +2,8 @@ import aboutmobile from "../assets/aboutmobile.png";
 import careerbanner from "../assets/careerbanner.png";
 import contactbanner from "../assets/contactbanner.png";
 import cover from "../assets/cover.png";
+import banner from "../assets/Hero.png";
 import heroMobile from "../assets/Heromobile.png";
-import banner from "../assets/home.jpeg";
 import insightbanner from "../assets/insightbanner.png";
 import portfoliobanner from "../assets/portfoliobanner.png";
 import servicebanner from "../assets/servicebanner.png";
@@ -13,13 +13,10 @@ const data = [
   {
     id: 1,
     slug: "home",
-    heading: "Driving Innovation for Businesses",
-    paragraph:
-      "Brave automation solutions that optimize the present while taking care of the Future.",
+    heading: "",
+    paragraph: "",
     image: banner.src,
     mobileImage: heroMobile,
-    style:
-      " font-bold text-6xl leading-[88.52px] text-center  tracking-[2rem] w-3/4 text-center ",
   },
   {
     id: 2,
