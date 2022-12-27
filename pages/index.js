@@ -3,6 +3,7 @@ import "antd/dist/reset.css";
 import React from "react";
 import Banner from "../components/Banner";
 import CareerBanner from "../components/CareerBanner";
+import Clients from "../components/Clients";
 import Footer from "../components/Footer";
 import HomeAbout from "../components/HomeAbout";
 import Portfolio from "../components/Portfolio";
@@ -25,7 +26,7 @@ export default function Home() {
       <Services />
       <Portfolio />
       <CareerBanner />
-      {/* <Clients /> */}
+      <Clients />
       {/* <TimeLine /> */}
 
       <Footer />
