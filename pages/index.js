@@ -8,7 +8,6 @@ import HomeAbout from "../components/HomeAbout";
 import Portfolio from "../components/Portfolio";
 import Services from "../components/Services";
 import Technology from "../components/Technology";
-import TimeLine from "../components/TimeLine";
 import data from "../data/banner";
 const poppins = Poppins({
   weight: ["400"],
@@ -27,7 +26,7 @@ export default function Home() {
       <Portfolio />
       <CareerBanner />
       {/* <Clients /> */}
-      <TimeLine />
+      {/* <TimeLine /> */}
 
       <Footer />
     </div>

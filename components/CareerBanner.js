@@ -2,13 +2,28 @@ import React from "react";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import girl from "../assets/girl.jpeg";
+import line1 from "../assets/line1.png";
+import line2 from "../assets/line2.png";
 import career from "../data/career";
 
 const CareerBanner = () => {
   return (
     <div>
       <div id="hero" class="pt-5  hidden items-center sm:flex">
-        <div class="px-5 sm:px-2 md:px-10 md:flex lg:block lg:w-1/2 lg:max-w-4xl lg:mr-8 lg:px-20 event  h-full">
+        <div
+          class="px-5 sm:px-2 md:px-10 md:flex lg:block lg:w-1/2 lg:max-w-3xl  lg:mr-8 lg:px-20 relative  bg-transparent
+        z-999
+          "
+        >
+          <img
+            src={line1.src}
+            class="absolute -rotate-[66.31] -right-[10.5rem] -top-20"
+          />
+          <img
+            src={line2.src}
+            class="absolute  -rotate-[66.31] -right-[10.5rem] -bottom-20 "
+          />
+
           <div class="md:w-1/2 md:mr-10 lg:w-full lg:mr-0">
             <h1
               class="text-3xl xl:text-4xl font-black md:leading-none xl:leading-tight text-transparent bg-clip-text sm:py-4 py-2   leading-8   
@@ -91,12 +106,8 @@ const CareerBanner = () => {
             </Carousel>
           </div>
         </div>
-        <div class="mt-6 sm:hidden  md:hidden lg:block xl:block flex-1 lg:mt-0">
-          <img
-            class=""
-            src={girl.src}
-            className="object-cover w-[725px] h-[578px]"
-          />
+        <div class="mt-6 sm:hidden bg-transparent md:hidden lg:block xl:block flex-1  lg:mt-0">
+          <img class="" src={girl.src} className=" w-[725px] h-[578px]" />
         </div>
       </div>
       <div class="pt-5  flex-wrap flex items-center flex-col sm:hidden">

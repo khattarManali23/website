@@ -265,23 +265,24 @@ a {
   background: #08131a;
 
   display: block;
-  height: 90vh;
-  margin-left: 20px;
+  height: 50vh;
+  z-index: 10;
   position: relative;
   width: 70%;
   margin-bottom: 15px;
 }
 .event:after {
-  border-left: 150px solid #08131a;
+  border-left: 180px solid #08131a;
 
   background-color: transparent;
 
-  border-top: 290px solid transparent;
-  border-bottom: 290px solid transparent;
+  border-top: 360px solid transparent;
+  border-bottom: 360px solid transparent;
   content: "";
-  height: 0;
-  bottom: 0;
+  height: 0;  
+  bottom: -45%;
   right: -150px;
+
   position: absolute;
   width: 0;
 }
