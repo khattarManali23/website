@@ -1,5 +1,6 @@
 import { Poppins } from "@next/font/google";
 import { Progress } from "antd";
+import AOS from "aos";
 import React from "react";
 import a1 from "../assets/a1.jpeg";
 import a2 from "../assets/a2.jpeg";
@@ -11,6 +12,12 @@ const poppins = Poppins({
 });
 
 const HomeAbout = () => {
+  React.useEffect(() => {
+    AOS.init({
+      duration: 1000,
+    });
+  }, []);
+
   return (
     <div className="flex w-full justify-center flex-wrap  items-center">
       <div
@@ -45,7 +52,10 @@ const HomeAbout = () => {
                 We design brand, digital experience that engage the right
                 customers and As well as right business
               </p>
-              <div class="flex w-full  sm:w-3/5 justify-between items-center text-white">
+              <div
+                class="flex w-full  sm:w-3/5 justify-between items-center text-white"
+                data-aos="fade-right"
+              >
                 <Progress
                   percent={90}
                   trailColor="transparent"
