@@ -57,7 +57,7 @@ const Navbar = () => {
                     return (
                       <a
                         href={item.link}
-                        className="  text-white px-3 py-2 rounded-md text-sm font-medium"
+                        className="    text-white px-3 py-2 rounded-md text-sm font-medium"
                         key={index}
                       >
                         {item.name}
@@ -130,7 +130,7 @@ const Navbar = () => {
                   return (
                     <a
                       href={item.link}
-                      className=" text-white block px-3 py-2 rounded-md text-base font-medium"
+                      className="  text-white block px-3 py-2 rounded-md text-base font-medium"
                       key={index}
                     >
                       {item.name}
