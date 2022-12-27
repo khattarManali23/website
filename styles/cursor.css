@@ -74,12 +74,11 @@ body:after {
   opacity: 0;
 }
 .loader > div {
-  height: 100%;
-  width: 8px;
+  height: 1px;
+  width: 100%;
   display: inline-block;
   float: left;
   margin-left: 2px;
-  animation: delay 0.8s infinite ease-in-out;
 }
 .loader .bar1 {
   background-color: #754fa0;
@@ -128,25 +127,18 @@ main .-content.-index > div {
   vertical-align: middle;
 }
 /* progress */
+
 .progress {
-  background: rgba(255, 255, 255, 0.1);
   justify-content: flex-start;
-  border-radius: 100px;
   align-items: center;
-  position: relative;
-  padding: 0 5px;
+
   display: flex;
-  height: 40px;
-  width: 500px;
 }
 
 .progress-value {
-  animation: load 3s normal forwards;
-  box-shadow: 0 10px 40px -10px #fff;
-  border-radius: 100px;
-  background: rgb(167, 39, 39);
-  height: 2px;
-  width: 0;
+  animation: load 3s ease-in-out forwards;
+
+  background: linear-gradient(90deg, #ffb838, #f34f8c, #8236ba);
 }
 
 @keyframes load {
