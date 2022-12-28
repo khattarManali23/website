@@ -21,7 +21,7 @@ const HomeAbout = () => {
   return (
     <div className="flex w-full justify-center flex-wrap  items-center">
       <div
-        className="{
+        className={
           `text-center p-8  flex flex-col justify-center items-center ` +
           `${poppins.variable} font-sans`
         }
@@ -95,7 +95,7 @@ const HomeAbout = () => {
                 }}
                 // className="w-[380px] height-[657px] object-cover object-center
               />
-              <div className=">
+              <div className="">
                 <h2 className="font-medium mb-2 text-xl text-white my-2 leading-7 text-center">
                   800M + Downloads{" "}
                 </h2>
@@ -120,7 +120,7 @@ const HomeAbout = () => {
                 }}
                 // className="w-[380px] height-[657px] object-cover object-center
               />
-              <div className=">
+              <div className="">
                 <h2 className="font-medium mb-2 text-xl text-white my-2 leading-7 text-center">
                   750 + Projects Delivered
                 </h2>

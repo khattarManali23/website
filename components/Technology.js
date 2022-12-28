@@ -23,7 +23,7 @@ const Technology = () => {
   return (
     <div>
       <div
-        className="{
+        className={
           `text-center p-8  flex flex-col justify-center items-center ` +
           `${poppins.variable} font-sans`
         }
@@ -46,7 +46,7 @@ const Technology = () => {
       </div>
 
       <div
-        className="{`w-full  flex flex-wrap justify-items-center  justify-center gap-y-14 gap-x-6 mt-10 mb-5  `}
+        className={`w-full  flex flex-wrap justify-items-center  justify-center gap-y-14 gap-x-6 mt-10 mb-5  `}
       >
         {data.map((item, index) => {
           return (

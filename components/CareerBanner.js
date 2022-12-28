@@ -104,7 +104,7 @@ const CareerBanner = () => {
           </div>
         </div>
         <div className="mt-6 sm:hidden bg-transparent md:hidden lg:block xl:block flex-1  lg:mt-0">
-          <img className=" src={girl.src} className=" w-[725px] h-[578px]" />
+          <img className=" src={girl.src}" className=" w-[725px] h-[578px]" />
         </div>
       </div>
       <div className="pt-5  flex-wrap flex items-center flex-col sm:hidden">
@@ -178,7 +178,7 @@ const CareerBanner = () => {
               return (
                 <div className="h-[45rem]" key={index}>
                   <div className=" rounded overflow-hidden m-6 shadow-lg">
-                    <img className=" src={item.image} alt="Mountain" />
+                    <img src={item.image} alt="Mountain" />
                     <div className="px-6 py-4">
                       <div className="font-bold text-xl mb-2">{item.title}</div>
                       <p className="text-gray-700 text-base">{item.content}</p>
