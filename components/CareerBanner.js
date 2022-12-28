@@ -1,8 +1,6 @@
 import React from "react";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import line1 from "../assets/line1.png";
-import line2 from "../assets/line2.png";
 import career from "../data/career";
 
 const CareerBanner = () => {
@@ -14,14 +12,14 @@ const CareerBanner = () => {
         z-999
           "
         >
-          <img
+          {/* <img
             src={line1.src}
             className="absolute -rotate-[66.31] -right-[10.5rem] -top-20"
           />
           <img
             src={line2.src}
             className="absolute  -rotate-[66.31] -right-[10.5rem] -bottom-20 "
-          />
+          /> */}
 
           <div className="md:w-1/2 md:mr-10 lg:w-full lg:mr-0">
             <h1
