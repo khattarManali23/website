@@ -43,8 +43,8 @@ const Banner = ({ banner }) => {
 
   return (
     <div className="w-full h-full flex justify-center items-center flex-col relative">
-      <div class="progress loader w-full">
-        <div class="progress-value"></div>
+      <div className="progress loader w-full">
+        <div className="progress-value"></div>
       </div>
       {/* </div> */}
       {banner.map((item) => {

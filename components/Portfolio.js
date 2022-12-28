@@ -14,7 +14,7 @@ const Portfolio = () => {
   const images = [portfolio1, portfolio3, portfolio4, portfolio2];
   return (
     <div
-      className={
+      className="{
         `flex justify-center flex-col w-full h-full items-center flex-wrap ` +
         `${poppins.variable} font-sans`
       }

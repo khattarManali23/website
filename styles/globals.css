@@ -292,6 +292,20 @@ a {
   padding: 40px;
   left: 0;
 }
+.border-white{
+  /*border white with light shadow*/
+  color: #000;
+  font-weight: 600;
+font-size: 75px;
+line-height: 180px;
+
+   text-shadow: 
+     1px  1px     #fff, 
+    -1px  1px     #fff, 
+     1px -1px     #fff, 
+    -1px -1px     #fff,
+     1px  1px 5px #EEEEEE; 
+}
 
 .img-gradient {
   position: relative;

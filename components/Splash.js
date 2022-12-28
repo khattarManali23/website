@@ -43,17 +43,17 @@ const Splash = () => {
 
   return (
     <>
-      <div class="loader ">
-        <div class="bar1"></div>
-        <div class="bar2"></div>
-        <div class="bar3"></div>
-        <div class="bar4"></div>
-        <div class="bar5"></div>
-        <div class="bar6"></div>
+      <div className="loader ">
+        <div className="bar1"></div>
+        <div className="bar2"></div>
+        <div className="bar3"></div>
+        <div className="bar4"></div>
+        <div className="bar5"></div>
+        <div className="bar6"></div>
       </div>
 
       <main>
-        <div class="-content -index">
+        <div className="-content -index">
           <div>
             <img src={cover.src} alt="cover" />
           </div>
