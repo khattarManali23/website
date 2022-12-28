@@ -1,4 +1,5 @@
 import React from "react";
+import bloghero from "../../assets/bloghero.jpeg";
 import BlogCard from "../../components/BlogCard";
 
 const Blog = () => {
@@ -25,7 +26,6 @@ const Blog = () => {
         "
         >
           <img
-            className="
             src={bloghero.src}
             className=" 
             h-[420px] w-4/6
@@ -37,7 +37,7 @@ const Blog = () => {
           />
         </div>
         <div className="px-5 sm:px-10   md:px-10 md:flex lg:block lg:w-1/2 lg:max-w-3xl ">
-          <div className=">
+          <div className="">
             <h1 className=" sm:text-[40px] text-2xl sm:text-left  text-center leading-[60px] font-semibold">
               About An Incident
             </h1>
