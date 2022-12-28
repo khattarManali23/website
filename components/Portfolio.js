@@ -8,8 +8,10 @@ import Mansory from "./Mansory";
 const poppins = Poppins({
   weight: ["400"],
   style: ["normal"],
+  subsets: ["latin"],
   variable: "--font-poppins",
 });
+
 const Portfolio = () => {
   const images = [portfolio1, portfolio3, portfolio4, portfolio2];
   return (

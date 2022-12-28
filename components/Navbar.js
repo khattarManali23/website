@@ -10,6 +10,7 @@ import Mobilelogo from "../public/images/Mobilelogo.png";
 const poppins = Poppins({
   weight: ["400"],
   style: ["normal"],
+  subsets: ["latin"],
   variable: "--font-poppins",
 });
 

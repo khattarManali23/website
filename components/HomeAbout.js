@@ -8,6 +8,7 @@ import a2 from "../assets/a2.jpeg";
 const poppins = Poppins({
   weight: ["400"],
   style: ["normal"],
+  subsets: ["latin"],
   variable: "--font-poppins",
 });
 

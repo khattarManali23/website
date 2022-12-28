@@ -1,6 +1,7 @@
 import React from "react";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
+import girl from "../assets/girl.jpeg";
 import career from "../data/career";
 
 const CareerBanner = () => {
@@ -104,7 +105,7 @@ const CareerBanner = () => {
           </div>
         </div>
         <div className="mt-6 sm:hidden bg-transparent md:hidden lg:block xl:block flex-1  lg:mt-0">
-          <img className=" src={girl.src}" className=" w-[725px] h-[578px]" />
+          <img src={girl.src} className=" w-[725px] h-[578px]" />
         </div>
       </div>
       <div className="pt-5  flex-wrap flex items-center flex-col sm:hidden">

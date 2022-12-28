@@ -8,6 +8,7 @@ import data from "../../data/banner";
 const poppins = Poppins({
   weight: ["500"],
   style: ["normal"],
+  subsets: ["latin"],
   variable: "--font-poppins",
 });
 

@@ -10,6 +10,7 @@ import data from "../data/technology";
 const poppins = Poppins({
   weight: ["400"],
   style: ["normal"],
+  subsets: ["latin"],
   variable: "--font-poppins",
 });
 

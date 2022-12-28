@@ -13,7 +13,6 @@ const Portfolio = () => {
   const images = [portfolio1, portfolio3, portfolio4, portfolio2, portfolio5];
 
   const banner = data.filter((item) => item.slug === "portfolio");
-  console.log("cc", images);
 
   return (
     <div>
