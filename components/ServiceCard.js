@@ -3,12 +3,12 @@ import services from "../data/domain";
 
 const ServiceCard = () => {
   return (
-    <div className="flex justify-center flex-wrap border  w-full">
+    <div className="flex justify-center flex-wrap   w-full">
       {services.map((service, i) => {
         return (
           <div
             key={i}
-            className="flex justify-around items-center border flex-wrap flex-col mx-4  sm:w-56 w-36 my-4 "
+            className="flex justify-around items-center  flex-wrap flex-col mx-4  sm:w-56 w-36 my-4 "
           >
             <div class="p-8 mx-8 flex items-center justify-around bg-[#121A21] rounded-full">
               <img

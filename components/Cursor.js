@@ -21,8 +21,6 @@ const Cursor = () => {
     setPosition({ x: e.pageX, y: e.pageY });
   };
 
-  console.log(position.x);
-
   return (
     <div>
       <div
