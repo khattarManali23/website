@@ -9,6 +9,8 @@ import { useGetAllCategories } from "src/services/categoryServices";
 import { MOBILE_NAVBAR_LINKS } from "../../data/app-data-links";
 
 export default function MobileSidebar() {
+  const { push } = useRouter();
+
   const [state, setState] = useState({
     left: false,
   });
@@ -41,7 +43,23 @@ export default function MobileSidebar() {
     >
       <Box className="pr-2">
         {categoriesData?.map((item, index) => {
-          return <CategoryAccordion key={index} item={item} />;
+          return (
+            <>
+              <div
+                className="py-1 m-0"
+                key={index}
+                onClick={toggleDrawer(anchor, false)}
+              >
+                <p
+                  className="m-0 flex items-center px-5 h-10 text-sm uppercase text-[#3e4152]"
+                  onClick={() => push(`/news/${item?.slug}`)}
+                >
+                  {item?.name}
+                </p>
+                <Divider />
+              </div>
+            </>
+          );
         })}
       </Box>
       {MOBILE_NAVBAR_LINKS?.map((item, index) => {
@@ -82,19 +100,3 @@ export default function MobileSidebar() {
     </div>
   );
 }
-
-export const CategoryAccordion = ({ item }) => {
-  const { push } = useRouter();
-
-  return (
-    <div className="py-1 m-0">
-      <p
-        className="m-0 flex items-center px-5 h-10 text-sm uppercase text-[#3e4152]"
-        onClick={() => push(`/news/${item?.slug}`)}
-      >
-        {item?.name}
-      </p>
-      <Divider />
-    </div>
-  );
-};
