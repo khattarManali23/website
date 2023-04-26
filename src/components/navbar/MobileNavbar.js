@@ -1,5 +1,6 @@
 // import { useState } from 'react'
 import Image from "next/image";
+import Link from "next/link";
 import Router, { useRouter } from "next/router";
 import Logo from "src/assets/svg/Screenshotlogo.png";
 import MobileSideBar from "./MobileSideBar";
@@ -36,13 +37,15 @@ export default function MobileNavbar() {
           </div>
 
           <div className="flex items-end">
-            <div className="hover:cursor-pointer mr-[8vh] flex justify-center top-0 left-0 w-full">
-              <Image
-                alt="Picture of the author"
-                src={Logo}
-                width={80}
-                height={42}
-              />
+            <div className="mr-[8vh] flex justify-center top-0 left-0 w-full">
+              <Link className="cursor-pointer" href="/">
+                <Image
+                  alt="Picture of the author"
+                  src={Logo}
+                  width={80}
+                  height={42}
+                />
+              </Link>
             </div>
           </div>
           <div />
