@@ -277,36 +277,41 @@ input[type='search']::-webkit-search-cancel-button {
 
 @media only screen and (min-width: 1536px) and (max-width: 183600000px) {
   .container {
-    max-width: 1430px !important
+    max-width: 1430px !important;
   }
 }
 
 .css-j1djrx-MuiFormControl-root-MuiTextField-root .MuiOutlinedInput-root {
-  border-radius: 0px!important
+  border-radius: 0px!important;
 }
 
 .css-wvyftd-MuiInputBase-root-MuiOutlinedInput-root {
-  border-radius: 0px!important
+  border-radius: 0px!important;
 }
 .css-8o4j5t-MuiButtonBase-root-MuiButton-root-MuiLoadingButton-root {
-  border-radius: 0px!important
+  border-radius: 0px!important;
 }
-
+.css-2szzv2-MuiFormControl-root-MuiTextField-root .MuiOutlinedInput-root {
+  border-radius: 0px!important;
+}
+.css-8goslc-MuiButtonBase-root-MuiButton-root-MuiLoadingButton-root{
+  border-radius: 0px!important;
+}
 .css-j1djrx-MuiFormControl-root-MuiTextField-root .MuiInputLabel-root.Mui-focused{
-  color:rgb(238 2 2);
+  color:rgb(238 2 2)!important;
 }
 .css-2szzv2-MuiFormControl-root-MuiTextField-root .MuiInputLabel-root.Mui-focused{
-  color:rgb(238 2 2);
+  color:rgb(238 2 2)!important;
 }
 
 .css-u130qk-MuiInputBase-root-MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline{
-  border-width:2px;
-  border-color: rgb(238 2 2);
+  border-width:2px!important;
+  border-color: rgb(238 2 2)!important;
 }
 
 .css-wvyftd-MuiInputBase-root-MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline{
-  border-width:2px;
-  border-color: rgb(238 2 2);
+  border-width:2px!important;
+  border-color: rgb(238 2 2)!important;
 }
 
 

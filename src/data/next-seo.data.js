@@ -15,7 +15,7 @@ const GlobalSEO = {
       locale: "en_IE",
       url: SITE_URL,
       site_name: SITE_NAME,
-      title: "Welcome to Robot Power Tools: High Quality Power Tools",
+      title: "Welcome to vande rashtra",
       description:
         "Welcome to the homepage of Website Robot Power Tools! Check out our selection of the latest products and services that are available to you. Visit us today for more information and to make your purchase.",
       images: [
