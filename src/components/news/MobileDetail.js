@@ -2,17 +2,27 @@ import { Box, Grid, Skeleton } from "@mui/material";
 import moment from "moment";
 import Image from "next/image";
 import { useRouter } from "next/router";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { BsInstagram, BsTwitter, BsWhatsapp } from "react-icons/bs";
 import { FaFacebookF } from "react-icons/fa";
 import { useGetAllAdvertisement } from "src/services/advertisementServices";
+import { useGetAllCategories } from "src/services/categoryServices";
 import { useGetAllNews } from "src/services/news";
 import PicOne from "../../assets/svg/Screenshot.png";
 import { NewsDetail } from "../../data/NewsDetail";
 import { FadeIn } from "../animate";
 import { AppCarousel, ErrorScreen } from "../basics";
+import CategoriesBaseCard from "../home/CategoriesBaseCard";
 
-const Details = ({ oneNewsData = {}, OneNewsIsLoading, setpageLoading }) => {
+const DesktopDetail = ({
+  oneNewsData = {},
+  OneNewsIsLoading,
+  setpageLoading,
+}) => {
+  const { push } = useRouter();
+  const [scrolled, setScrolled] = useState(false);
+  const [openTab, setOpenTab] = useState("Home");
+
   const {
     title,
     descriptions,
@@ -28,22 +38,95 @@ const Details = ({ oneNewsData = {}, OneNewsIsLoading, setpageLoading }) => {
     isError: newsError,
   } = useGetAllNews();
 
+  const {
+    data: categoriesAllData,
+    isLoading: categoriesLoading,
+    isError: categoriesError,
+  } = useGetAllCategories();
+
+  const changeNavbarShadow = () => {
+    if (window.scrollY >= 63) {
+      setScrolled(true);
+    } else {
+      setScrolled(false);
+    }
+  };
+
   useEffect(() => {
-    if (!newsAllLoading) {
+    if (!newsAllLoading && !categoriesLoading) {
       setpageLoading(false);
     }
-  }, [newsAllLoading]);
+  }, [newsAllLoading, categoriesLoading]);
+
+  useEffect(() => {
+    window.addEventListener("scroll", changeNavbarShadow);
+  }, [scrolled]);
 
   let relatedNews = newsAllData?.filter(
     (item) => item?.categorySlug == categorySlug
   );
 
-  const sliceRelatedNews = relatedNews?.slice(0, 5);
+  if (newsError || categoriesError) return <ErrorScreen />;
 
-  if (newsError) return <ErrorScreen />;
+  const filterCardData = (slug) => {
+    push(`/news/${slug}`);
+  };
 
   return (
     <>
+      <div
+        className={`
+             ${
+               scrolled === true
+                 ? `top-0 sticky shadow-shadow-primary scroll-smooth`
+                 : `top-40`
+             }
+              bg-white py-2
+              z-20`}
+      >
+        <div className="mx-4">
+          <div
+            className="flex flex-row
+             gap-y-2 overflow-scroll"
+          >
+            <div
+              className={`flex justify-center text-sm items-center font-medium
+                 ${
+                   openTab == "Home"
+                     ? "tab_button_active py-2 px-4"
+                     : "tab_button py-2 px-4"
+                 }`}
+            >
+              Home
+            </div>
+
+            {categoriesAllData?.map((item, index) => {
+              return (
+                <>
+                  {categoriesLoading ? (
+                    <div className="">
+                      <Skeleton className="h-10 w-20 mx-3" />
+                    </div>
+                  ) : (
+                    <div
+                      key={index}
+                      onClick={() => filterCardData(item?.slug)}
+                      className={`flex justify-center text-sm items-center font-medium ${
+                        openTab == item?.slug
+                          ? "tab_button_active  py-2 px-4"
+                          : "tab_button py-2 px-4"
+                      }`}
+                    >
+                      <span className="">{item?.name}</span>
+                    </div>
+                  )}
+                </>
+              );
+            })}
+          </div>
+        </div>
+      </div>
+
       <Grid container>
         <Grid item lg={12} sm={12} xs={12}>
           {OneNewsIsLoading ? (
@@ -69,7 +152,6 @@ const Details = ({ oneNewsData = {}, OneNewsIsLoading, setpageLoading }) => {
           )}
         </Grid>
       </Grid>
-
       <div className="mx-auto my-10 container">
         <div class="grid lg:grid-cols-7 md:grid-cols-1 sm:grid-cols-1 grid-cols-1 md:gap-8 lg:gap-8">
           <div
@@ -149,6 +231,35 @@ const Details = ({ oneNewsData = {}, OneNewsIsLoading, setpageLoading }) => {
               );
             })}
 
+            <div
+              className="text-lg font-semibold
+                    leading-6 tracking-normal
+                     md:text-xl md:leading-7 capitalize mt-[15px]"
+            >
+              Tags
+            </div>
+
+            {OneNewsIsLoading ? (
+              <Skeleton
+                className="h-10 w-20 md:h-12 md:w-28 mt-[10px]"
+                variant="rectangular"
+              />
+            ) : (
+              <>
+                {seoTags?.map((item, index) => {
+                  return (
+                    <div
+                      key={index}
+                      className="relative mr-2 mb-2 inline-block bg-slate-100 mt-[10px]
+                         px-3 py-2 align-top text-sm capitalize text-gray opacity-60 "
+                    >
+                      {item}
+                    </div>
+                  );
+                })}
+              </>
+            )}
+
             <Box className="flex items-center py-4">
               <div className="">
                 <a
@@ -208,26 +319,28 @@ const Details = ({ oneNewsData = {}, OneNewsIsLoading, setpageLoading }) => {
 
           <div className="lg:col-span-2 md:px-0 px-4 mt-6 md:mt-0 ">
             <OtherData
-              newsAllData={sliceRelatedNews}
-              seoTags={seoTags}
+              newsAllData={relatedNews}
               setpageLoading={setpageLoading}
               newsAllLoading={newsAllLoading}
-              OneNewsIsLoading={OneNewsIsLoading}
             />
           </div>
         </div>
       </div>
+      <div className="mt-[-20px]">
+        <CategoriesBaseCard
+          cardData={relatedNews}
+          newsLoading={newsAllLoading}
+        />
+      </div>
     </>
   );
 };
-export default Details;
+export default DesktopDetail;
 
 export const OtherData = ({
   newsAllData = [],
-  seoTags,
   setpageLoading,
   newsAllLoading,
-  OneNewsIsLoading,
 }) => {
   const { push } = useRouter();
   const {
@@ -253,6 +366,7 @@ export const OtherData = ({
   const handlepush = (id) => {
     push(`/news/detail/${id}`);
   };
+
   return (
     <Box>
       <Box>
@@ -293,103 +407,9 @@ export const OtherData = ({
         <div
           className="text-lg font-semibold
                     leading-6 tracking-normal
-                     md:text-xl md:leading-7 capitalize mt-[15px]"
+                     md:text-xl md:leading-7 capitalize mt-[15px] text-start"
         >
           other post
-        </div>
-
-        <div className="relative mt-4 ">
-          {newsAllData?.map((item, index) => {
-            return (
-              <div key={index} onClick={() => handlepush(item?._id)}>
-                <div className="relative flex  hover:cursor-pointer hoverline md:mb-8 mb-4">
-                  <div className="relative mr-2.5 md:h-28 md:w-28 h-20 w-20 shrink-0 animate-opacityAnimation overflow-hidden">
-                    {newsAllLoading ? (
-                      <Skeleton
-                        className="h-full w-full"
-                        variant="rectangular"
-                      />
-                    ) : (
-                      <Image
-                        fill
-                        src={item?.attach_file}
-                        alt="logo"
-                        className="h-full w-full object-cover"
-                      />
-                    )}
-                  </div>
-
-                  <div className="w-full">
-                    {newsAllLoading ? (
-                      <div>
-                        <Skeleton
-                          className="h-4 w-full my-2"
-                          variant="rectangular"
-                        />
-                        <Skeleton
-                          className="h-4 w-full my-2"
-                          variant="rectangular"
-                        />
-                        <Skeleton
-                          className="h-4 w-3/4 my-2"
-                          variant="rectangular"
-                        />
-
-                        <Skeleton
-                          className="h-4 w-1/2 mt-6"
-                          variant="rectangular"
-                        />
-                      </div>
-                    ) : (
-                      <>
-                        <div className="flex md:text-justify w-full text-left">
-                          <a className="text-lg capitalize h-[88px] overflow-hidden">
-                            <span className="underlinehead font-bold">
-                              {item?.title}
-                            </span>
-                          </a>
-                        </div>
-                        <div className="text-slate-500 md:mt-4 mt-2">
-                          <h6 className="text-sm m-0  font-thin">
-                            By &nbsp; axilthemes
-                          </h6>
-                        </div>
-                      </>
-                    )}
-                  </div>
-                </div>
-              </div>
-            );
-          })}
-
-          <div
-            className="text-lg font-semibold
-                    leading-6 tracking-normal
-                     md:text-xl md:leading-7 capitalize mt-[15px]"
-          >
-            Tags
-          </div>
-
-          {OneNewsIsLoading ? (
-            <Skeleton
-              className="h-10 w-20 md:h-12 md:w-28 mt-[10px]"
-              variant="rectangular"
-            />
-          ) : (
-            <>
-              {seoTags?.map((item, index) => {
-                return (
-                  <div
-                    key={index}
-                    className="relative mr-2 mb-2 inline-block bg-slate-200 mt-[10px]
-                         px-3 py-2 align-top text-sm capitalize text-gray opacity-60 border border-slate-400"
-                  >
-                    {item}
-                  </div>
-                );
-              })}
-            </>
-          )}
         </div>
       </Box>
     </Box>

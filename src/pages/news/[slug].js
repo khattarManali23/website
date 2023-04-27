@@ -187,7 +187,7 @@ export default function NewsPage({ setpageLoading }) {
                       onClick={() => filterAllData()}
                       className="flex justify-center text-sm items-center tab_button py-2 px-4"
                     >
-                      All
+                      Home
                     </div>
                     {categoriesAllData?.map((item, index) => {
                       return (
@@ -216,17 +216,8 @@ export default function NewsPage({ setpageLoading }) {
                 </div>
               </div>
 
-              <div className="relative flex w-full">
-                <div className="flex-auto">
-                  <div className="justify-center">
-                    <div className="flex flex-col justify-center w-full">
-                      <CategoriesBaseCard
-                        cardData={data}
-                        newsLoading={isLoading}
-                      />
-                    </div>
-                  </div>
-                </div>
+              <div className="flex flex-col justify-center w-full">
+                <CategoriesBaseCard cardData={data} newsLoading={isLoading} />
               </div>
             </div>
           </div>

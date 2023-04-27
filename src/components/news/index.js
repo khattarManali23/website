@@ -1,1 +1,2 @@
-export { default as NewsDetail } from "./NewsDetail";
+export { default as DesktopDetail } from "./DesktopDetail";
+export { default as MobileDetail } from "./MobileDetail";

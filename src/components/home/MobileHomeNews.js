@@ -11,7 +11,7 @@ export default function NewsPage({
   categoriesLoading,
 }) {
   const { push } = useRouter();
-  const [openTab, setOpenTab] = useState("All");
+  const [openTab, setOpenTab] = useState("Home");
   const [scrolled, setScrolled] = useState(false);
   const [cardData, setCardData] = useState([]);
 
@@ -57,12 +57,12 @@ export default function NewsPage({
                   <div
                     className={`flex justify-center text-sm items-center font-medium
                  ${
-                   openTab == "All"
+                   openTab == "Home"
                      ? "tab_button_active py-2 px-4"
                      : "tab_button py-2 px-4"
                  }`}
                   >
-                    All
+                    Home
                   </div>
 
                   {categories?.map((item, index) => {
@@ -92,17 +92,11 @@ export default function NewsPage({
               </div>
             </div>
 
-            <div className="relative flex w-full">
-              <div className="flex-auto">
-                <div className="justify-center">
-                  <div className="flex flex-col justify-center w-full">
-                    <CategoriesBaseCard
-                      cardData={cardData}
-                      newsLoading={newsLoading}
-                    />
-                  </div>
-                </div>
-              </div>
+            <div className="flex flex-col justify-center w-full">
+              <CategoriesBaseCard
+                cardData={cardData}
+                newsLoading={newsLoading}
+              />
             </div>
           </div>
         </div>

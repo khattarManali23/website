@@ -2,7 +2,7 @@ import { useRouter } from "next/router";
 import { useEffect } from "react";
 import { FadeRight } from "src/components/animate";
 import { ErrorScreen } from "src/components/basics";
-import { NewsDetail } from "src/components/news";
+import { DesktopDetail, MobileDetail } from "src/components/news";
 import { useGetOneNewsById } from "src/services/news";
 
 const NewsDetailPage = ({ setpageLoading }) => {
@@ -21,11 +21,25 @@ const NewsDetailPage = ({ setpageLoading }) => {
   return (
     <>
       <FadeRight durationTime={"1s"}>
-        <NewsDetail
-          oneNewsData={data}
-          OneNewsIsLoading={OneNewsIsLoading}
-          setpageLoading={setpageLoading}
-        />
+        {/* desktop view */}
+        <div className="md:block hidden">
+          <DesktopDetail
+            oneNewsData={data}
+            OneNewsIsLoading={OneNewsIsLoading}
+            setpageLoading={setpageLoading}
+          />
+        </div>
+      </FadeRight>
+
+      <FadeRight durationTime={"1s"}>
+        {/* mobile view */}
+        <div className="md:hidden">
+          <MobileDetail
+            oneNewsData={data}
+            OneNewsIsLoading={OneNewsIsLoading}
+            setpageLoading={setpageLoading}
+          />
+        </div>
       </FadeRight>
     </>
   );
