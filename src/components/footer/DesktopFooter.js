@@ -127,11 +127,26 @@ const DesktopFooter = ({ setpageLoading }) => {
             </li>
           </ul>
 
-          <div className="text-[#cecece] text-lg mt-0 mb-[20px]">
-            Copyright &copy; 2022 News and Magazine WordPress Theme by{" "}
-            <a target="_blank" href="#">
-              Axilthemes
-            </a>
+          <div className="flex justify-between items-center ">
+            <div className="text-[#cecece] text-lg mt-0 mb-[20px]">
+              Copyright &copy; 2023 News and Magazine WordPress Theme by{" "}
+              <a target="_blank" href="#">
+                Axilthemes
+              </a>
+            </div>
+
+            <div className="text-[#cecece] text-lg mt-0 mb-[20px]">
+              <span> Powered By&nbsp;</span>{" "}
+              <span>
+                <a
+                  target="_blank"
+                  rel="noreferrer"
+                  href="https://www.technolitics.com/"
+                >
+                  Technolitics
+                </a>
+              </span>
+            </div>
           </div>
         </div>
       </div>
