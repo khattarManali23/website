@@ -77,7 +77,7 @@ const NewsDetailPage = ({ setpageLoading, news }) => {
 export default NewsDetailPage;
 
 async function getNewsId(id) {
-  const res = await api.get(`/newsmanagement/one/${id}`);
+  const res = await api.get(`newsmanagement/oneBySlug/${id}`);
   return res;
 }
 
