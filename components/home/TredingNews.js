@@ -39,7 +39,7 @@ function TredingNews() {
                     />
                   </div>
                 </a>
-                <div class="px-6 w-full h-full border-2 border-red-900 py-4">
+                <div class="px-6 w-full h-full py-4">
                   <div className="w-1/2">
                     <div class=" bg-indigo-600 px-4 py-2 text-white text-lg  text-center  hover:bg-white hover:text-indigo-600 transition duration-500 ease-in-out">
                       {item?.categorySlug}
