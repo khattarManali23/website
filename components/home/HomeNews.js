@@ -120,7 +120,7 @@ export default function HomeNews({ newsAllData = [], newsLoading }) {
                         <div className="w-fit ">
                           <div
                             className="px-[0.4rem] py-1 font-sm w-fit
-                                  font-semibold text-md text-white flex text-center justify-center cursor-pointer font-sans capitalize"
+                                  font-semibold text-sm text-white flex text-center justify-center cursor-pointer font-sans capitalize"
                             style={{
                               backgroundColor:
                                 index % 2 == 0
@@ -142,7 +142,7 @@ export default function HomeNews({ newsAllData = [], newsLoading }) {
                           onClick={() => handlepush(item?._id)}
                         >
                           <a
-                            className={` text-xl leading-8 font-bold font-sans tracking-wide  overflow-hidden `}
+                            className={` text-sm leading-8 font-bold font-sans tracking-wide  overflow-hidden `}
                           >
                             <span className="">
                               {item?.title.split(" ").length > 23
