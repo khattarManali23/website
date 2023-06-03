@@ -3,9 +3,13 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import { TbBrandWhatsapp } from "react-icons/tb";
 import Share from "../../assets/svg/share";
+import { useGetWhatsappLink } from "../../services/whatsappService";
 
 export default function CategoriesBaseCard({ cardData = [], newsLoading }) {
   const { push } = useRouter();
+  const { data, isLoading, isError } = useGetWhatsappLink();
+  if (isLoading || isError) return null;
+  console.log(data, "data");
 
   const handleOnClick = () => {
     try {
@@ -146,10 +150,14 @@ export default function CategoriesBaseCard({ cardData = [], newsLoading }) {
                         </h3>
                       </div>
                       <div>
-                        <h3 className="my-0 flex text-lg items-center text-[#212b36d1]">
+                        <a
+                          href={data[0]?.link}
+                          target="_blank"
+                          className="my-0 flex text-lg items-center border-2 border-red-900 text-[#212b36d1]"
+                        >
                           Join Group
                           <TbBrandWhatsapp className="ml-1" color="#212b36d1" />
-                        </h3>
+                        </a>
                       </div>
                     </div>
                   </div>
