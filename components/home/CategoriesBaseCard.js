@@ -11,29 +11,6 @@ export default function CategoriesBaseCard({ cardData = [], newsLoading }) {
   if (isLoading || isError) return null;
   console.log(data, "data");
 
-  const handleOnClick = () => {
-    try {
-      if (navigator.share) {
-        navigator
-          .share({
-            // title: "`${postTitle} | ${siteTitle}`,",
-            // text: `Check out ${postTitle} on ${siteTitle}`,
-            title: "Share via",
-            text: `Nearby Share`,
-            url: document.location.href,
-          })
-          .then(() => {
-            alert("Successfully shared");
-          })
-          .catch((error) => {
-            alert("Something went wrong sharing the blog", error);
-          });
-      }
-    } catch (err) {
-      alert("catch error", err);
-    }
-  };
-
   return (
     <>
       <div className="flex justify-center w-full text-center">
@@ -108,8 +85,8 @@ export default function CategoriesBaseCard({ cardData = [], newsLoading }) {
                           className="flex text-left w-full"
                           onClick={() => push(`/news/detail/${item?._id}`)}
                         >
-                          <a className="link text-xl font-bold mt-3.5 h-[62px] overflow-hidden cursor-pointer">
-                            <span className="underlinehead">{item.title}</span>
+                          <a className=" text-xl font-bold mt-3.5 h-[62px] overflow-hidden cursor-pointer">
+                            <span className="">{item.title}</span>
                           </a>
                         </div>
                       )}
@@ -139,11 +116,17 @@ export default function CategoriesBaseCard({ cardData = [], newsLoading }) {
                       )}
                     </div>
 
-                    <div className="flex justify-between items-center px-4">
+                    {/* <div className="flex justify-between items-center px-4">
                       <div>
                         <h3
                           className="my-0 flex text-lg items-center text-[#212b36d1]"
-                          onClick={() => handleOnClick()}
+                          onClick={() => 
+                            navigator.clipboard.writeText(
+
+                              
+                            )
+                          }
+
                         >
                           Share &nbsp;
                           <Share />
@@ -159,7 +142,7 @@ export default function CategoriesBaseCard({ cardData = [], newsLoading }) {
                           <TbBrandWhatsapp className="ml-1" color="#212b36d1" />
                         </a>
                       </div>
-                    </div>
+                    </div> */}
                   </div>
                 </article>
               );

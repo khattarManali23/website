@@ -13,7 +13,7 @@ const NewsDetailPage = ({ setpageLoading, news }) => {
   const { query } = useRouter();
   const id = query?.id;
   const { data, isLoading: OneNewsIsLoading, isError } = useGetOneNewsById(id);
-  console.log(data, "link data");
+
   useEffect(() => {
     if (!OneNewsIsLoading) {
       setpageLoading(false);
@@ -88,8 +88,8 @@ export async function getStaticPaths() {
   const paths = data.map((news) => ({
     params: { id: news._id },
   }));
-  console.log(paths, "paths");
-  return { paths, fallback: false };
+
+  return { paths, fallback: true };
 }
 
 export async function getStaticProps({ params }) {

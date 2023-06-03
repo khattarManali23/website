@@ -42,8 +42,8 @@ export default function HomeNews({ newsAllData = [], newsLoading }) {
               </div>
 
               <div className="flex text-left w-full">
-                <a className="link text-3xl font-bold my-3.5 leading-10   tracking-wide  overflow-hidden ">
-                  <span className="underlinehead">{newsAllData[0]?.title}</span>
+                <a className=" text-3xl font-bold my-3.5 leading-10   tracking-wide  overflow-hidden ">
+                  <span className="">{newsAllData[0]?.title}</span>
                 </a>
               </div>
 
@@ -142,9 +142,9 @@ export default function HomeNews({ newsAllData = [], newsLoading }) {
                           onClick={() => handlepush(item?._id)}
                         >
                           <a
-                            className={`link text-xl leading-8 font-bold font-sans tracking-wide  overflow-hidden `}
+                            className={` text-xl leading-8 font-bold font-sans tracking-wide  overflow-hidden `}
                           >
-                            <span className="underlinehead">
+                            <span className="">
                               {item?.title.split(" ").length > 23
                                 ? item?.title
                                     .split(" ")

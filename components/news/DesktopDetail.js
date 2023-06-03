@@ -404,9 +404,7 @@ export const OtherData = ({
                       <>
                         <div className="flex md:text-justify w-full text-left">
                           <a className="text-lg capitalize h-[88px] overflow-hidden">
-                            <span className="underlinehead font-bold">
-                              {item?.title}
-                            </span>
+                            <span className=" font-bold">{item?.title}</span>
                           </a>
                         </div>
                         <div className="text-slate-500 md:mt-4 mt-2">

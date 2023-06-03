@@ -7,6 +7,7 @@ import { useGetAllNews } from "../../services/news";
 import { FadeIn } from "../animate";
 
 import { ErrorScreen } from "../basics";
+import TredingNews from "./TredingNews";
 
 const DynamicHomeNews = dynamic(() => import("./HomeNews"));
 const DynamicMobileHomeNews = dynamic(() => import("./MobileHomeNews"));
@@ -55,6 +56,7 @@ export default function HomePage({ setpageLoading }) {
           />
         </FadeIn>
       </div>
+      <TredingNews />
     </div>
   );
 }
