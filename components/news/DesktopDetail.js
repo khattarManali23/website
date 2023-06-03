@@ -3,7 +3,7 @@ import moment from "moment";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
-import { BsInstagram, BsTwitter, BsWhatsapp } from "react-icons/bs";
+import { BsFacebook, BsInstagram, BsTwitter, BsWhatsapp } from "react-icons/bs";
 import { FaFacebookF } from "react-icons/fa";
 import { useGetAllAdvertisement } from "../../services/advertisementServices";
 import { useGetAllNews } from "../../services/news";
@@ -11,6 +11,13 @@ import PicOne from "../../assets/svg/Screenshot.png";
 import { NewsDetail } from "../../data/NewsDetail";
 import { FadeIn } from "../animate";
 import { AppCarousel, ErrorScreen } from "../basics";
+import {
+  FacebookShareButton,
+  InstagramShareButton,
+  InstapaperShareButton,
+  TwitterShareButton,
+  WhatsappShareButton,
+} from "react-share";
 
 const DesktopDetail = ({
   oneNewsData = {},
@@ -31,6 +38,9 @@ const DesktopDetail = ({
     isLoading: newsAllLoading,
     isError: newsError,
   } = useGetAllNews();
+  const router = useRouter();
+  const currentUrl = router.asPath;
+  console.log(currentUrl, "currentUrl");
 
   useEffect(() => {
     if (!newsAllLoading) {
@@ -225,45 +235,23 @@ const DesktopDetail = ({
             )}
 
             <Box className="flex items-center py-4">
-              <div className="">
-                <a
-                  target={"_blank"}
-                  rel="noreferrer"
-                  // href={`https://www.facebook.com/sharer.php?u=${socialSharePath}`}
-                >
-                  <button className="cursor-poinetr mr-3 inline-flex items-center space-x-2 bg-[#4080FF] p-4 md:p-5 font-semibold text-white">
-                    <FaFacebookF size={20} />
-                  </button>
-                </a>
-                <a
-                  target={"_blank"}
-                  rel="noreferrer"
-                  // href={`https://api.whatsapp.com/send?text=${socialSharePath}`}
-                >
-                  <button className="cursor-poinetr mr-3 inline-flex items-center space-x-2 bg-[#4fce5d] p-4 md:p-5 font-semibold text-white">
-                    <BsWhatsapp size={20} />
-                  </button>
-                </a>
-                <a
-                  target={"_blank"}
-                  rel="noreferrer"
-                  // href={`https://twitter.com/intent/tweet?text=${socialSharePath}`}
-                >
-                  <button className="cursor-poinetr mr-3 inline-flex items-center space-x-2 bg-[#40BFF5] p-4 md:p-5  font-semibold text-white">
-                    <BsTwitter size={20} />
-                  </button>
-                </a>
-                <a
-                  target={"_blank"}
-                  className="cursor-poinetr"
-                  rel="noreferrer"
-                  //   href={`https://www.instagram.com/?url=${socialSharePath}`}
-                >
-                  <button className="cursor-poinetr inline-flex items-center space-x-2 bg-[#FF9C31] p-4 md:p-5  font-semibold text-white">
-                    <BsInstagram size={20} />
-                  </button>
-                </a>
-              </div>
+              <FacebookShareButton
+                url={`https://www.vanderashtra.com/${currentUrl}`}
+              >
+                <BsFacebook size={40} className="m-2" />
+              </FacebookShareButton>
+
+              <TwitterShareButton
+                url={`https://www.vanderashtra.com/${currentUrl}`}
+              >
+                <BsTwitter size={40} className="m-2" />
+              </TwitterShareButton>
+
+              <WhatsappShareButton
+                url={`https://www.vanderashtra.com/${currentUrl}`}
+              >
+                <BsWhatsapp size={40} className="m-2" />
+              </WhatsappShareButton>
             </Box>
 
             <div className="pt-0 md:pt-4 pb-4 ">

@@ -73,7 +73,7 @@ export default function DesktopNavbar({ setpageLoading }) {
                     </Link>
                     {categoriesAllData?.map((item, index) => {
                       return (
-                        <div key={index} className="border-2 border-red-900 ">
+                        <div key={index} className=" ">
                           <Link
                             className="cursor-pointer w-36 "
                             href={`/news/` + item?.slug}
@@ -128,7 +128,7 @@ export default function DesktopNavbar({ setpageLoading }) {
                 </div>
               </div>
 
-              <div className="p-2 border-red">
+              <div className="p-2 ">
                 {" "}
                 <SideMenuBar />
               </div>
