@@ -153,7 +153,7 @@ export default function CategoriesBaseCard({ cardData = [], newsLoading }) {
                         <a
                           href={data[0]?.link}
                           target="_blank"
-                          className="my-0 flex text-lg items-center border-2 border-red-900 text-[#212b36d1]"
+                          className="my-0 flex text-lg items-center  text-[#212b36d1]"
                         >
                           Join Group
                           <TbBrandWhatsapp className="ml-1" color="#212b36d1" />

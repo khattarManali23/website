@@ -196,7 +196,7 @@ export default function NewsPage({ setpageLoading, news }) {
       <div className="md:hidden font-sans">
         <div className="flex justify-center w-full text-center">
           <div className="container">
-            <div className="w-full flex flex-col">
+            <div className="w-full   flex flex-col">
               <div
                 className={`  
              ${
@@ -207,14 +207,14 @@ export default function NewsPage({ setpageLoading, news }) {
               bg-white py-2
               z-20`}
               >
-                <div className="mx-4">
+                <div className="mx-4 ">
                   <div
-                    className="flex flex-row 
-             gap-y-2 overflow-scroll"
+                    className="flex flex-row  
+             gap-y-2 overflow-scroll "
                   >
                     <div
                       onClick={() => filterAllData()}
-                      className="flex justify-center text-sm items-center tab_button py-2 px-4"
+                      className="flex justify-center w-36 text-sm items-center tab_button py-2 px-4"
                     >
                       Home
                     </div>
@@ -231,11 +231,13 @@ export default function NewsPage({ setpageLoading, news }) {
                               onClick={() => filterCardData(item?.slug)}
                               className={`flex justify-center text-sm items-center ${
                                 slug == item?.slug
-                                  ? "tab_button_active  py-2 px-4"
-                                  : "tab_button py-2 px-4"
+                                  ? "tab_button_active  w-48 py-2 px-4"
+                                  : "tab_button py-2 w-48 px-4"
                               }`}
                             >
-                              <span className="">{item?.name}</span>
+                              <span className="w-28 whitespace-nowrap">
+                                {item?.name}
+                              </span>
                             </div>
                           )}
                         </>

@@ -73,9 +73,9 @@ export default function DesktopNavbar({ setpageLoading }) {
                     </Link>
                     {categoriesAllData?.map((item, index) => {
                       return (
-                        <div key={index}>
+                        <div key={index} className="border-2 border-red-900 ">
                           <Link
-                            className="cursor-pointer"
+                            className="cursor-pointer w-36 "
                             href={`/news/` + item?.slug}
                           >
                             {categoriesLoading ? (
@@ -85,7 +85,7 @@ export default function DesktopNavbar({ setpageLoading }) {
                               />
                             ) : (
                               <div
-                                className="group uppercase lg:text-[16px] 
+                                className="group uppercase lg:text-[16px]   whitespace-nowrap
                                   font-[535]
                             hover:text-theme-primary-main px-3 py-2 leading-7"
                                 style={{

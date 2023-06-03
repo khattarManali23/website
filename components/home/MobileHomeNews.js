@@ -78,11 +78,13 @@ export default function NewsPage({
                             onClick={() => filterCardData(item?.slug)}
                             className={`flex justify-center text-sm items-center font-medium ${
                               openTab == item?.slug
-                                ? "tab_button_active  py-2 px-4"
-                                : "tab_button py-2 px-4"
+                                ? "tab_button_active  w-48 py-2 px-4"
+                                : "tab_button w-48 py-2 px-4"
                             }`}
                           >
-                            <span className="">{item?.name}</span>
+                            <span className="w-28  whitespace-nowrap">
+                              {item?.name}
+                            </span>
                           </div>
                         )}
                       </>

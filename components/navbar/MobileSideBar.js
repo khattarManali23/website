@@ -48,17 +48,17 @@ export default function MobileSidebar() {
         </Link>
         <Divider />
       </div>
-      <Box className="pr-2">
+      <Box className="pr-2  ">
         {categoriesData?.map((item, index) => {
           return (
             <>
               <div
-                className="py-1 m-0"
+                className="py-1  m-0"
                 key={index}
                 onClick={toggleDrawer(anchor, false)}
               >
                 <p
-                  className="m-0 flex items-center px-5 h-10 text-sm uppercase text-[#3e4152]"
+                  className="m-0 w-36 flex items-center px-5 h-10 text-sm uppercase text-[#3e4152]"
                   onClick={() => push(`/news/${item?.slug}`)}
                 >
                   {item?.name}

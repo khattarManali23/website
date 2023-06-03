@@ -81,16 +81,15 @@ const DesktopDetail = ({
                  ? `top-0 sticky shadow-shadow-primary scroll-smooth`
                  : `top-40`
              }
-              bg-white py-2
-              z-20`}
+              bg-white py-2  z-20`}
       >
-        <div className="mx-4">
+        <div className="mx-4 ">
           <div
             className="flex flex-row
              gap-y-2 overflow-scroll"
           >
             <div
-              className={`flex justify-center text-sm items-center font-medium
+              className={`flex justify-center text-sm   w-54 items-center font-medium
                  ${
                    openTab == "Home"
                      ? "tab_button_active py-2 px-4"
@@ -105,19 +104,21 @@ const DesktopDetail = ({
                 <>
                   {categoriesLoading ? (
                     <div className="">
-                      <Skeleton className="h-10 w-20 mx-3" />
+                      <Skeleton className="h-10 w-32 mx-3" />
                     </div>
                   ) : (
                     <div
                       key={index}
                       onClick={() => filterCardData(item?.slug)}
-                      className={`flex justify-center text-sm items-center font-medium ${
+                      className={`flex justify-center text-sm w-28  items-center font-medium ${
                         openTab == item?.slug
-                          ? "tab_button_active  py-2 px-4"
-                          : "tab_button py-2 px-4"
+                          ? "tab_button_active  w-48 py-2 px-4"
+                          : "tab_button py-2 w-48 px-4"
                       }`}
                     >
-                      <span className="">{item?.name}</span>
+                      <span className="w-28  whitespace-nowrap">
+                        {item?.name}
+                      </span>
                     </div>
                   )}
                 </>
