@@ -17,7 +17,7 @@ export const useGetAllNews = () => {
 export const useGetOneNewsById = (id) => {
   const { data, isError, isLoading } = useQuery(
     ["_getOneNewsById", id],
-    () => api.get(`/newsmanagement/one/${id}`),
+    () => api.get(`newsmanagement/oneBySlug/${id}`),
     { enabled: id ? true : false }
   );
   return {
