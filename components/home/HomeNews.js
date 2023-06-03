@@ -142,7 +142,7 @@ export default function HomeNews({ newsAllData = [], newsLoading }) {
                           onClick={() => handlepush(item?._id)}
                         >
                           <a
-                            className={` text-sm leading-8 font-bold font-sans tracking-wide  overflow-hidden `}
+                            className={` text-base  leading-7 font-bold font-sans tracking-wide  overflow-hidden `}
                           >
                             <span className="">
                               {item?.title.split(" ").length > 23
