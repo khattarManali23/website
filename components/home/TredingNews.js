@@ -1,16 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import { useGetAllNews } from "../../services/news";
 
 function TredingNews() {
+  const [color, setColor] = useState("");
+
   const { data, isError, isLoading } = useGetAllNews();
   //  select random 6 news from data
   const randomNews = data
     ?.sort(() => Math.random() - Math.random())
     .slice(0, 6);
-  if (isError) return <div>Something went wrong</div>;
-  if (isLoading) return <div>Loading...</div>;
-  if (!data) return <div>No data</div>;
-  console.log(randomNews, "randomNews");
+
+  const generateRandomColor = () => {
+    const randomColor = `#${Math.floor(Math.random() * 16777215).toString(16)}`;
+    return randomColor;
+  };
+  console.log(`bg-[${generateRandomColor()}]`, "color");
 
   return (
     <div className="w-full flex justify-center items-center">
@@ -23,33 +27,38 @@ function TredingNews() {
           </div>
           <a href="#">See All</a>
         </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 my-4 sm:grid-cols-2 gap-10">
+        <div class="grid grid-cols-1 md:grid-cols-2  sm:grid-cols-2">
           {randomNews?.map((item, index) => {
             return (
               <div
-                class="rounded overflow-hidden flex justify-between items-center  shadow-lg"
+                class="rounded overflow-hidden sm:my-2 flex justify-between items-center "
                 key={index}
               >
                 <a href="#">
                   <div class="relative">
                     <img
-                      class="w-64 h-64"
+                      class="sm:w-36 sm:h-36 w-20 h-20 object-cover"
                       src={item?.attach_file}
                       alt="Sunset in the mountains"
                     />
                   </div>
                 </a>
                 <div class="px-6 w-full h-full py-4">
-                  <div className="w-1/2">
-                    <div class=" bg-indigo-600 px-4 py-2 text-white text-lg  text-center  hover:bg-white hover:text-indigo-600 transition duration-500 ease-in-out">
+                  <div className="w-full max-w-fit">
+                    <div
+                      class={` px-4 py-1 text-white sm:text-lg text-xs  text-center  transition duration-500 ease-in-out`}
+                      style={{ backgroundColor: generateRandomColor() }}
+                    >
                       {item?.categorySlug}
                     </div>
                   </div>
                   <a
                     href="#"
-                    class="font-semibold text-lg inline-block hover:text-indigo-600 transition duration-500 ease-in-out my-4"
+                    class="font-semibold sm:text-lg inline-block text-xs transition duration-500 ease-in-out my-2"
                   >
-                    {item?.title}
+                    {/* {item?.title} */}
+                    {/* AFTER 30 WORDS TRUNCATE IT THR TIRLE */}
+                    {item?.title.split(" ").slice(0, 25).join(" ")}
                   </a>
                 </div>
               </div>
