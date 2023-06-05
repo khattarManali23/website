@@ -33,6 +33,26 @@ const DesktopDetail = ({
     categorySlug,
   } = oneNewsData;
 
+  let edited = descriptions?.map((item) => {
+    return item?.news_descriptions.split("/BR");
+  });
+
+  edited = edited?.flat();
+
+  edited = edited?.map((item) => {
+    if (item?.startsWith("\n\n")) {
+      return item?.replace("\n\n", "");
+    } else if (item?.startsWith(" \n\n")) {
+      return item?.replace(" \n\n", "");
+    } else if (item?.startsWith("\n")) {
+      return item?.replace("\n", "");
+    } else if (item?.startsWith(" \n")) {
+      return item?.replace(" \n", "");
+    } else {
+      return item;
+    }
+  });
+
   const {
     data: newsAllData,
     isLoading: newsAllLoading,
@@ -151,19 +171,24 @@ const DesktopDetail = ({
                       key={index}
                       className="text-lg md:text-xl  font-medium text-[#494e51] font-sans"
                     >
-                      <p className="mb-0 text-left md:text-justify">
-                        {item?.news_descriptions?.split(" ").map((word, i) => {
-                          if (word.startsWith("*") && word.endsWith("*")) {
-                            return (
-                              <span className="font-bold" key={i}>
-                                {word.replace(/\*/g, "")}{" "}
-                              </span>
-                            );
-                          } else {
-                            return <span key={i}>{word} </span>;
-                          }
-                        })}
-                      </p>
+                      {edited?.map((item, index) => (
+                        <p
+                          className="mb-0 text-left md:text-justify"
+                          key={index}
+                        >
+                          {item?.split(" ").map((word, i) => {
+                            if (word.startsWith("*")) {
+                              return (
+                                <span className="font-bold" key={i}>
+                                  {word.replace(/\*/g, "")}{" "}
+                                </span>
+                              );
+                            } else {
+                              return <span key={i}>{word} </span>;
+                            }
+                          })}
+                        </p>
+                      ))}
 
                       {item?.facebook_link && (
                         <iframe
@@ -413,14 +438,9 @@ export const OtherData = ({
                     ) : (
                       <>
                         <div className="flex md:text-justify w-full text-left">
-                          <a className="text-lg capitalize h-[88px] overflow-hidden">
+                          <a className="text-base capitalize  overflow-hidden">
                             <span className=" font-bold">{item?.title}</span>
                           </a>
-                        </div>
-                        <div className="text-slate-500 md:mt-4 mt-2">
-                          <h6 className="text-sm m-0  font-thin">
-                            By &nbsp; axilthemes
-                          </h6>
                         </div>
                       </>
                     )}

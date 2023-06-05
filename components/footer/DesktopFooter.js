@@ -7,7 +7,7 @@ import { AiFillTwitterCircle } from "react-icons/ai";
 import { BsFacebook } from "react-icons/bs";
 import { IoLogoYoutube } from "react-icons/io";
 import { RiInstagramFill } from "react-icons/ri";
-import Logo from "../../assets/svg/download-removebg-preview.png";
+import Logo from "../../assets/images/vande.png";
 import { useGetAllCategories } from "../../services/categoryServices";
 import { ErrorScreen } from "../basics";
 
@@ -28,7 +28,7 @@ const DesktopFooter = ({ setpageLoading }) => {
   if (categoriesError) return <ErrorScreen />;
 
   return (
-    <footer className="flex justify-center m-0 items-center w-full pt-4 bg-[#000]">
+    <footer className="flex justify-center m-0 items-center w-full pt-4 bg-[#3b3939]">
       <div className="container mx-auto">
         <Grid container>
           <Grid item xs={12} sm={12} md={12}>
@@ -129,10 +129,7 @@ const DesktopFooter = ({ setpageLoading }) => {
 
           <div className="flex justify-between items-center ">
             <div className="text-[#cecece] text-lg mt-0 mb-[20px]">
-              Copyright &copy; 2023 News and Magazine WordPress Theme by{" "}
-              <a target="_blank" href="#">
-                Axilthemes
-              </a>
+              Copyright &copy; 2023
             </div>
 
             <div className="text-[#cecece] text-lg mt-0 mb-[20px]">
