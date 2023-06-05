@@ -85,7 +85,7 @@ export default function CategoriesBaseCard({ cardData = [], newsLoading }) {
                           className="flex text-left w-full"
                           onClick={() => push(`/news/detail/${item?.seoSlug}`)}
                         >
-                          <a className=" text-xl font-bold mt-3.5 h-[62px] overflow-hidden cursor-pointer">
+                          <a className=" text-xl font-bold mt-3.5  overflow-hidden cursor-pointer">
                             <span className="">{item.title}</span>
                           </a>
                         </div>
