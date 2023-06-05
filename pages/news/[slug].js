@@ -180,7 +180,6 @@ export default function NewsPage({ setpageLoading, news }) {
                     flex md:text-justify text-left  leading- cursor-pointer"
                           onClick={() => push(`/news/detail/${item?.seoSlug}`)}
                         >
-                          {console.log(item, "item")}
                           {item.short_description}
                         </p>
                       )}
@@ -232,11 +231,11 @@ export default function NewsPage({ setpageLoading, news }) {
                               onClick={() => filterCardData(item?.slug)}
                               className={`flex justify-center text-sm items-center ${
                                 slug == item?.slug
-                                  ? "tab_button_active  w-48 py-2 px-4"
-                                  : "tab_button py-2 w-48 px-4"
+                                  ? "tab_button_active  py-2 px-4"
+                                  : "tab_button py-2  px-4"
                               }`}
                             >
-                              <span className="w-28 whitespace-nowrap">
+                              <span className=" whitespace-nowrap">
                                 {item?.name}
                               </span>
                             </div>

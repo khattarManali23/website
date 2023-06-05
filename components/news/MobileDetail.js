@@ -89,7 +89,7 @@ const DesktopDetail = ({
              gap-y-2 overflow-scroll"
           >
             <div
-              className={`flex justify-center text-sm   w-54 items-center font-medium
+              className={`flex justify-center text-sm uppercase  w-54 items-center font-medium
                  ${
                    openTab == "Home"
                      ? "tab_button_active py-2 px-4"
@@ -110,15 +110,13 @@ const DesktopDetail = ({
                     <div
                       key={index}
                       onClick={() => filterCardData(item?.slug)}
-                      className={`flex justify-center text-sm w-28  items-center font-medium ${
+                      className={`flex justify-center text-sm items-center font-medium ${
                         openTab == item?.slug
-                          ? "tab_button_active  w-48 py-2 px-4"
-                          : "tab_button py-2 w-48 px-4"
+                          ? "tab_button_active   py-2 px-4"
+                          : "tab_button py-2  px-4"
                       }`}
                     >
-                      <span className="w-28  whitespace-nowrap">
-                        {item?.name}
-                      </span>
+                      <span className="  whitespace-nowrap">{item?.name}</span>
                     </div>
                   )}
                 </>
@@ -141,10 +139,10 @@ const DesktopDetail = ({
               className="bg-[#F9F9F9] flex justify-center items-center text-start pt-8 pb-8
           md:mt-0 mt-[-2px] md:pt-16 md:pb-16  w-full"
             >
-              <div className="container h-[42px] overflow-hidden">
+              <div className="container    overflow-hidden">
                 <h1
-                  className="text-3xl md:text-4xl mt-0 mb-0
-                        px-4 md:px-0 leading-6 tracking-normal text-slate-700 leading-[2.3rem] md:leading-10"
+                  className="text-3xl md:text-xl mt-0 mb-0
+                        px-4 md:px-0  tracking-normal text-slate-700 leading-[2.3rem] md:leading-10"
                 >
                   {title}
                 </h1>
@@ -224,7 +222,17 @@ const DesktopDetail = ({
                       className="text-lg md:text-xl  font-medium text-[#494e51]"
                     >
                       <p className="mb-0 text-left md:text-justify">
-                        {item?.news_descriptions}
+                        {item?.news_descriptions?.split(" ").map((word, i) => {
+                          if (word.startsWith("*") && word.endsWith("*")) {
+                            return (
+                              <span className="font-bold" key={i}>
+                                {word.replace(/\*/g, "")}{" "}
+                              </span>
+                            );
+                          } else {
+                            return <span key={i}>{word} </span>;
+                          }
+                        })}
                       </p>
                     </div>
                   )}
