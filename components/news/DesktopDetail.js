@@ -361,7 +361,7 @@ export const OtherData = ({
         <div className="relative mt-4 ">
           {newsAllData?.map((item, index) => {
             return (
-              <div key={index} onClick={() => handlepush(item?._id)}>
+              <div key={index} onClick={() => handlepush(item?.seoSlug)}>
                 <div className="relative flex  hover:cursor-pointer hoverline md:mb-8 mb-4">
                   <div className="relative mr-2.5 md:h-28 md:w-28 h-20 w-20 shrink-0 animate-opacityAnimation overflow-hidden">
                     {newsAllLoading ? (

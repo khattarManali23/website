@@ -91,7 +91,7 @@ export default function NewsPage({ setpageLoading, news }) {
                     <div className="   hoverline">
                       <div
                         className="relative h-full w-full overflow-hidden cursor-pointer"
-                        onClick={() => push(`/news/detail/${item?._id}`)}
+                        onClick={() => push(`${item?.seoSlug}`)}
                       >
                         {isLoading ? (
                           <Skeleton
@@ -151,7 +151,7 @@ export default function NewsPage({ setpageLoading, news }) {
                       ) : (
                         <div
                           className="flex md:text-justify text-left w-full cursor-pointer"
-                          onClick={() => push(`/news/detail/${item?._id}`)}
+                          onClick={() => push(`/news/detail/${item?.seoSlug}`)}
                         >
                           <a className=" text-2xl font-bold  leading-9 overflow-hidden">
                             <span className="">{item.title}</span>
@@ -178,8 +178,9 @@ export default function NewsPage({ setpageLoading, news }) {
                         <p
                           className="text-lg font-normal 
                     flex md:text-justify text-left  leading- cursor-pointer"
-                          onClick={() => push(`/news/detail/${item?._id}`)}
+                          onClick={() => push(`/news/detail/${item?.seoSlug}`)}
                         >
+                          {console.log(item, "item")}
                           {item.short_description}
                         </p>
                       )}

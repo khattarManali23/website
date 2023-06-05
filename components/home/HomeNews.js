@@ -29,7 +29,7 @@ export default function HomeNews({ newsAllData = [], newsLoading }) {
           ) : (
             <div
               className="p-4 hoverline mb-8 cursor-pointer"
-              onClick={() => handlepush(newsAllData[0]?._id)}
+              onClick={() => handlepush(newsAllData[0]?.seoSlug)}
             >
               <div className="relative aspect-square w-full p-4 overflow-hidden">
                 <Image

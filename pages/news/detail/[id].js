@@ -77,7 +77,7 @@ const NewsDetailPage = ({ setpageLoading, news }) => {
 export default NewsDetailPage;
 
 async function getNewsId(id) {
-  const res = await api.get(`/newsmanagement/one/${id}`);
+  const res = await api.get(`newsmanagement/oneBySlug/${id}`);
   return res;
 }
 
@@ -86,16 +86,17 @@ export async function getStaticPaths() {
   const data = res.data.data;
 
   const paths = data.map((news) => ({
-    params: { id: news._id },
+    params: { id: news.seoSlug },
   }));
 
-  return { paths, fallback: true };
+  return { paths, fallback: false };
 }
 
 export async function getStaticProps({ params }) {
   const res = await getNewsId(params.id);
 
   const data = res.data.data;
+  console.log(data, "data");
   return {
     props: {
       news: data,
