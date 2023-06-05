@@ -88,8 +88,8 @@ export async function getStaticPaths() {
   const paths = data.map((news) => ({
     params: { id: news.seoSlug },
   }));
-
-  return { paths, fallback: true };
+  console.log(paths, "paths");
+  return { paths, fallback: false };
 }
 
 export async function getStaticProps({ params }) {

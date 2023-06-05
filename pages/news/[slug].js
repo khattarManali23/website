@@ -271,6 +271,7 @@ export async function getStaticPaths() {
   const paths = data.map((item) => ({
     params: { slug: item.slug },
   }));
+  console.log(paths, "paths");
 
   return { paths, fallback: true };
 }
@@ -279,8 +280,9 @@ export async function getStaticProps({ params }) {
   const slug = params.slug;
   const res = await getNewsId(slug);
   let data = res.data.categorys;
-  // filter data by slug
+  console.log(data, "data11");
   data = data.filter((item) => item.slug === slug);
+  console.log(data, "data");
 
   return {
     props: {
