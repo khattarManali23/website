@@ -89,7 +89,7 @@ export async function getStaticPaths() {
     params: { id: news.seoSlug },
   }));
 
-  return { paths, fallback: false };
+  return { paths, fallback: true };
 }
 
 export async function getStaticProps({ params }) {

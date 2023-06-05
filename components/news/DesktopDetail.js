@@ -152,7 +152,17 @@ const DesktopDetail = ({
                       className="text-lg md:text-xl  font-medium text-[#494e51] font-sans"
                     >
                       <p className="mb-0 text-left md:text-justify">
-                        {item?.news_descriptions}
+                        {item?.news_descriptions?.split(" ").map((word, i) => {
+                          if (word.startsWith("*") && word.endsWith("*")) {
+                            return (
+                              <span className="font-bold" key={i}>
+                                {word.replace(/\*/g, "")}{" "}
+                              </span>
+                            );
+                          } else {
+                            return <span key={i}>{word} </span>;
+                          }
+                        })}
                       </p>
 
                       {item?.facebook_link && (
