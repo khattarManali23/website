@@ -29,25 +29,58 @@ const DesktopDetail = ({ oneNewsData, data }) => {
     categorySlug,
   } = oneNewsData;
   console.log(oneNewsData, "oneNewsData");
+
+  // if /br is present in the description,then split it and make it an array otherwise return the description as it is
+
   let edited = descriptions?.map((item) => {
-    return item?.news_descriptions.split("/BR");
+    return {
+      ...item,
+      news_desc: item?.news_descriptions.split("/BR"),
+    };
   });
 
+  console.log(edited, "77");
   edited = edited?.flat();
 
   edited = edited?.map((item) => {
-    if (item?.startsWith("\n\n")) {
-      return item?.replace("\n\n", "");
-    } else if (item?.startsWith(" \n\n")) {
-      return item?.replace(" \n\n", "");
-    } else if (item?.startsWith("\n")) {
-      return item?.replace("\n", "");
-    } else if (item?.startsWith(" \n")) {
-      return item?.replace(" \n", "");
+    if (item?.news_desc[0]?.startsWith("\n\n")) {
+      return {
+        ...item,
+        news_desc: item?.news_desc[0]?.replace("\n\n", "").flat(),
+      };
+    } else if (item?.news_desc[0]?.startsWith(" \n\n")) {
+      return {
+        ...item,
+        news_desc: item?.news_desc[0]?.replace(" \n\n", ""),
+      };
+    } else if (item?.news_desc[0]?.startsWith("\n")) {
+      return {
+        ...item,
+        news_desc: item?.news_desc[0]?.replace("\n", ""),
+      };
+    } else if (item?.news_desc[0]?.startsWith(" \n")) {
+      return {
+        ...item,
+        news_desc: item?.news_desc[0]?.replace(" \n", ""),
+      };
     } else {
       return item;
     }
   });
+
+  // edited = edited?.map((item) => {
+  //   if (item?.startsWith("\n\n")) {
+  //     return item?.replace("\n\n", "");
+  //   } else if (item?.startsWith(" \n\n")) {
+  //     return item?.replace(" \n\n", "");
+  //   } else if (item?.startsWith("\n")) {
+  //     return item?.replace("\n", "");
+  //   } else if (item?.startsWith(" \n")) {
+  //     return item?.replace(" \n", "");
+  //   } else {
+  //     return item;
+  //   }
+  // });
 
   const {
     data: newsAllData,
@@ -115,43 +148,36 @@ const DesktopDetail = ({ oneNewsData, data }) => {
               />
             </div>
 
-            {descriptions?.map((item, index) => {
+            {edited?.map((item, index) => {
               return (
                 <>
                   <div
                     key={index}
                     className="text-lg md:text-xl  font-medium text-[#494e51] font-sans"
                   >
-                    {edited?.map((item, index) => (
-                      <p className="mb-0 text-left md:text-justify" key={index}>
-                        {item?.split(" ").map((word, i) => {
-                          if (word.startsWith("*")) {
-                            return (
-                              <span className="font-bold" key={i}>
-                                {word.replace(/\*/g, "")}{" "}
-                              </span>
-                            );
-                          } else {
-                            return <span key={i}>{word} </span>;
-                          }
-                        })}
-                      </p>
-                    ))}
+                    <p className="mb-0 text-left md:text-justify" key={index}>
+                      {item?.news_desc.map((desc, index) => (
+                        <p key={index}>{desc}</p>
+                      ))}
+                    </p>
 
                     {item?.facebook_link && (
-                      <iframe
-                        src={`https://www.facebook.com/plugins/post.php?href=${item?.facebook_link}&width=1200&show_text=true&height=520&appId`}
-                        style={{
-                          border: "none",
-                          overflow: "hidden",
-                          height: "650px",
-                          width: "100%",
-                        }}
-                        scrolling="no"
-                        frameborder="0"
-                        allowfullscreen="true"
-                      ></iframe>
+                      <div class="container">
+                        <iframe
+                          src={`https://www.facebook.com/plugins/post.php?href=${item?.facebook_link}&width=1200&show_text=true&height=520&appId`}
+                          style={{
+                            border: "none",
+                            overflow: "hidden",
+                            height: "650px",
+                            width: "100%",
+                          }}
+                          scrolling="no"
+                          frameborder="0"
+                          allowfullscreen="true"
+                        ></iframe>
+                      </div>
                     )}
+                    <div className="flex justify-center items-center">
                     {item?.instagram_link && (
                       <iframe
                         src={`https://www.instagram.com/p/${
@@ -159,15 +185,15 @@ const DesktopDetail = ({ oneNewsData, data }) => {
                         }/embed`}
                         style={{
                           border: "none",
-                          overflow: "hidden",
+                          overflow: "clip",
                           height: "650px",
                           width: "100%",
                         }}
                         scrolling="no"
                         frameborder="0"
-                        allowfullscreen="true"
                       ></iframe>
                     )}
+                    </div>
                     {item?.youtube_link && (
                       <iframe
                         src={item.youtube_link}

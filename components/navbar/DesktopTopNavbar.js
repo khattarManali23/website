@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { useRouter } from "next/router";
 import { useEffect } from "react";
 import banner from "../../assets/svg/banner.jpg";
 import Logo from "../../assets/svg/Screenshotlogo.png";
@@ -7,6 +8,7 @@ import { FadeIn } from "../animate";
 import { AppCarousel, ErrorScreen } from "../basics";
 
 export default function DesktopTopNavbar({ setpageLoading }) {
+  const router = useRouter();
   const {
     data: advertisementAllData,
     isLoading: advertisementLoading,
@@ -18,12 +20,6 @@ export default function DesktopTopNavbar({ setpageLoading }) {
       item?.banner_type?.replaceAll?.(" ", "")?.toLowerCase() ==
         "navbarbanner" && item?.attach_banner != ""
   );
-
-  useEffect(() => {
-    if (!advertisementLoading) {
-      setpageLoading(false);
-    }
-  }, [advertisementLoading]);
 
   if (advertisementError) return <ErrorScreen />;
 
@@ -41,6 +37,7 @@ export default function DesktopTopNavbar({ setpageLoading }) {
                 src={Logo}
                 className="w-full h-full object-contain"
                 alt="Sample image"
+                onClick={() => router.push("/")}
               />
             </div>
           </div>
