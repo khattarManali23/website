@@ -69,13 +69,11 @@ async function getNewsId(id) {
 export async function getStaticPaths() {
   const res = await api.get("/newsmanagement/all");
   const data = res.data.data;
-  console.log(data, "data");
 
   const paths = data.map((news) => ({
     params: { id: news.seoSlug },
   }));
 
-  console.log(paths, "paths");
   return { paths, fallback: true };
 }
 
