@@ -12,11 +12,10 @@ import {
   useGetOneNewsById,
 } from "../../services/categoryServices";
 
-export default function NewsPage({ setpageLoading, news }) {
-  console.log(news, "news");
-  const { query, push } = useRouter();
+export default function NewsPage({ news, data }) {
+  const { query, push, fallback } = useRouter();
+
   const slug = query?.slug;
-  const { data, isLoading, isError } = useGetOneNewsById(slug);
 
   const [scrolled, setScrolled] = useState(false);
 
@@ -25,12 +24,6 @@ export default function NewsPage({ setpageLoading, news }) {
     isLoading: categoriesLoading,
     isError: categoriesError,
   } = useGetAllCategories();
-
-  useEffect(() => {
-    if (!categoriesLoading) {
-      setpageLoading(false);
-    }
-  }, [categoriesLoading]);
 
   const changeNavbarShadow = () => {
     if (window.scrollY >= 63) {
@@ -51,8 +44,10 @@ export default function NewsPage({ setpageLoading, news }) {
     push(`/`);
   };
 
-  if (categoriesError || isError) return <ErrorScreen />;
-  console.log(news, "data");
+  if (fallback) {
+    return <Skeleton variant="rectangular" width="100%" height={500} />;
+  }
+
   return (
     <>
       <DefaultSeo
@@ -93,96 +88,52 @@ export default function NewsPage({ setpageLoading, news }) {
                         className="relative h-full w-full overflow-hidden cursor-pointer"
                         onClick={() => push(`${item?.seoSlug}`)}
                       >
-                        {isLoading ? (
-                          <Skeleton
-                            className="h-[350px] w-full"
-                            variant="rectangular"
-                          />
-                        ) : (
-                          <Image
-                            loading="lazy"
-                            src={item.attach_file}
-                            height={1000}
-                            width={1000}
-                            className="w-full h-full hover:scale-110 overflow-hidden object-contain transition-all duration-500"
-                            alt="Sample image"
-                          />
-                        )}
+                        <Image
+                          loading="lazy"
+                          src={item.attach_file}
+                          height={1000}
+                          width={1000}
+                          className="w-full h-full hover:scale-110 overflow-hidden object-contain transition-all duration-500"
+                          alt="Sample image"
+                        />
                       </div>
 
                       <div className="w-fit relative mt-2.5">
-                        {isLoading ? (
-                          <Skeleton
-                            className="h-[2rem] w-24"
-                            variant="rectangular"
-                          />
-                        ) : (
-                          <div
-                            className="px-4 py-[0.4rem] font-sm w-fit  absolute bottom-8 left-0
+                        <div
+                          className="px-4 py-[0.4rem] font-sm w-fit  absolute bottom-8 left-0
                                 font-semibold text-white flex text-center justify-center capitalize cursor-pointer"
-                            style={{
-                              backgroundColor:
-                                index % 2 == 0
-                                  ? index % 4 == 0
-                                    ? index % 3 == 0
-                                      ? "#5856d5"
-                                      : "#5ac8fa"
-                                    : "#4cd965"
-                                  : "#ff4f00",
-                            }}
-                            onClick={() => push(`/news/${item?.categorySlug}`)}
-                          >
-                            {item.categorySlug}
-                          </div>
-                        )}
+                          style={{
+                            backgroundColor:
+                              index % 2 == 0
+                                ? index % 4 == 0
+                                  ? index % 3 == 0
+                                    ? "#5856d5"
+                                    : "#5ac8fa"
+                                  : "#4cd965"
+                                : "#ff4f00",
+                          }}
+                          onClick={() => push(`/news/${item?.categorySlug}`)}
+                        >
+                          {item.categorySlug}
+                        </div>
                       </div>
 
-                      {isLoading ? (
-                        <div className="mt-4">
-                          <Skeleton
-                            className="h-4 w-full my-2"
-                            variant="rectangular"
-                          />
-                          <Skeleton
-                            className="h-4 w-3/4"
-                            variant="rectangular"
-                          />
-                        </div>
-                      ) : (
-                        <div
-                          className="flex md:text-justify text-left w-full cursor-pointer"
-                          onClick={() => push(`/news/detail/${item?.seoSlug}`)}
-                        >
-                          <a className=" text-2xl font-bold  leading-9 overflow-hidden">
-                            <span className="">{item.title}</span>
-                          </a>
-                        </div>
-                      )}
+                      <div
+                        className="flex md:text-justify text-left w-full cursor-pointer"
+                        onClick={() => push(`/news/detail/${item?.seoSlug}`)}
+                      >
+                        <a className=" text-2xl font-bold  leading-9 overflow-hidden">
+                          <span className="">{item.title}</span>
+                        </a>
+                      </div>
 
-                      {isLoading ? (
-                        <div className="my-4">
-                          <Skeleton
-                            className="h-4 w-full my-2"
-                            variant="rectangular"
-                          />
-                          <Skeleton
-                            className="h-4 w-full my-2"
-                            variant="rectangular"
-                          />
-                          <Skeleton
-                            className="h-4 w-2/4"
-                            variant="rectangular"
-                          />
-                        </div>
-                      ) : (
-                        <p
-                          className="text-lg font-normal 
+                      <p
+                        className="text-lg font-normal 
                     flex md:text-justify text-left  leading- cursor-pointer"
-                          onClick={() => push(`/news/detail/${item?.seoSlug}`)}
-                        >
-                          {item.short_description}
-                        </p>
-                      )}
+                        onClick={() => push(`/news/detail/${item?.seoSlug}`)}
+                      >
+                        {item.short_description}
+                      </p>
                     </div>
                   </article>
                 );
@@ -248,7 +199,7 @@ export default function NewsPage({ setpageLoading, news }) {
               </div>
 
               <div className="flex flex-col justify-center w-full">
-                <CategoriesBaseCard cardData={data} newsLoading={isLoading} />
+                <CategoriesBaseCard cardData={data} />
               </div>
             </div>
           </div>
@@ -259,6 +210,11 @@ export default function NewsPage({ setpageLoading, news }) {
 }
 
 async function getNewsId(slug) {
+  const res = await api.get(`/newsmanagement/allByCategory/${slug}`);
+
+  return res;
+}
+async function getCategories() {
   const res = await api.get(`/category/all`);
 
   return res;
@@ -271,38 +227,22 @@ export async function getStaticPaths() {
   const paths = data.map((item) => ({
     params: { slug: item.slug },
   }));
-  console.log(paths, "paths");
 
   return { paths, fallback: true };
 }
 
 export async function getStaticProps({ params }) {
   const slug = params.slug;
-  const res = await getNewsId(slug);
+  const response = await getNewsId(slug);
+  const allNewsData = response.data.data;
+  const res = await getCategories();
   let data = res.data.categorys;
-  console.log(data, "data11");
   data = data.filter((item) => item.slug === slug);
-  console.log(data, "data");
 
   return {
     props: {
       news: data[0],
+      data: allNewsData,
     },
   };
 }
-
-// export async function getServerSideProps(context) {
-//   const slug = context.params.slug;
-//   const res = await getNewsId(slug);
-//   let data = res.data.categorys;
-//   // filter data by slug
-//   data = data.filter((item) => item.slug === slug);
-
-//   console.log(data, "data");
-
-//   return {
-//     props: {
-//       news: data[0],
-//     },
-//   };
-// }

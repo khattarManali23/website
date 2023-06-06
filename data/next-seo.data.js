@@ -2,7 +2,7 @@
 export const SITE_URL = "https://vande-rashtra-psi.vercel.app/";
 export const SITE_NAME = "vande rashtra";
 export const SITE_LOGO = SITE_URL + "/logo/logo.jpeg";
-export const SITE_FAVICON = SITE_URL + "/favicon/favicon.ico";
+export const SITE_FAVICON = SITE_URL + "favicon.ico";
 export const SITE_BANNER = SITE_URL + "/logo/logo.jpeg";
 
 const GlobalSEO = {
@@ -27,11 +27,7 @@ const GlobalSEO = {
         },
       ],
     },
-    // twitter: {
-    //   handle: "@akbarbhai",
-    //   site: SITE_NAME,
-    //   cardType: "summary_large_image",
-    // },
+
     additionalLinkTags: [
       {
         rel: "icon",

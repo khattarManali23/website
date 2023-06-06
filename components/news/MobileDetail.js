@@ -62,12 +62,6 @@ const DesktopDetail = ({
   };
 
   useEffect(() => {
-    if (!newsAllLoading && !categoriesLoading) {
-      setpageLoading(false);
-    }
-  }, [newsAllLoading, categoriesLoading]);
-
-  useEffect(() => {
     window.addEventListener("scroll", changeNavbarShadow);
   }, [scrolled]);
 
@@ -351,11 +345,9 @@ export const OtherData = ({
         "detailbanner" && item?.attach_banner != ""
   );
 
-  useEffect(() => {
-    if (!advertisementLoading) {
-      setpageLoading(false);
-    }
-  }, [advertisementLoading]);
+  if (advertisementLoading) {
+    return <Skeleton className="h-full w-full" variant="rectangular" />;
+  }
 
   if (advertisementError) return <ErrorScreen />;
 

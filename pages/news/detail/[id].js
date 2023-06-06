@@ -2,25 +2,16 @@ import { DefaultSeo } from "next-seo";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import { FadeRight } from "../../../components/animate";
-import { ErrorScreen } from "../../../components/basics";
+import { ErrorScreen, LoadingScreen } from "../../../components/basics";
 import { DesktopDetail, MobileDetail } from "../../../components/news";
 import api from "../../../services/api";
 import { useGetOneNewsById } from "../../../services/news";
 
 const NewsDetailPage = ({ setpageLoading, news }) => {
-  console.log(news, "props");
-
-  const { query } = useRouter();
+  const { query, fallback } = useRouter();
   const id = query?.id;
-  const { data, isLoading: OneNewsIsLoading, isError } = useGetOneNewsById(id);
 
-  useEffect(() => {
-    if (!OneNewsIsLoading) {
-      setpageLoading(false);
-    }
-  }, [OneNewsIsLoading]);
-
-  if (isError) return <ErrorScreen />;
+  if (fallback) return <LoadingScreen />;
 
   return (
     <>
@@ -52,22 +43,14 @@ const NewsDetailPage = ({ setpageLoading, news }) => {
       <FadeRight durationTime={"1s"}>
         {/* desktop view */}
         <div className="md:block hidden">
-          <DesktopDetail
-            oneNewsData={data}
-            OneNewsIsLoading={OneNewsIsLoading}
-            setpageLoading={setpageLoading}
-          />
+          <DesktopDetail oneNewsData={news} />
         </div>
       </FadeRight>
 
       <FadeRight durationTime={"1s"}>
         {/* mobile view */}
         <div className="md:hidden">
-          <MobileDetail
-            oneNewsData={data}
-            OneNewsIsLoading={OneNewsIsLoading}
-            setpageLoading={setpageLoading}
-          />
+          <MobileDetail oneNewsData={news} />
         </div>
       </FadeRight>
     </>
@@ -84,12 +67,14 @@ async function getNewsId(id) {
 export async function getStaticPaths() {
   const res = await api.get("/newsmanagement/all");
   const data = res.data.data;
+  console.log(data, "data");
 
   const paths = data.map((news) => ({
     params: { id: news.seoSlug },
   }));
+
   console.log(paths, "paths");
-  return { paths, fallback: false };
+  return { paths, fallback: true };
 }
 
 export async function getStaticProps({ params }) {

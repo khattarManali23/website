@@ -40,21 +40,6 @@ export default function App({ Component, pageProps }) {
   }
   return (
     <>
-      <Head>
-        <link rel="icon" href="/logo/anmolfav.png" />
-
-        {/* Chrome, Firefox OS and Opera */}
-        <meta name="theme-color" content="#222222" />
-        {/* Windows Phone */}
-        <meta name="msapplication-navbutton-color" content="#222222" />
-        {/* <!-- iOS Safari */}
-        <meta name="apple-mobile-web-app-status-bar-style" content="#222222" />
-        {/* <!--disable zoom in iOS Safari */}
-        <meta
-          name="viewport"
-          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
-        />
-      </Head>
       <QueryClientProvider client={queryClient}>
         <Provider store={store}>
           <ThemeProvider>

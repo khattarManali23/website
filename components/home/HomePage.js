@@ -12,47 +12,21 @@ import TredingNews from "./TredingNews";
 const DynamicHomeNews = dynamic(() => import("./HomeNews"));
 const DynamicMobileHomeNews = dynamic(() => import("./MobileHomeNews"));
 
-export default function HomePage({ setpageLoading }) {
-  const {
-    data: categoriesAllData,
-    isLoading: categoriesLoading,
-    isError: categoriesError,
-  } = useGetAllCategories();
-
-  const {
-    data: newsAllData,
-    isLoading: newsLoading,
-    isError: newsError,
-  } = useGetAllNews();
-
-  useEffect(() => {
-    if (!categoriesLoading && !newsLoading) {
-      setpageLoading(false);
-    }
-  }, [categoriesLoading, newsLoading]);
-
-  if (categoriesError || newsError) return <ErrorScreen />;
-
+export default function HomePage({ allCategories, allNews }) {
   return (
     <div>
       <DefaultSeo {...GlobalSEO["/"]} {...GlobalSEO} />
 
       <div className="md:block hidden">
         <FadeIn durationTime="1s">
-          <DynamicHomeNews
-            newsAllData={newsAllData}
-            newsLoading={newsLoading}
-          />
+          <DynamicHomeNews newsAllData={allNews} />
         </FadeIn>
       </div>
       <div className="md:hidden">
         <FadeIn durationTime="1s">
           <DynamicMobileHomeNews
-            categories={categoriesAllData}
-            categoriesLoading={categoriesLoading}
-            newsAllData={newsAllData}
-            newsLoading={newsLoading}
-            setpageLoading={setpageLoading}
+            categories={allCategories}
+            newsAllData={allNews}
           />
         </FadeIn>
       </div>

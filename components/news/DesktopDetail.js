@@ -62,12 +62,6 @@ const DesktopDetail = ({
   const currentUrl = router.asPath;
   console.log(currentUrl, "currentUrl");
 
-  useEffect(() => {
-    if (!newsAllLoading) {
-      setpageLoading(false);
-    }
-  }, [newsAllLoading]);
-
   let relatedNews = newsAllData?.filter(
     (item) => item?.categorySlug == categorySlug
   );
@@ -335,12 +329,9 @@ export const OtherData = ({
       item?.banner_type?.replaceAll?.(" ", "")?.toLowerCase() ==
         "detailbanner" && item?.attach_banner != ""
   );
-
-  useEffect(() => {
-    if (!advertisementLoading) {
-      setpageLoading(false);
-    }
-  }, [advertisementLoading]);
+  if (advertisementLoading) {
+    return <Skeleton className="h-60 md:h-80 w-full" variant="rectangular" />;
+  }
 
   if (advertisementError) return <ErrorScreen />;
 
