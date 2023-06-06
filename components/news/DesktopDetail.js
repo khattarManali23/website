@@ -19,7 +19,7 @@ import {
   WhatsappShareButton,
 } from "react-share";
 
-const DesktopDetail = ({ oneNewsData, OneNewsIsLoading, setpageLoading }) => {
+const DesktopDetail = ({ oneNewsData, data }) => {
   const {
     title,
     descriptions,
@@ -68,27 +68,19 @@ const DesktopDetail = ({ oneNewsData, OneNewsIsLoading, setpageLoading }) => {
     <>
       <Grid container>
         <Grid item lg={12} sm={12} xs={12}>
-          {OneNewsIsLoading ? (
-            <div className="flex justify-center items-center w-full">
-              <div className="container mt-8 mx-4">
-                <Skeleton className="h-20 w-full" variant="rectangular" />
-              </div>
-            </div>
-          ) : (
-            <div
-              className="bg-[#F9F9F9] flex justify-center items-center text-start pt-8 pb-8 font-sans
+          <div
+            className="bg-[#F9F9F9] flex justify-center items-center text-start pt-8 pb-8 font-sans
         w-full"
-            >
-              <div className="container h-[50px]   overflow-hidden">
-                <h1
-                  className="text-lg md:text-2xl mt-0 mb-0
+          >
+            <div className="container h-[50px]   overflow-hidden">
+              <h1
+                className="text-lg md:text-2xl mt-0 mb-0
                         px-4 md:px-0 leading-6 tracking-normal text-slate-700  md:leading-10"
-                >
-                  {title}
-                </h1>
-              </div>
+              >
+                {title}
+              </h1>
             </div>
-          )}
+          </div>
         </Grid>
       </Grid>
       <div className="mx-auto my-10 container">
@@ -100,132 +92,97 @@ const DesktopDetail = ({ oneNewsData, OneNewsIsLoading, setpageLoading }) => {
             md={9}
             sm={12}
           >
-            {OneNewsIsLoading ? (
-              <div className="absolute z-10 mt-5 flex flex-col items-center px-4 py-2">
-                <Skeleton className="h-12 w-12" variant="rectangular" />
-              </div>
-            ) : (
-              <div className="absolute z-10 mt-5 flex flex-col items-center bg-gray-200 px-4 py-2">
-                <div className="">
-                  <span className="text-lg font-semibold text-theme-primary-main">
-                    {moment(created_at).format("MMM")}
-                  </span>
-                  <br />
-                  <span className="text-base font-medium text-slate-800">
-                    {moment(created_at).format("DD")}
-                  </span>
-                </div>
-              </div>
-            )}
-
-            {OneNewsIsLoading ? (
+            <div className="absolute z-10 mt-5 flex flex-col items-center bg-gray-200 px-4 py-2">
               <div className="">
-                <Skeleton
-                  className=" h-[350px] md:h-[500px] w-full"
-                  variant="rectangular"
-                />
+                <span className="text-lg font-semibold text-theme-primary-main">
+                  {moment(created_at).format("MMM")}
+                </span>
+                <br />
+                <span className="text-base font-medium text-slate-800">
+                  {moment(created_at).format("DD")}
+                </span>
               </div>
-            ) : (
-              <div className="relative h-auto w-full animate-opacityAnimation">
-                <Image
-                  height={1000}
-                  width={1000}
-                  alt="alt"
-                  src={attach_file}
-                  loading="lazy"
-                  className="w-full h-auto object-covor"
-                />
-              </div>
-            )}
+            </div>
+
+            <div className="relative h-auto w-full animate-opacityAnimation">
+              <Image
+                height={1000}
+                width={1000}
+                alt="alt"
+                src={attach_file}
+                loading="lazy"
+                className="w-full h-auto object-covor"
+              />
+            </div>
 
             {descriptions?.map((item, index) => {
               return (
                 <>
-                  {OneNewsIsLoading ? (
-                    <div className="my-6">
-                      <Skeleton
-                        className="h-8 w-full my-1"
-                        variant="rectangular"
-                      />
-                      <Skeleton
-                        className="h-8 w-full my-1"
-                        variant="rectangular"
-                      />
-                      <Skeleton
-                        className="h-8 w-1/2 my-1"
-                        variant="rectangular"
-                      />
-                    </div>
-                  ) : (
-                    <div
-                      key={index}
-                      className="text-lg md:text-xl  font-medium text-[#494e51] font-sans"
-                    >
-                      {edited?.map((item, index) => (
-                        <p
-                          className="mb-0 text-left md:text-justify"
-                          key={index}
-                        >
-                          {item?.split(" ").map((word, i) => {
-                            if (word.startsWith("*")) {
-                              return (
-                                <span className="font-bold" key={i}>
-                                  {word.replace(/\*/g, "")}{" "}
-                                </span>
-                              );
-                            } else {
-                              return <span key={i}>{word} </span>;
-                            }
-                          })}
-                        </p>
-                      ))}
+                  <div
+                    key={index}
+                    className="text-lg md:text-xl  font-medium text-[#494e51] font-sans"
+                  >
+                    {edited?.map((item, index) => (
+                      <p className="mb-0 text-left md:text-justify" key={index}>
+                        {item?.split(" ").map((word, i) => {
+                          if (word.startsWith("*")) {
+                            return (
+                              <span className="font-bold" key={i}>
+                                {word.replace(/\*/g, "")}{" "}
+                              </span>
+                            );
+                          } else {
+                            return <span key={i}>{word} </span>;
+                          }
+                        })}
+                      </p>
+                    ))}
 
-                      {item?.facebook_link && (
-                        <iframe
-                          src={`https://www.facebook.com/plugins/post.php?href=${item?.facebook_link}&width=1200&show_text=true&height=520&appId`}
-                          style={{
-                            border: "none",
-                            overflow: "hidden",
-                            height: "650px",
-                            width: "100%",
-                          }}
-                          scrolling="no"
-                          frameborder="0"
-                          allowfullscreen="true"
-                        ></iframe>
-                      )}
-                      {item?.instagram_link && (
-                        <iframe
-                          src={`https://www.instagram.com/p/${
-                            item?.instagram_link?.split("/")[4]
-                          }/embed`}
-                          style={{
-                            border: "none",
-                            overflow: "hidden",
-                            height: "650px",
-                            width: "100%",
-                          }}
-                          scrolling="no"
-                          frameborder="0"
-                          allowfullscreen="true"
-                        ></iframe>
-                      )}
-                      {item?.youtube_link && (
-                        <iframe
-                          src={item.youtube_link}
-                          style={{
-                            border: "none",
-                            overflow: "hidden",
-                            height: "650px",
-                            width: "100%",
-                          }}
-                          scrolling="no"
-                          frameborder="0"
-                          allowfullscreen="true"
-                        ></iframe>
-                      )}
-                    </div>
-                  )}
+                    {item?.facebook_link && (
+                      <iframe
+                        src={`https://www.facebook.com/plugins/post.php?href=${item?.facebook_link}&width=1200&show_text=true&height=520&appId`}
+                        style={{
+                          border: "none",
+                          overflow: "hidden",
+                          height: "650px",
+                          width: "100%",
+                        }}
+                        scrolling="no"
+                        frameborder="0"
+                        allowfullscreen="true"
+                      ></iframe>
+                    )}
+                    {item?.instagram_link && (
+                      <iframe
+                        src={`https://www.instagram.com/p/${
+                          item?.instagram_link?.split("/")[4]
+                        }/embed`}
+                        style={{
+                          border: "none",
+                          overflow: "hidden",
+                          height: "650px",
+                          width: "100%",
+                        }}
+                        scrolling="no"
+                        frameborder="0"
+                        allowfullscreen="true"
+                      ></iframe>
+                    )}
+                    {item?.youtube_link && (
+                      <iframe
+                        src={item.youtube_link}
+                        style={{
+                          border: "none",
+                          overflow: "hidden",
+                          height: "650px",
+                          width: "100%",
+                        }}
+                        scrolling="no"
+                        frameborder="0"
+                        allowfullscreen="true"
+                      ></iframe>
+                    )}
+                  </div>
                 </>
               );
             })}
@@ -238,26 +195,19 @@ const DesktopDetail = ({ oneNewsData, OneNewsIsLoading, setpageLoading }) => {
               Tags
             </div>
 
-            {OneNewsIsLoading ? (
-              <Skeleton
-                className="h-10 w-20 md:h-12 md:w-28 mt-[10px]"
-                variant="rectangular"
-              />
-            ) : (
-              <>
-                {seoTags?.map((item, index) => {
-                  return (
-                    <div
-                      key={index}
-                      className="relative mr-2 mb-2 inline-block bg-slate-100 mt-[10px]
+            <>
+              {seoTags?.map((item, index) => {
+                return (
+                  <div
+                    key={index}
+                    className="relative mr-2 mb-2 inline-block bg-slate-100 mt-[10px]
                          px-3 py-2 align-top text-sm capitalize text-gray opacity-60 "
-                    >
-                      {item}
-                    </div>
-                  );
-                })}
-              </>
-            )}
+                  >
+                    {item}
+                  </div>
+                );
+              })}
+            </>
 
             <Box className="flex items-center py-4">
               <FacebookShareButton
@@ -287,7 +237,10 @@ const DesktopDetail = ({ oneNewsData, OneNewsIsLoading, setpageLoading }) => {
                     alt="alt"
                     src={PicOne}
                     loading="lazy"
-                    className="object-covor"
+                    className="object-cover"
+                    onClick={() => {
+                      window.open(data[0]?.link, "_blank");
+                    }}
                   />
                 </div>
               </div>
@@ -295,11 +248,7 @@ const DesktopDetail = ({ oneNewsData, OneNewsIsLoading, setpageLoading }) => {
           </div>
 
           <div className="lg:col-span-2 md:px-0 px-4 mt-6 md:mt-0 ">
-            <OtherData
-              newsAllData={relatedNews}
-              setpageLoading={setpageLoading}
-              newsAllLoading={newsAllLoading}
-            />
+            <OtherData newsAllData={relatedNews} />
           </div>
         </div>
       </div>

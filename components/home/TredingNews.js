@@ -18,8 +18,8 @@ function TredingNews() {
   console.log(`bg-[${generateRandomColor()}]`, "color");
 
   return (
-    <div className="w-full flex justify-center items-center">
-      <div class="w-11/12 mx-auto p-5 sm:p-10 md:p-16">
+    <div className="w-full flex justify-center items-center font-sans">
+      <div class="w-[85%] mx-auto p-5 sm:p-10 md:p-16">
         <div class="border-b mb-5 flex justify-between text-sm">
           <div class="text-indigo-600 flex items-center pb-2 pr-2 border-b-2 border-indigo-600 uppercase">
             <a href="#" class="font-semibold inline-block">
@@ -28,7 +28,7 @@ function TredingNews() {
           </div>
           <a href="#">See All</a>
         </div>
-        <div class="grid grid-cols-1 md:grid-cols-2  sm:grid-cols-2">
+        <div class="grid grid-cols-1 md:grid-cols-2 font-sans sm:grid-cols-2">
           {randomNews?.map((item, index) => {
             return (
               <div
@@ -47,7 +47,8 @@ function TredingNews() {
                 <div class="px-6 w-full h-full py-4">
                   <div className="w-full max-w-fit">
                     <div
-                      class={` px-4 py-1 text-white sm:text-lg text-xs  text-center  transition duration-500 ease-in-out`}
+                      class={`  sm:text-lg   transition duration-500 ease-in-out px-[0.4rem] py-1 font-sm w-fit
+                                  font-semibold text-sm text-white flex text-center justify-center cursor-pointer font-sans capitalize`}
                       style={{ backgroundColor: generateRandomColor() }}
                     >
                       {item?.categorySlug}
@@ -55,7 +56,7 @@ function TredingNews() {
                   </div>
                   <a
                     href="#"
-                    class="font-semibold sm:text-lg inline-block text-xs transition duration-500 ease-in-out my-2"
+                    class="font-semibold sm:text-lg  inline-block text-xs transition duration-500 ease-in-out my-2"
                   >
                     {/* {item?.title} */}
                     {/* AFTER 30 WORDS TRUNCATE IT THR TIRLE */}

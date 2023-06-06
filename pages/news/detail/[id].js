@@ -6,13 +6,14 @@ import { ErrorScreen, LoadingScreen } from "../../../components/basics";
 import { DesktopDetail, MobileDetail } from "../../../components/news";
 import api from "../../../services/api";
 import { useGetOneNewsById } from "../../../services/news";
+import { useGetWhatsappLink } from "../../../services/whatsappService";
 
 const NewsDetailPage = ({ setpageLoading, news }) => {
+  const { data, isLoading, isError } = useGetWhatsappLink();
   const { query, fallback } = useRouter();
   const id = query?.id;
 
   if (fallback) return <LoadingScreen />;
-  console.log(news, "news");
 
   return (
     <>
@@ -44,14 +45,14 @@ const NewsDetailPage = ({ setpageLoading, news }) => {
       <FadeRight durationTime={"1s"}>
         {/* desktop view */}
         <div className="md:block hidden">
-          <DesktopDetail oneNewsData={news} />
+          <DesktopDetail oneNewsData={news} data={data} />
         </div>
       </FadeRight>
 
       <FadeRight durationTime={"1s"}>
         {/* mobile view */}
         <div className="md:hidden">
-          <MobileDetail oneNewsData={news} />
+          <MobileDetail oneNewsData={news} data={data} />
         </div>
       </FadeRight>
     </>

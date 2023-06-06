@@ -116,22 +116,7 @@ export default function CategoriesBaseCard({ cardData = [], newsLoading }) {
                       )}
                     </div>
 
-                    {/* <div className="flex justify-between items-center px-4">
-                      <div>
-                        <h3
-                          className="my-0 flex text-lg items-center text-[#212b36d1]"
-                          onClick={() => 
-                            navigator.clipboard.writeText(
-
-                              
-                            )
-                          }
-
-                        >
-                          Share &nbsp;
-                          <Share />
-                        </h3>
-                      </div>
+                    <div className="flex justify-between items-center px-4">
                       <div>
                         <a
                           href={data[0]?.link}
@@ -142,7 +127,7 @@ export default function CategoriesBaseCard({ cardData = [], newsLoading }) {
                           <TbBrandWhatsapp className="ml-1" color="#212b36d1" />
                         </a>
                       </div>
-                    </div> */}
+                    </div>
                   </div>
                 </article>
               );
