@@ -68,6 +68,8 @@ const DesktopDetail = ({ oneNewsData, data }) => {
     }
   });
 
+  console.log(edited, "edited");
+
   // edited = edited?.map((item) => {
   //   if (item?.startsWith("\n\n")) {
   //     return item?.replace("\n\n", "");
@@ -156,9 +158,8 @@ const DesktopDetail = ({ oneNewsData, data }) => {
                     className="text-lg md:text-xl  font-medium text-[#494e51] font-sans"
                   >
                     <p className="mb-0 text-left md:text-justify" key={index}>
-                      {item?.news_desc.map((desc, index) => (
-                        <p key={index}>{desc}</p>
-                      ))}
+                      {console.log(item, "item")}
+                      {item?.news_desc}
                     </p>
 
                     {item?.facebook_link && (
@@ -178,21 +179,21 @@ const DesktopDetail = ({ oneNewsData, data }) => {
                       </div>
                     )}
                     <div className="flex justify-center items-center">
-                    {item?.instagram_link && (
-                      <iframe
-                        src={`https://www.instagram.com/p/${
-                          item?.instagram_link?.split("/")[4]
-                        }/embed`}
-                        style={{
-                          border: "none",
-                          overflow: "clip",
-                          height: "650px",
-                          width: "100%",
-                        }}
-                        scrolling="no"
-                        frameborder="0"
-                      ></iframe>
-                    )}
+                      {item?.instagram_link && (
+                        <iframe
+                          src={`https://www.instagram.com/p/${
+                            item?.instagram_link?.split("/")[4]
+                          }/embed`}
+                          style={{
+                            border: "none",
+                            overflow: "clip",
+                            height: "650px",
+                            width: "100%",
+                          }}
+                          scrolling="no"
+                          frameborder="0"
+                        ></iframe>
+                      )}
                     </div>
                     {item?.youtube_link && (
                       <iframe

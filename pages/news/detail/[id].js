@@ -91,16 +91,3 @@ export async function getStaticProps({ params }) {
     },
   };
 }
-
-// export async function getServerSideProps(context) {
-//   const id = context.params.id;
-//   const res = await getNewsId(id);
-//   const data = res.data.data;
-//   console.log(data, "data");
-
-//   return {
-//     props: {
-//       news: data,
-//     },
-//   };
-// }
