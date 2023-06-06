@@ -9,6 +9,7 @@ export default function HomeNews({ newsAllData = [], newsLoading }) {
   const newarray = newsAllData?.slice(1, 5);
 
   const handlepush = (id) => {
+    console.log(id, "id");
     push(`/news/detail/${id}`);
   };
 
@@ -29,8 +30,9 @@ export default function HomeNews({ newsAllData = [], newsLoading }) {
           ) : (
             <div
               className="p-4 hoverline mb-8 cursor-pointer"
-              onClick={() => handlepush(newsAllData[0]?.seoSlug)}
+              // onClick={() => handlepush(newsAllData[0]?.seoSlug)}
             >
+              {console.log(newsAllData[0], "newsAllData[0]")}
               <div className="relative aspect-square w-full p-4 overflow-hidden">
                 <Image
                   fill
@@ -104,8 +106,9 @@ export default function HomeNews({ newsAllData = [], newsLoading }) {
                     <div className="flex mb-8 w-full hoverline">
                       <div
                         className="w-1/4 cursor-pointer"
-                        onClick={() => handlepush(item?._id)}
+                        onClick={() => handlepush(item?.seoSlug)}
                       >
+                        {console.log(item, "item")}
                         <div className="relative aspect-square w-full p-4 overflow-hidden ">
                           <Image
                             fill
@@ -139,7 +142,7 @@ export default function HomeNews({ newsAllData = [], newsLoading }) {
 
                         <div
                           className="flex text-justify w-full  my-4 cursor-pointer"
-                          onClick={() => handlepush(item?._id)}
+                          onClick={() => handlepush(item?.seoSlug)}
                         >
                           <a
                             className={` text-base  leading-6 font-bold font-sans tracking-wide  overflow-hidden `}

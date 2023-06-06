@@ -21,11 +21,7 @@ import {
   WhatsappShareButton,
 } from "react-share";
 
-const DesktopDetail = ({
-  oneNewsData = {},
-  OneNewsIsLoading,
-  setpageLoading,
-}) => {
+const DesktopDetail = ({ oneNewsData = {}, data }) => {
   const { push } = useRouter();
   const [scrolled, setScrolled] = useState(false);
   const [openTab, setOpenTab] = useState("Home");
@@ -131,27 +127,19 @@ const DesktopDetail = ({
 
       <Grid container>
         <Grid item lg={12} sm={12} xs={12}>
-          {OneNewsIsLoading ? (
-            <div className="flex justify-center items-center w-full">
-              <div className="container mt-8 mx-4">
-                <Skeleton className="h-20 w-full" variant="rectangular" />
-              </div>
-            </div>
-          ) : (
-            <div
-              className="bg-[#F9F9F9] flex justify-center items-center text-start pt-8 pb-8
+          <div
+            className="bg-[#F9F9F9] flex justify-center items-center text-start pt-8 pb-8
           md:mt-0 mt-[-2px] md:pt-16 md:pb-16  w-full"
-            >
-              <div className="container    overflow-hidden">
-                <h1
-                  className="text-3xl md:text-xl mt-0 mb-0
+          >
+            <div className="container    overflow-hidden">
+              <h1
+                className="text-3xl md:text-xl mt-0 mb-0
                         px-4 md:px-0  tracking-normal text-slate-700 leading-[2.3rem] md:leading-10"
-                >
-                  {title}
-                </h1>
-              </div>
+              >
+                {title}
+              </h1>
             </div>
-          )}
+          </div>
         </Grid>
       </Grid>
       <div className="mx-auto my-10 container">
@@ -163,82 +151,50 @@ const DesktopDetail = ({
             md={9}
             sm={12}
           >
-            {OneNewsIsLoading ? (
-              <div className="absolute z-10 mt-5 flex flex-col items-center px-4 py-2">
-                <Skeleton className="h-12 w-12" variant="rectangular" />
-              </div>
-            ) : (
-              <div className="absolute z-10 mt-5 flex flex-col items-center bg-gray-200 px-4 py-2">
-                <div className="">
-                  <span className="text-lg font-semibold text-theme-primary-main">
-                    {moment(created_at).format("MMM")}
-                  </span>
-                  <br />
-                  <span className="text-base font-medium text-slate-800">
-                    {moment(created_at).format("DD")}
-                  </span>
-                </div>
-              </div>
-            )}
-
-            {OneNewsIsLoading ? (
+            <div className="absolute z-10 mt-5 flex flex-col items-center bg-gray-200 px-4 py-2">
               <div className="">
-                <Skeleton
-                  className=" h-[350px] md:h-[500px] w-full"
-                  variant="rectangular"
-                />
+                <span className="text-lg font-semibold text-theme-primary-main">
+                  {moment(created_at).format("MMM")}
+                </span>
+                <br />
+                <span className="text-base font-medium text-slate-800">
+                  {moment(created_at).format("DD")}
+                </span>
               </div>
-            ) : (
-              <div className="relative h-auto w-full animate-opacityAnimation">
-                <Image
-                  height={1000}
-                  width={1000}
-                  alt="alt"
-                  src={attach_file}
-                  loading="lazy"
-                  className="w-full h-auto object-covor"
-                />
-              </div>
-            )}
+            </div>
+
+            <div className="relative h-auto w-full animate-opacityAnimation">
+              <Image
+                height={1000}
+                width={1000}
+                alt="alt"
+                src={attach_file}
+                loading="lazy"
+                className="w-full h-auto object-covor"
+              />
+            </div>
 
             {descriptions?.map((item, index) => {
               return (
                 <>
-                  {OneNewsIsLoading ? (
-                    <div className="my-6">
-                      <Skeleton
-                        className="h-8 w-full my-1"
-                        variant="rectangular"
-                      />
-                      <Skeleton
-                        className="h-8 w-full my-1"
-                        variant="rectangular"
-                      />
-                      <Skeleton
-                        className="h-8 w-1/2 my-1"
-                        variant="rectangular"
-                      />
-                    </div>
-                  ) : (
-                    <div
-                      key={index}
-                      className="text-lg md:text-xl  font-medium text-[#494e51]"
-                    >
-                      <p className="mb-0 text-left md:text-justify">
-                        {item?.news_descriptions?.split(" ").map((word, i) => {
-                          if (word.startsWith("*") && word.endsWith("*")) {
-                            return (
-                              <span className="font-bold" key={i}>
-                                {word.replace(/\*/g, "")}{" "}
-                              </span>
-                            );
-                          } else {
-                            return <span key={i}>{word} </span>;
-                          }
-                        })}
-                      </p>
-                    </div>
-                  )}
+                  <div
+                    key={index}
+                    className="text-lg md:text-xl  font-medium text-[#494e51]"
+                  >
+                    <p className="mb-0 text-left md:text-justify">
+                      {item?.news_descriptions?.split(" ").map((word, i) => {
+                        if (word.startsWith("*") && word.endsWith("*")) {
+                          return (
+                            <span className="font-bold" key={i}>
+                              {word.replace(/\*/g, "")}{" "}
+                            </span>
+                          );
+                        } else {
+                          return <span key={i}>{word} </span>;
+                        }
+                      })}
+                    </p>
+                  </div>
                 </>
               );
             })}
@@ -251,26 +207,19 @@ const DesktopDetail = ({
               Tags
             </div>
 
-            {OneNewsIsLoading ? (
-              <Skeleton
-                className="h-10 w-20 md:h-12 md:w-28 mt-[10px]"
-                variant="rectangular"
-              />
-            ) : (
-              <>
-                {seoTags?.map((item, index) => {
-                  return (
-                    <div
-                      key={index}
-                      className="relative mr-2 mb-2 inline-block bg-slate-100 mt-[10px]
+            <>
+              {seoTags?.map((item, index) => {
+                return (
+                  <div
+                    key={index}
+                    className="relative mr-2 mb-2 inline-block bg-slate-100 mt-[10px]
                          px-3 py-2 align-top text-sm capitalize text-gray opacity-60 "
-                    >
-                      {item}
-                    </div>
-                  );
-                })}
-              </>
-            )}
+                  >
+                    {item}
+                  </div>
+                );
+              })}
+            </>
 
             <Box className="flex items-center py-4">
               <FacebookShareButton
@@ -300,6 +249,9 @@ const DesktopDetail = ({
                     alt="alt"
                     src={PicOne}
                     loading="lazy"
+                    onClick={() => {
+                      window.open(data[0]?.link, "_blank");
+                    }}
                     className="object-covor"
                   />
                 </div>
@@ -308,11 +260,7 @@ const DesktopDetail = ({
           </div>
 
           <div className="lg:col-span-2 md:px-0 px-4 mt-6 md:mt-0 ">
-            <OtherData
-              newsAllData={relatedNews}
-              setpageLoading={setpageLoading}
-              newsAllLoading={newsAllLoading}
-            />
+            <OtherData newsAllData={relatedNews} />
           </div>
         </div>
       </div>
@@ -327,11 +275,7 @@ const DesktopDetail = ({
 };
 export default DesktopDetail;
 
-export const OtherData = ({
-  newsAllData = [],
-  setpageLoading,
-  newsAllLoading,
-}) => {
+export const OtherData = ({ newsAllData = [] }) => {
   const { push } = useRouter();
   const {
     data: advertisementAllData,
