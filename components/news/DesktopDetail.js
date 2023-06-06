@@ -19,11 +19,7 @@ import {
   WhatsappShareButton,
 } from "react-share";
 
-const DesktopDetail = ({
-  oneNewsData = {},
-  OneNewsIsLoading,
-  setpageLoading,
-}) => {
+const DesktopDetail = ({ oneNewsData, OneNewsIsLoading, setpageLoading }) => {
   const {
     title,
     descriptions,
@@ -32,7 +28,7 @@ const DesktopDetail = ({
     seoTags,
     categorySlug,
   } = oneNewsData;
-
+  console.log(oneNewsData, "oneNewsData");
   let edited = descriptions?.map((item) => {
     return item?.news_descriptions.split("/BR");
   });

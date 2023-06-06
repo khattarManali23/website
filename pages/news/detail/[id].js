@@ -12,6 +12,7 @@ const NewsDetailPage = ({ setpageLoading, news }) => {
   const id = query?.id;
 
   if (fallback) return <LoadingScreen />;
+  console.log(news, "news");
 
   return (
     <>
@@ -79,6 +80,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   const res = await getNewsId(params.id);
+  console.log(res, "res");
 
   const data = res.data.data;
   console.log(data, "data");
