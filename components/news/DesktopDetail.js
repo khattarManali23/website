@@ -21,16 +21,13 @@ import {
 
 const DesktopDetail = ({ oneNewsData, data }) => {
   const {
-    title,
-    descriptions,
-    created_at,
-    attach_file,
-    seoTags,
-    categorySlug,
+    title = "",
+    descriptions = [],
+    created_at = "",
+    attach_file = "",
+    seoTags = "",
+    categorySlug = "",
   } = oneNewsData;
-  console.log(oneNewsData, "oneNewsData");
-
-  // if /br is present in the description,then split it and make it an array otherwise return the description as it is
 
   let edited = descriptions?.map((item) => {
     return {
