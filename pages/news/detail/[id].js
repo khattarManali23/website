@@ -66,23 +66,34 @@ async function getNewsId(id) {
   return res;
 }
 
-export async function getStaticPaths() {
-  const res = await api.get("/newsmanagement/all");
-  const data = res.data.data;
+// export async function getStaticPaths() {
+//   const res = await api.get("/newsmanagement/all");
+//   const data = res.data.data;
 
-  const paths = data.map((news) => ({
-    params: { id: news.seoSlug },
-  }));
+//   const paths = data.map((news) => ({
+//     params: { id: news.seoSlug },
+//   }));
 
-  return { paths, fallback: true };
-}
+//   return { paths, fallback: true };
+// }
 
-export async function getStaticProps({ params }) {
+// export async function getStaticProps({ params }) {
+//   const res = await getNewsId(params.id);
+
+//   const data = res.data.data;
+
+//   return {
+//     props: {
+//       news: data,
+//     },
+//   };
+// }
+
+export async function getServerSideProps({ params }) {
   const res = await getNewsId(params.id);
-  console.log(res, "res");
 
   const data = res.data.data;
-  console.log(data, "data");
+
   return {
     props: {
       news: data,

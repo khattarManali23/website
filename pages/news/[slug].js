@@ -222,34 +222,18 @@ async function getCategories() {
   return res;
 }
 
-// export async function getStaticPaths() {
-//   const res = await api.get(`/category/all`);
-//   const data = res.data.categorys;
+export async function getStaticPaths() {
+  const res = await api.get(`/category/all`);
+  const data = res.data.categorys;
 
-//   const paths = data.map((item) => ({
-//     params: { slug: item.slug },
-//   }));
+  const paths = data.map((item) => ({
+    params: { slug: item.slug },
+  }));
 
-//   return { paths, fallback: true };
-// }
+  return { paths, fallback: true };
+}
 
-// export async function getStaticProps({ params }) {
-//   const slug = params.slug;
-//   const response = await getNewsId(slug);
-//   const allNewsData = response.data.data;
-//   const res = await getCategories();
-//   let data = res.data.categorys;
-//   data = data.filter((item) => item.slug === slug);
-
-//   return {
-//     props: {
-//       news: data[0],
-//       data: allNewsData,
-//     },
-//   };
-// }
-
-export async function getServerSideProps({ params }) {
+export async function getStaticProps({ params }) {
   const slug = params.slug;
   const response = await getNewsId(slug);
   const allNewsData = response.data.data;
