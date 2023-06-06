@@ -37,7 +37,7 @@ export default function NewsPage({ news, data }) {
   }, [scrolled]);
 
   const filterCardData = (slug) => {
-    push(`/news/${slug}`);
+    push(`/news/detail/${slug}`);
   };
 
   const filterAllData = () => {
@@ -86,7 +86,7 @@ export default function NewsPage({ news, data }) {
                     <div className="   hoverline">
                       <div
                         className="relative h-full w-full overflow-hidden cursor-pointer"
-                        onClick={() => push(`${item?.seoSlug}`)}
+                        onClick={() => push(`/news/detail/${item?.seoSlug}`)}
                       >
                         <Image
                           loading="lazy"
@@ -112,7 +112,9 @@ export default function NewsPage({ news, data }) {
                                   : "#4cd965"
                                 : "#ff4f00",
                           }}
-                          onClick={() => push(`/news/${item?.categorySlug}`)}
+                          onClick={() =>
+                            push(`/news/detail/${item?.categorySlug}`)
+                          }
                         >
                           {item.categorySlug}
                         </div>
@@ -220,18 +222,34 @@ async function getCategories() {
   return res;
 }
 
-export async function getStaticPaths() {
-  const res = await api.get(`/category/all`);
-  const data = res.data.categorys;
+// export async function getStaticPaths() {
+//   const res = await api.get(`/category/all`);
+//   const data = res.data.categorys;
 
-  const paths = data.map((item) => ({
-    params: { slug: item.slug },
-  }));
+//   const paths = data.map((item) => ({
+//     params: { slug: item.slug },
+//   }));
 
-  return { paths, fallback: true };
-}
+//   return { paths, fallback: true };
+// }
 
-export async function getStaticProps({ params }) {
+// export async function getStaticProps({ params }) {
+//   const slug = params.slug;
+//   const response = await getNewsId(slug);
+//   const allNewsData = response.data.data;
+//   const res = await getCategories();
+//   let data = res.data.categorys;
+//   data = data.filter((item) => item.slug === slug);
+
+//   return {
+//     props: {
+//       news: data[0],
+//       data: allNewsData,
+//     },
+//   };
+// }
+
+export async function getServerSideProps({ params }) {
   const slug = params.slug;
   const response = await getNewsId(slug);
   const allNewsData = response.data.data;
