@@ -112,9 +112,7 @@ export default function NewsPage({ news, data }) {
                                   : "#4cd965"
                                 : "#ff4f00",
                           }}
-                          onClick={() =>
-                            push(`/news/detail/${item?.categorySlug}`)
-                          }
+                          onClick={() => push(`/news/detail/${item?.seoSlug}`)}
                         >
                           {item.categorySlug}
                         </div>

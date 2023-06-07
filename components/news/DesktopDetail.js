@@ -36,7 +36,6 @@ const DesktopDetail = ({ oneNewsData, data }) => {
     };
   });
 
-  console.log(edited, "77");
   edited = edited?.flat();
 
   edited = edited?.map((item) => {
@@ -64,22 +63,6 @@ const DesktopDetail = ({ oneNewsData, data }) => {
       return item;
     }
   });
-
-  console.log(edited, "edited");
-
-  // edited = edited?.map((item) => {
-  //   if (item?.startsWith("\n\n")) {
-  //     return item?.replace("\n\n", "");
-  //   } else if (item?.startsWith(" \n\n")) {
-  //     return item?.replace(" \n\n", "");
-  //   } else if (item?.startsWith("\n")) {
-  //     return item?.replace("\n", "");
-  //   } else if (item?.startsWith(" \n")) {
-  //     return item?.replace(" \n", "");
-  //   } else {
-  //     return item;
-  //   }
-  // });
 
   const {
     data: newsAllData,
