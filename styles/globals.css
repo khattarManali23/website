@@ -348,11 +348,12 @@ article {
 .tab_button_active {
   background-color: #0a0a0ae3;
   color: #ffff;
+  margin: 4px;
   border-radius: 50px 50px 50px 50px;
 }
 
 .tab_button {
-  background-color: #d5d1d1;
+  background-color: #f1f1f1;
   color: black;
   margin: 4px;
   border-radius: 50px 50px 50px 50px;

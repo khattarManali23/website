@@ -213,10 +213,10 @@ const DesktopDetail = ({ oneNewsData = {}, data }) => {
                 <>
                   <div
                     key={index}
-                    className="text-lg md:text-xl  font-medium text-[#494e51] font-sans"
+                    className="text-lg font-normal 
+                    flex md:text-justify text-left  leading- cursor-pointer font-sans"
                   >
                     <p className="mb-0 text-left md:text-justify" key={index}>
-                      {console.log(item, "item")}
                       {item?.news_desc}
                     </p>
 
