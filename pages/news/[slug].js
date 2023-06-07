@@ -37,7 +37,7 @@ export default function NewsPage({ news, data }) {
   }, [scrolled]);
 
   const filterCardData = (slug) => {
-    push(`/news/detail/${slug}`);
+    push(`/news/${slug}`);
   };
 
   const filterAllData = () => {

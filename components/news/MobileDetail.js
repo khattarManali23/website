@@ -37,6 +37,40 @@ const DesktopDetail = ({ oneNewsData = {}, data }) => {
     categorySlug,
   } = oneNewsData;
 
+  let edited = descriptions?.map((item) => {
+    return {
+      ...item,
+      news_desc: item?.news_descriptions.split("/BR"),
+    };
+  });
+
+  edited = edited?.flat();
+
+  edited = edited?.map((item) => {
+    if (item?.news_desc[0]?.startsWith("\n\n")) {
+      return {
+        ...item,
+        news_desc: item?.news_desc[0]?.replace("\n\n", "").flat(),
+      };
+    } else if (item?.news_desc[0]?.startsWith(" \n\n")) {
+      return {
+        ...item,
+        news_desc: item?.news_desc[0]?.replace(" \n\n", ""),
+      };
+    } else if (item?.news_desc[0]?.startsWith("\n")) {
+      return {
+        ...item,
+        news_desc: item?.news_desc[0]?.replace("\n", ""),
+      };
+    } else if (item?.news_desc[0]?.startsWith(" \n")) {
+      return {
+        ...item,
+        news_desc: item?.news_desc[0]?.replace(" \n", ""),
+      };
+    } else {
+      return item;
+    }
+  });
   const {
     data: newsAllData,
     isLoading: newsAllLoading,
@@ -174,26 +208,65 @@ const DesktopDetail = ({ oneNewsData = {}, data }) => {
               />
             </div>
 
-            {descriptions?.map((item, index) => {
+            {edited?.map((item, index) => {
               return (
                 <>
                   <div
                     key={index}
-                    className="text-lg md:text-xl  font-medium text-[#494e51]"
+                    className="text-lg md:text-xl  font-medium text-[#494e51] font-sans"
                   >
-                    <p className="mb-0 text-left md:text-justify">
-                      {item?.news_descriptions?.split(" ").map((word, i) => {
-                        if (word.startsWith("*") && word.endsWith("*")) {
-                          return (
-                            <span className="font-bold" key={i}>
-                              {word.replace(/\*/g, "")}{" "}
-                            </span>
-                          );
-                        } else {
-                          return <span key={i}>{word} </span>;
-                        }
-                      })}
+                    <p className="mb-0 text-left md:text-justify" key={index}>
+                      {console.log(item, "item")}
+                      {item?.news_desc}
                     </p>
+
+                    {item?.facebook_link && (
+                      <div class="container">
+                        <iframe
+                          src={`https://www.facebook.com/plugins/post.php?href=${item?.facebook_link}&width=1200&show_text=true&height=520&appId`}
+                          style={{
+                            border: "none",
+                            overflow: "hidden",
+                            height: "650px",
+                            width: "100%",
+                          }}
+                          scrolling="no"
+                          frameborder="0"
+                          allowfullscreen="true"
+                        ></iframe>
+                      </div>
+                    )}
+                    <div className="flex justify-center items-center">
+                      {item?.instagram_link && (
+                        <iframe
+                          src={`https://www.instagram.com/p/${
+                            item?.instagram_link?.split("/")[4]
+                          }/embed`}
+                          style={{
+                            border: "none",
+                            overflow: "clip",
+                            height: "650px",
+                            width: "100%",
+                          }}
+                          scrolling="no"
+                          frameborder="0"
+                        ></iframe>
+                      )}
+                    </div>
+                    {item?.youtube_link && (
+                      <iframe
+                        src={item.youtube_link}
+                        style={{
+                          border: "none",
+                          overflow: "hidden",
+                          height: "650px",
+                          width: "100%",
+                        }}
+                        scrolling="no"
+                        frameborder="0"
+                        allowfullscreen="true"
+                      ></iframe>
+                    )}
                   </div>
                 </>
               );
