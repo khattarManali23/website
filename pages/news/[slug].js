@@ -19,8 +19,6 @@ export default function NewsPage(props) {
     initialData: props?.data,
   });
 
-  console.log("manali", news.data.categorys);
-
   const slug = query?.slug;
 
   const [scrolled, setScrolled] = useState(false);
