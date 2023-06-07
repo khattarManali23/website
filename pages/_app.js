@@ -40,6 +40,14 @@ export default function App({ Component, pageProps }) {
   }
   return (
     <>
+      <noscript>
+        <iframe
+          src={`https://www.googletagmanager.com/ns.html?id=<GTM-ND5K6VT>`}
+          height="0"
+          width="0"
+          style={{ display: "none", visibility: "hidden" }}
+        ></iframe>
+      </noscript>
       <QueryClientProvider client={queryClient}>
         <Provider store={store}>
           <ThemeProvider>
