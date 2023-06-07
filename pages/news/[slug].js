@@ -1,6 +1,7 @@
 import { Skeleton } from "@mui/material";
 import { DefaultSeo } from "next-seo";
 import Image from "next/image";
+import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import CategoriesBaseCard from "../../components/home/CategoriesBaseCard";
@@ -174,9 +175,10 @@ export default function NewsPage({ data, news }) {
                               <Skeleton className="h-10 w-20 mx-3" />
                             </div>
                           ) : (
-                            <div
+                            <Link
+                              prefetch={true}
                               key={index}
-                              onClick={() => filterCardData(item?.slug)}
+                              href={`/news/${item?.slug}`}
                               className={`flex justify-center text-sm items-center ${
                                 slug == item?.slug
                                   ? "tab_button_active  py-2 px-4"
@@ -186,7 +188,7 @@ export default function NewsPage({ data, news }) {
                               <span className=" whitespace-nowrap">
                                 {item?.name}
                               </span>
-                            </div>
+                            </Link>
                           )}
                         </>
                       );
