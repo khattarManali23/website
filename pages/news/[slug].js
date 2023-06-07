@@ -15,6 +15,8 @@ export default function NewsPage({ data, news }) {
 
   const slug = query?.slug;
 
+  console.log("slug", data);
+
   const [scrolled, setScrolled] = useState(false);
 
   const {
@@ -221,6 +223,7 @@ async function getCategories() {
 export async function getServerSideProps({ params }) {
   const news = await getNewsId(params.slug);
   const categories = await getCategories();
+  console.log("news", news);
 
   return {
     props: {

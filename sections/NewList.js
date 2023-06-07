@@ -39,7 +39,6 @@ export default function NewsList() {
           <div className="container mt-20 md:mx-0 mx-4 mb-20">
             <main>
               {data?.map((item, index) => {
-                console.log("item", item);
                 return (
                   <article className=" mb-10 mx-4 " key={index}>
                     <div className="   hoverline">

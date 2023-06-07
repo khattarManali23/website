@@ -1,24 +1,16 @@
-import "../styles/globals.css";
-import {
-  useQuery,
-  useMutation,
-  useQueryClient,
-  QueryClient,
-  QueryClientProvider,
-} from "@tanstack/react-query";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import ThemeProvider from "../styles/ThemeProvider";
-import store from "../redux/store";
-import { Provider } from "react-redux";
-import useDeviceType from "../custom-hooks/useDeviceType";
-import { useRouter } from "next/router";
-import { useState } from "react";
-import { useEffect } from "react";
-import NavbarFooterLayout from "../components/layouts/NavbarFooterLayout";
-import GetStarted from "../components/social-login/GetStarted";
-import { AppSnackBar, LoadingScreen } from "../components/basics";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import Head from "next/head";
+import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
+import { Provider } from "react-redux";
+import "slick-carousel/slick/slick-theme.css";
+import "slick-carousel/slick/slick.css";
+import { AppSnackBar, LoadingScreen } from "../components/basics";
+import NavbarFooterLayout from "../components/layouts/NavbarFooterLayout";
+import useDeviceType from "../custom-hooks/useDeviceType";
+import store from "../redux/store";
+import "../styles/globals.css";
+import ThemeProvider from "../styles/ThemeProvider";
 
 const queryClient = new QueryClient();
 export default function App({ Component, pageProps }) {
@@ -41,14 +33,18 @@ export default function App({ Component, pageProps }) {
   return (
     <>
       <Head>
-        {/* <noscript>
+        <noscript>
           <iframe
             src="https://www.googletagmanager.com/ns.html?id=GTM-ND5K6VT"
             height="0"
             width="0"
-            style="display:none;visibility:hidden"
+            style={{
+              display: "none",
+
+              visibility: "hidden",
+            }}
           ></iframe>
-        </noscript> */}
+        </noscript>
       </Head>
 
       <QueryClientProvider client={queryClient}>
