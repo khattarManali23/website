@@ -41,14 +41,14 @@ export default function App({ Component, pageProps }) {
   return (
     <>
       <Head>
-        <noscript>
+        {/* <noscript>
           <iframe
             src="https://www.googletagmanager.com/ns.html?id=GTM-ND5K6VT"
             height="0"
             width="0"
             style="display:none;visibility:hidden"
           ></iframe>
-        </noscript>
+        </noscript> */}
       </Head>
 
       <QueryClientProvider client={queryClient}>

@@ -1,0 +1,11 @@
+{
+  "javascript.validate.enable": false,
+  "typescript.validate.enable": false,
+  // Auto remove unused imports
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll": true,
+    "source.organizeImports": true,
+    "source.sortMembers": true
+  }
+}

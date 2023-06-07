@@ -1,35 +1,16 @@
 import { Skeleton } from "@mui/material";
-import { useQuery } from "@tanstack/react-query";
-import { DefaultSeo } from "next-seo";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-import CategoriesBaseCard from "../../components/home/CategoriesBaseCard";
-import { SITE_NAME } from "../../data/next-seo.data";
-import api from "../../services/api";
+import { ErrorScreen } from "../components/basics";
+import CategoriesBaseCard from "../components/home/CategoriesBaseCard";
+import { useGetAllCategories } from "../services/categoryServices";
 
-import { useGetAllCategories } from "../../services/categoryServices";
-
-export default function NewsPage(props) {
-  const news = props?.news;
-  const { query, push, fallback } = useRouter();
-  const { data } = useQuery({
-    queryKey: "data",
-    queryFn: getNewsId(query?.slug),
-    initialData: props?.data,
-  });
-
-  console.log("manali", news.data.categorys);
-
-  const slug = query?.slug;
-
+export default function NewsList() {
   const [scrolled, setScrolled] = useState(false);
+  const { push } = useRouter();
 
-  const {
-    data: categoriesAllData,
-    isLoading: categoriesLoading,
-    isError: categoriesError,
-  } = useGetAllCategories();
+  const { data, isLoading, isError } = useGetAllCategories();
 
   const changeNavbarShadow = () => {
     if (window.scrollY >= 63) {
@@ -42,51 +23,23 @@ export default function NewsPage(props) {
     window.addEventListener("scroll", changeNavbarShadow);
   }, [scrolled]);
 
-  const filterCardData = (slug) => {
-    push(`/news/${slug}`);
-  };
-
-  const filterAllData = () => {
-    push(`/`);
-  };
-
-  if (fallback) {
+  if (isLoading) {
     return <Skeleton variant="rectangular" width="100%" height={500} />;
+  }
+
+  if (isError) {
+    return <ErrorScreen />;
   }
 
   return (
     <>
-      <DefaultSeo
-        title={news?.name}
-        description="news page description"
-        openGraph={{
-          url: "https://www.terralogic.com/",
-
-          title: news?.name,
-          description: " news page description",
-          images: [
-            {
-              url: news?.icon,
-              width: 800,
-              height: 600,
-              alt: news?.name,
-            },
-          ],
-          site_name: SITE_NAME,
-        }}
-        twitter={{
-          handle: "@terralogic",
-          site: "@terralogic",
-          cardType: "summary_large_image",
-        }}
-      />
-
       {/* desktop view */}
       <div className="md:block hidden font-sans">
         <div className="flex justify-center w-full text-center">
           <div className="container mt-20 md:mx-0 mx-4 mb-20">
             <main>
               {data?.map((item, index) => {
+                console.log("item", item);
                 return (
                   <article className=" mb-10 mx-4 " key={index}>
                     <div className="   hoverline">
@@ -170,27 +123,27 @@ export default function NewsPage(props) {
              gap-y-2 overflow-scroll "
                   >
                     <div
-                      onClick={() => filterAllData()}
+                      //   onClick={() => filterAllData()}
                       className="flex justify-center w-36 text-sm items-center tab_button py-2 px-4"
                     >
                       Home
                     </div>
-                    {categoriesAllData?.map((item, index) => {
+                    {data?.map((item, index) => {
                       return (
                         <>
-                          {categoriesLoading ? (
+                          {isLoading ? (
                             <div className="">
                               <Skeleton className="h-10 w-20 mx-3" />
                             </div>
                           ) : (
                             <div
                               key={index}
-                              onClick={() => filterCardData(item?.slug)}
-                              className={`flex justify-center text-sm items-center ${
-                                slug == item?.slug
-                                  ? "tab_button_active  py-2 px-4"
-                                  : "tab_button py-2  px-4"
-                              }`}
+                              //   onClick={() => filterCardData(item?.slug)}
+                              //   className={`flex justify-center text-sm items-center ${
+                              //     slug == item?.slug
+                              //       ? "tab_button_active  py-2 px-4"
+                              //       : "tab_button py-2  px-4"
+                              //   }`}
                             >
                               <span className=" whitespace-nowrap">
                                 {item?.name}
@@ -213,42 +166,4 @@ export default function NewsPage(props) {
       </div>
     </>
   );
-}
-
-async function getNewsId(slug) {
-  const res = await api.get(`/newsmanagement/allByCategory/${slug}`);
-
-  return res;
-}
-async function getCategories() {
-  const res = await api.get(`/category/all`);
-
-  return res;
-}
-
-export async function getStaticPaths() {
-  const res = await api.get(`/category/all`);
-  const data = res.data.categorys;
-
-  const paths = data.map((item) => ({
-    params: { slug: item.slug },
-  }));
-
-  return { paths, fallback: true };
-}
-
-export async function getStaticProps({ params }) {
-  const slug = params.slug;
-  const response = await getNewsId(slug);
-  const allNewsData = response.data.data;
-  const res = await getCategories();
-  let data = res.data.categorys;
-  data = data.filter((item) => item.slug === slug);
-
-  return {
-    props: {
-      news: data[0],
-      data: allNewsData,
-    },
-  };
 }
